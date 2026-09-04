@@ -5,8 +5,10 @@
 .DS_Store
 
 # Input data (~3.9 GB of Seurat objects and cached intermediates). Distributed
-# via Zenodo rather than git; see README.md and code/README.md for the file
-# manifest and download instructions.
+# via Zenodo rather than git, as immgenT-Cosmo.zip:
+#   https://doi.org/10.5281/zenodo.21839963
+# Unpack at the repository root. See README.md and code/README.md for the file
+# manifest.
 data/
 
 # Manuscript sources kept alongside the repository for provenance: the original

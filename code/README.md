@@ -48,8 +48,10 @@ those files and never run these steps.
 
 Every `data/` file read anywhere in `script/`, and which step (if any) in this
 repository produces it. `data/` is not tracked in git — it is ~3.9 GB and is
-distributed via Zenodo. Figure scripts also flag their own inputs inline via a
-`Required inputs` header comment pointing back at this table.
+distributed via Zenodo as `immgenT-Cosmo.zip`
+(<https://doi.org/10.5281/zenodo.21839963>), to be unpacked at the repository
+root. Figure scripts also flag their own inputs inline via a `Required inputs`
+header comment pointing back at this table.
 
 | `data/` file | Produced by | Notes |
 |---|---|---|

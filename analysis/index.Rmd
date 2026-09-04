@@ -83,6 +83,11 @@ set the scripts produced; the code shown on each page is displayed, not
 re-executed when the site is built.
 
 The input data (~3.9 GB of Seurat objects and cached intermediates) is not in
-this repository. It is deposited on Zenodo; download it and unpack it into
-`data/` at the repository root. `code/README.md` lists every file, what reads
-it, and where it comes from.
+this repository. It is deposited on Zenodo as `immgenT-Cosmo.zip`:
+
++ <https://doi.org/10.5281/zenodo.21839963>
+
+Unpack it at the repository root, so that `data/` sits next to `script/` and
+`analysis/`; the scripts read `data/` as a relative path and are run from the
+repository root. `code/README.md` lists every file, what reads it, and where it
+comes from.

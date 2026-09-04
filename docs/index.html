@@ -361,7 +361,7 @@ convergent T-cell states in the mouse</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -372,8 +372,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -386,9 +386,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 2
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -412,33 +412,36 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree2c6008b94accd57d20158288dcc83e474c0672dftargetblank2c6008ba">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/2c6008b94accd57d20158288dcc83e474c0672df" target="_blank">2c6008b</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree2c6008b94accd57d20158288dcc83e474c0672dftargetblank2c6008ba"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -448,7 +451,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/2c6008b94accd57d20158288dcc83e474c0672df" target="_blank">2c6008b</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -470,33 +473,10 @@ Ignored files:
     Ignored:    internal/
 
 Unstaged changes:
-    Modified:   code/R/alluvial.R
-    Modified:   code/R/composition.R
-    Modified:   code/R/discovery.R
-    Modified:   code/R/gene_auc.R
-    Modified:   code/R/organ_mde.R
-    Modified:   code/R/separability.R
-    Modified:   code/R/setup.R
-    Modified:   code/R/trbi_plots.R
-    Modified:   script/Figure1.R
-    Modified:   script/Figure10.R
-    Modified:   script/Figure2.R
-    Modified:   script/Figure3.R
-    Modified:   script/Figure4.R
-    Modified:   script/Figure5.R
-    Modified:   script/Figure6.R
-    Modified:   script/Figure7.R
-    Modified:   script/Figure8.R
-    Modified:   script/FigureS1.R
-    Modified:   script/FigureS10.R
-    Modified:   script/FigureS11.R
-    Modified:   script/FigureS3.R
-    Modified:   script/FigureS4.R
-    Modified:   script/FigureS5.R
-    Modified:   script/FigureS6.R
-    Modified:   script/FigureS7.R
-    Modified:   script/FigureS8.R
-    Modified:   script/FigureS9.R
+    Modified:   .gitignore
+    Modified:   README.md
+    Modified:   analysis/index.Rmd
+    Modified:   code/README.md
 
 </code></pre>
 <p>
@@ -540,6 +520,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/2c6008b94accd57d20158288dcc83e474c0672df/docs/index.html" target="_blank">2c6008b</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Drop interpretive commentary from the code comments
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -731,10 +728,17 @@ PNGs converted from those PDFs by
 drift from the panel set the scripts produced; the code shown on each
 page is displayed, not re-executed when the site is built.</p>
 <p>The input data (~3.9 GB of Seurat objects and cached intermediates)
-is not in this repository. It is deposited on Zenodo; download it and
-unpack it into <code>data/</code> at the repository root.
-<code>code/README.md</code> lists every file, what reads it, and where
-it comes from.</p>
+is not in this repository. It is deposited on Zenodo as
+<code>immgenT-Cosmo.zip</code>:</p>
+<ul>
+<li><a href="https://doi.org/10.5281/zenodo.21839963"
+class="uri">https://doi.org/10.5281/zenodo.21839963</a></li>
+</ul>
+<p>Unpack it at the repository root, so that <code>data/</code> sits
+next to <code>script/</code> and <code>analysis/</code>; the scripts
+read <code>data/</code> as a relative path and are run from the
+repository root. <code>code/README.md</code> lists every file, what
+reads it, and where it comes from.</p>
 </div>
 </div>
 </div>

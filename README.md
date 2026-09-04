@@ -33,9 +33,20 @@ itself, and a caption.
 ## Data
 
 The inputs are ~3.9 GB of Seurat objects and cached intermediates, deposited on
-Zenodo rather than in this repository. Download the archive and unpack it into
-`data/` at the repository root, so that for example
-`data/immgenT_seurat_ADT_GeneSubset.Rds` exists. Every file, what reads it and
+Zenodo rather than in this repository:
+
+**<https://doi.org/10.5281/zenodo.21839963>** — download `immgenT-Cosmo.zip`.
+
+Unpack it at the repository root so that the `data/` directory sits next to
+`script/` and `analysis/`:
+
+```
+unzip immgenT-Cosmo.zip -d /path/to/immgenT-cosmo-paper
+```
+
+You should end up with `data/immgenT_seurat_ADT_GeneSubset.Rds` and the other
+28 input files. The scripts read `data/` as a relative path and are run from
+the repository root, so the location matters. Every file, what reads it and
 where it comes from is listed in the data provenance table in
 `code/README.md`.
 
