@@ -1,4 +1,4 @@
-# immgenT-cosmo-analysis
+# immgenT-cosmo-paper
 
 Analysis code for *immgenT: A Comprehensive Reference of Convergent T-cell
 States in the Mouse* ([bioRxiv 10.64898/2026.01.30.702892](https://www.biorxiv.org/content/10.64898/2026.01.30.702892v3)):
@@ -6,7 +6,7 @@ an atlas of 682,935 mouse T cells from 734 samples across 80 experiments,
 profiled by single-cell RNA-seq, 128-plex CITE-seq and paired αβ TCR
 sequencing, and organised into eight lineages and 107 reproducible clusters.
 
-**Site: <https://dzemmour.github.io/immgenT-cosmo-analysis/>** — one page per
+**Site: <https://dzemmour.github.io/immgenT-cosmo-paper/>** — one page per
 published figure, showing for each panel the code that produced it, the panel
 itself, and a caption.
 
@@ -59,6 +59,11 @@ Rscript script/render_site_assets.R   # converts panels to the site's PNGs
 then `workflowr::wflow_build()` to rebuild the pages. The code on each page is
 displayed, not re-executed at build time, so building the site does not require
 the data.
+
+## License
+
+MIT (see `LICENSE`). The bundled JavaScript libraries under `docs/site_libs/`
+are third-party and carry their own licences.
 
 ## Requirements
 

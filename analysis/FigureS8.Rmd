@@ -11,7 +11,7 @@ source("../code/R/doc_code.R")
 ```
 
 This figure is produced by
-[`script/FigureS8.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS8.R).
+[`script/FigureS8.R`](https://github.com/dzemmour/immgenT-cosmo-paper/blob/main/script/FigureS8.R).
 The code below is shown for reference (not re-executed on this page); the
 images are its pre-rendered output.
 
@@ -19,7 +19,7 @@ images are its pre-rendered output.
 
 It is the same plot as [Figure 6a](Figure6.html#fig6a), drawn for the five
 organs that figure leaves out. Both organ lists and the plotting code live in
-[`code/R/organ_mde.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/code/R/organ_mde.R).
+[`code/R/organ_mde.R`](https://github.com/dzemmour/immgenT-cosmo-paper/blob/main/code/R/organ_mde.R).
 
 ```{r figs8-code, code=code_for("../script/FigureS8.R", "^"), eval=FALSE}
 ```

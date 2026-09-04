@@ -11,7 +11,7 @@ source("../code/R/doc_code.R")
 ```
 
 All panels are produced by
-[`script/Figure6.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure6.R).
+[`script/Figure6.R`](https://github.com/dzemmour/immgenT-cosmo-paper/blob/main/script/Figure6.R).
 The code below is shown for reference (not re-executed on this page); the
 images are its pre-rendered output.
 

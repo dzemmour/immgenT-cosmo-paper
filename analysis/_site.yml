@@ -1,13 +1,13 @@
-name: immgenT-cosmo-analysis
+name: immgenT-cosmo-paper
 output_dir: ../docs
 navbar:
-  title: immgenT-cosmo-analysis
+  title: immgenT-cosmo-paper
   left:
   - text: Overview
     href: index.html
   right:
     - text: source
-      href: https://github.com/dzemmour/immgenT-cosmo-analysis
+      href: https://github.com/dzemmour/immgenT-cosmo-paper
 output:
   workflowr::wflow_html:
     toc: yes

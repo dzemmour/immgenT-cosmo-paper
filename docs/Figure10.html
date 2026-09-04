@@ -332,7 +332,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">immgenT-cosmo-analysis</a>
+      <a class="navbar-brand" href="index.html">immgenT-cosmo-paper</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -342,7 +342,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/dzemmour/immgenT-cosmo-analysis">source</a>
+  <a href="https://github.com/dzemmour/immgenT-cosmo-paper">source</a>
 </li>
       </ul>
     </div><!--/.nav-collapse -->
@@ -363,7 +363,7 @@ reveals the limits of marker- and signature-defined T-cell identity</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -374,8 +374,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -388,9 +388,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -414,18 +414,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -516,13 +519,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5224d19">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong3f8cadd">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 5224d19
+aria-hidden="true"></span> <strong>Repository version:</strong> 3f8cadd
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong5224d19"
+<div id="strongRepositoryversionstrong3f8cadd"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +534,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 5224d19.
+The results in this page were generated with repository version 3f8cadd.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -547,8 +550,40 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .claude/
     Ignored:    data/
     Ignored:    internal/
+
+Untracked files:
+    Untracked:  LICENSE
+
+Unstaged changes:
+    Modified:   README.md
+    Modified:   analysis/Figure1.Rmd
+    Modified:   analysis/Figure10.Rmd
+    Modified:   analysis/Figure2.Rmd
+    Modified:   analysis/Figure3.Rmd
+    Modified:   analysis/Figure4.Rmd
+    Modified:   analysis/Figure5.Rmd
+    Modified:   analysis/Figure6.Rmd
+    Modified:   analysis/Figure7.Rmd
+    Modified:   analysis/Figure8.Rmd
+    Modified:   analysis/FigureS1.Rmd
+    Modified:   analysis/FigureS10.Rmd
+    Modified:   analysis/FigureS11.Rmd
+    Modified:   analysis/FigureS3.Rmd
+    Modified:   analysis/FigureS4.Rmd
+    Modified:   analysis/FigureS5.Rmd
+    Modified:   analysis/FigureS6.Rmd
+    Modified:   analysis/FigureS7.Rmd
+    Modified:   analysis/FigureS8.Rmd
+    Modified:   analysis/FigureS9.Rmd
+    Modified:   analysis/_site.yml
+    Modified:   analysis/index.Rmd
+
+Staged changes:
+    Renamed1:   immgenT-cosmo-analysis.Rproj
+    Renamed2:   immgenT-cosmo-paper.Rproj
 
 </code></pre>
 <p>
@@ -595,6 +630,23 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+b7c77d7
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Add READMEs, provenance scripts, and prune unpublished panels
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
@@ -618,7 +670,7 @@ Port cosmo_paper.Rmd into a workflowr repository
 </div>
 </div>
 <p>All panels are produced by <a
-href="https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure10.R"><code>script/Figure10.R</code></a>.
+href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/main/script/Figure10.R"><code>script/Figure10.R</code></a>.
 The code below is shown for reference (not re-executed on this page);
 the images are its pre-rendered output.</p>
 <p>Panels <strong>10d</strong> and <strong>10e</strong> both depend on
