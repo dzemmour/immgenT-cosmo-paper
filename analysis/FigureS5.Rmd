@@ -1,0 +1,75 @@
+---
+title: "Extended Data Figure 5: Distribution of stress-related transcriptional signatures across the immgenT atlas"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS5.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS5.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r figs5-setup, code=code_for("../script/FigureS5.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A-H) Signature scores on the all-T MDE {#figs5ah}
+
+```{r figs5ah-code, code=code_for("../script/FigureS5.R", "S5a-S5h"), eval=FALSE}
+```
+
+```{r figs5ah-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure5/S5a_MDE_dissociation1h.png",
+  "assets/ExtendedDataFigure5/S5b_MDE_dissociation2h.png",
+  "assets/ExtendedDataFigure5/S5c_MDE_ier.png",
+  "assets/ExtendedDataFigure5/S5d_MDE_isr.png",
+  "assets/ExtendedDataFigure5/S5e_MDE_erstress_GO0034976.png",
+  "assets/ExtendedDataFigure5/S5f_MDE_isg_immgen.png",
+  "assets/ExtendedDataFigure5/S5g_MDE_hypoxia_GO0001666.png",
+  "assets/ExtendedDataFigure5/S5h_MDE_mt_genes.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 5A-H.** All-T MDE showing single-cell scores for
+representative signatures: (A) 1-hour dissociation and (B) 2-hour dissociation
+signatures from van den Brink et al.; (C) immediate-early response signature
+from Bahrami et al.; (D) integrated stress response signature from Alicea
+Pauneto et al.; (E) ER-stress signature (GO:0034976); (F) interferon-stimulated
+gene signature from ImmGen; (G) hypoxia signature (GO:0001666); and (H)
+mitochondrial genes. Higher scores are indicated by increasing colour
+intensity; scores are capped at the 5th and 99th percentiles.
+:::
+
+## (I-K) Mean scores by condition, organ and cluster {#figs5ik}
+
+```{r figs5ik-code, code=code_for("../script/FigureS5.R", "S5i-S5k"), eval=FALSE}
+```
+
+```{r figs5i-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/ExtendedDataFigure5/S5i_heatmap_by_condition.png")
+```
+
+```{r figs5jk-img, echo=FALSE, out.width="49%"}
+knitr::include_graphics(c("assets/ExtendedDataFigure5/S5j_heatmap_by_organ.png",
+                          "assets/ExtendedDataFigure5/S5k_heatmap_by_cluster.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 5I-K.** Heatmaps of mean signature scores across immune
+conditions (I), anatomical sites (J) and immgenT clusters (K), for an expanded
+set of stress-related signatures including the ER-stress signature from Chow et
+al., the hypoxia signature from Bono et al. and the immediate-early response
+signature from Bahrami et al. Values are mean-centred per signature, so colour
+is a signature's deviation from its own average rather than its absolute level.
+Interferon-related signatures show selective enrichment in specific states,
+including CD8.F and CD4.D, whereas most other stress-related programmes are
+distributed broadly across clusters, conditions and tissues.
+:::

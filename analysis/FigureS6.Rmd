@@ -1,0 +1,121 @@
+---
+title: "Extended Data Figure 6: T-RBI metrics"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS6.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS6.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panel **S6a** shows the Miller et al. dataset on its own UMAP with the immgenT
+unclassified cells marked. It needs that study's own embedding, which is not
+part of the deposited data, and is not reproduced here.
+
+## Setup
+
+```{r figs6-setup, code=code_for("../script/FigureS6.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (B) Non-T cells as a positive control {#figs6b}
+
+```{r figs6b-code, code=code_for("../script/FigureS6.R", "S6b"), eval=FALSE}
+```
+
+```{r figs6b-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure6/S6b_MDE_nonT_cells.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 6B.** All-T MDE with T cells from 16 external studies
+integrated by T-RBI, immgenT cells in the background (grey). Non-T cells from
+the external studies (red) cluster separately, demonstrating that integration
+does not force overlap with T cells. They are the one population certain to be
+absent from a T-cell reference and so serve as the positive control for
+detecting states the reference lacks.
+:::
+
+## (C, E) Unannotated fractions per study {#figs6ce}
+
+```{r figs6ce-code, code=code_for("../script/FigureS6.R", "S6c/S6e"), eval=FALSE}
+```
+
+```{r figs6ce-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c("assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png",
+                          "assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 6C, E.** Bar plots showing the proportion of cells from
+each external study that are not annotated with a T-cell lineage (level 1, C)
+and the proportion of T cells not annotated with an immgenT cluster (level 2,
+E). A cell counts as unannotated at cluster level either when its confidence
+falls below threshold or when it is confidently placed in a lineage but left
+unresolved within it.
+:::
+
+## (D) Lineage markers across integrated cells {#figs6d}
+
+```{r figs6d-code, code=code_for("../script/FigureS6.R", "S6d"), eval=FALSE}
+```
+
+```{r figs6d-img, echo=FALSE, out.width="32%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd4.png",
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd8b1.png",
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd8a.png",
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Trdc.png",
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Foxp3.png",
+  "assets/ExtendedDataFigure6/S6d_FeaturePlot_Zbtb16.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 6D.** All-T MDE showing expression of Cd4, Cd8b1, Cd8a,
+Trdc, Foxp3 and Zbtb16 in the external studies, illustrating concordance
+between lineage marker expression and immgenT positioning. Marker expression is
+not used by the mapping, so this agreement is an independent check on the
+annotation.
+:::
+
+## (F) Cluster-level unannotated T cells {#figs6f}
+
+```{r figs6f-code, code=code_for("../script/FigureS6.R", "S6f"), eval=FALSE}
+```
+
+```{r figs6f-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure6/S6f_MDE_unannotated_level2.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 6F.** All-T MDE with integrated external T cells in the
+foreground and immgenT cells in grey. T cells unannotated at cluster level
+(red) remain embedded within the immgenT manifold and do not form distinct
+clusters, which is what distinguishes ordinary boundary ambiguity from a state
+the reference lacks.
+:::
+
+## (G, H) Discovery score {#figs6gh}
+
+```{r figs6gh-code, code=code_for("../script/FigureS6.R", "S6g/S6h"), eval=FALSE}
+```
+
+```{r figs6gh-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c("assets/ExtendedDataFigure6/S6g_MDE_discovery_score.png",
+                          "assets/ExtendedDataFigure6/S6h_discovery_score_by_dataset.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 6G, H.** **G**: all-T MDE coloured by the single-cell
+discovery score for the external studies; non-T cells exhibit high scores
+(red; > 1.1). **H**: distribution of discovery scores across external studies,
+including non-T cells as positive controls. High scores indicate query cells
+that form coherent states outside the immgenT reference. Each score is computed
+in its own study's PCA space, independently of the integration it audits.
+:::

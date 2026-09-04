@@ -1,0 +1,112 @@
+---
+title: "Extended Data Figure 3: Spleen standards across experiments; T-cell lineage separation"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS3.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS3.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r figs3-setup, code=code_for("../script/FigureS3.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Spleen standards across experiments {#figs3a}
+
+```{r figs3a-code, code=code_for("../script/FigureS3.R", "S3a"), eval=FALSE}
+```
+
+```{r figs3a-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure3/S3a_MDE_spleen_standard_by_IGT.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 3A.** All-T MDE highlighting spleen standard samples,
+coloured by experiment (IGT), demonstrating overlap of standards across
+experiments. A standardised spleen preparation was spiked into every
+experiment; if a batch effect had survived integration, each experiment's
+standard would occupy its own region.
+:::
+
+## (B) Each lineage on the all-T MDE {#figs3b}
+
+```{r figs3b-code, code=code_for("../script/FigureS3.R", "S3b"), eval=FALSE}
+```
+
+```{r figs3b-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure3/S3b_MDE_CD8.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_CD4.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_Treg.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_gdT.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_CD8aa.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_Tz.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_DN.png",
+  "assets/ExtendedDataFigure3/S3b_MDE_DP.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 3B.** All-T MDE highlighting each major T-cell lineage
+separately, with cluster labels placed at each cluster's median position.
+:::
+
+## (C) Surface markers per lineage {#figs3c}
+
+```{r figs3c-code, code=code_for("../script/FigureS3.R", "S3c"), eval=FALSE}
+```
+
+```{r figs3c-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure3/S3c_FeatureScatter_TCRB_TCRGD_bylineage.png",
+  "assets/ExtendedDataFigure3/S3c_FeatureScatter_CD4_CD8B_bylineage.png",
+  "assets/ExtendedDataFigure3/S3c_FeatureScatter_CD8A_CD8B_bylineage.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 3C.** Expression of TCRγδ versus TCRβ, CD4 versus CD8β and
+CD8β versus CD8α (CITE-seq, log1p(CP10K)) shown separately for each T-cell
+lineage. Dashed lines mark the protein positivity thresholds.
+:::
+
+## (D, E) Invariant-TCR populations {#figs3de}
+
+```{r figs3de-code, code=code_for("../script/FigureS3.R", "S3d/S3e"), eval=FALSE}
+```
+
+```{r figs3de-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c("assets/ExtendedDataFigure3/S3d_MDE_iNKT.png",
+                          "assets/ExtendedDataFigure3/S3e_MDE_MAIT.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 3D, E.** **D**: all-T MDE with iNKT cells identified by
+their canonical invariant TCR, defined by TRAV11–TRAJ18 usage and characteristic
+CDR3α junction sequences (CVVGDRGSALGRLHF, CVVADRGSALGRLHF, CVVVDRGSALGRLHF).
+**E**: all-T MDE with MAIT cells identified by their canonical TCR, defined by
+TRAV1–TRAJ33 usage with a characteristic CDR3α length of 12 amino acids. Both
+populations are called from TCR sequence alone, with no reference to the
+transcriptome.
+:::
+
+## (F) Proliferating and miniverse cells {#figs3f}
+
+```{r figs3f-code, code=code_for("../script/FigureS3.R", "S3f"), eval=FALSE}
+```
+
+```{r figs3f-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure3/S3f_MDE_proliferating_miniverse.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 3F.** All-T MDE highlighting proliferating cells (black)
+and miniverse (wM) cells (red). Both groups draw cells from every lineage.
+:::

@@ -1,0 +1,18 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+
+# Input data (~3.9 GB of Seurat objects and cached intermediates). Distributed
+# via Zenodo rather than git; see README.md and code/README.md for the file
+# manifest and download instructions.
+data/
+
+# Manuscript sources kept alongside the repository for provenance: the original
+# monolithic analysis file that script/ was ported from, and the figure PDFs as
+# submitted. Not part of the public record this repository presents.
+internal/
+
+# Local Claude Code configuration (machine-specific absolute paths).
+.claude/

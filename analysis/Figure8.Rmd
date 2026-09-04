@@ -1,0 +1,83 @@
+---
+title: "Figure 8: Transcription factor expression across T-cell states"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure8.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure8.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r fig8-setup, code=code_for("../script/Figure8.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) TF specificity across lineages {#fig8a}
+
+```{r fig8a-code, code=code_for("../script/Figure8.R", "8a"), eval=FALSE}
+```
+
+```{r fig8a-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure8/8a_TF_cumulative_curves_lineage.png")
+```
+
+::: {.figcaption}
+**Fig. 8A.** ROC-like plot of transcription factor specificity across T-cell
+lineages (see also Extended Data Table 6), showing normalised cumulative TF
+expression across ranked lineages. A factor confined to one lineage rises
+steeply; one expressed everywhere follows the diagonal. The three most
+lineage-specific factors are highlighted. Per-factor scores are written to
+`output/Figure8/8a_TF_AUC_lineage.txt`.
+:::
+
+## (B) TF specificity across clusters {#fig8b}
+
+```{r fig8b-code, code=code_for("../script/Figure8.R", "8b"), eval=FALSE}
+```
+
+```{r fig8b-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure8/8b_TF_cumulative_curves_cluster.png")
+```
+
+::: {.figcaption}
+**Fig. 8B.** The same analysis performed across immgenT clusters. The most
+cluster-specific factors are highlighted and listed in decreasing order of
+specificity (see also Extended Data Table 7). Scores are written to
+`output/Figure8/8b_TF_AUC_cluster.txt`.
+:::
+
+## (C-M) Selected transcription factors across clusters {#fig8cm}
+
+```{r fig8cm-code, code=code_for("../script/Figure8.R", "8c-8m"), eval=FALSE}
+```
+
+```{r fig8cm-img, echo=FALSE, out.width="49%"}
+knitr::include_graphics(c(
+  "assets/Figure8/8c_barplot_Foxp3.png",
+  "assets/Figure8/8d_barplot_Zbtb16.png",
+  "assets/Figure8/8e_barplot_Sox13.png",
+  "assets/Figure8/8f_barplot_Rorc.png",
+  "assets/Figure8/8g_barplot_Pparg.png",
+  "assets/Figure8/8h_barplot_Hes1.png",
+  "assets/Figure8/8i_barplot_Gata3.png",
+  "assets/Figure8/8j_barplot_Tcf7.png",
+  "assets/Figure8/8k_barplot_Tbx21.png",
+  "assets/Figure8/8l_barplot_Tox.png",
+  "assets/Figure8/8m_barplot_Tox2.png"))
+```
+
+::: {.figcaption}
+**Fig. 8C-M.** Bar plots showing expression of selected transcription factors
+across immgenT clusters, coloured by lineage: Foxp3 (C), Zbtb16 (D), Sox13 (E),
+Rorc (F), Pparg (G), Hes1 (H), Gata3 (I), Tcf7 (J), Tbx21 (K), Tox (L) and
+Tox2 (M). Foxp3 and Zbtb16 are lineage-defining and serve as the reference
+cases; the rest are expressed by clusters from several lineages.
+:::

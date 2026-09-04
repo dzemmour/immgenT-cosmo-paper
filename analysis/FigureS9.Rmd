@@ -1,0 +1,56 @@
+---
+title: "Extended Data Figure 9: Effector molecule expression in immgenT clusters"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS9.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS9.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r figs9-setup, code=code_for("../script/FigureS9.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Top cluster-specific extracellular genes {#figs9a}
+
+```{r figs9a-code, code=code_for("../script/FigureS9.R", "S9a"), eval=FALSE}
+```
+
+```{r figs9a-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/ExtendedDataFigure9/S9a_heatmap_effector_GO0005615_top100.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 9A.** Heatmap showing log1p(CP10K) expression of the 100
+most cluster-specific effector genes, defined as genes reaching at least 0.5
+log1p CP10K in at least one immgenT cluster and ranked by the specificity score
+used in Figure 8. Drawn from the 1,821-gene GO:0005615 (extracellular space)
+list, of which 305 pass the expression filter; this is what distinguishes it
+from [Figure 7a](Figure7.html#fig7a), which uses the 59-gene curated effector
+list. Rows (genes) and columns (clusters) are ordered by hierarchical
+clustering. Annotation bars indicate T-cell lineage and activation status
+(resting versus activated).
+:::
+
+## (B) Il9 across clusters {#figs9b}
+
+```{r figs9b-code, code=code_for("../script/FigureS9.R", "S9b"), eval=FALSE}
+```
+
+```{r figs9b-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/ExtendedDataFigure9/S9b_barplot_Il9.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 9B.** Bar plot showing average expression of Il9 across
+immgenT clusters, coloured by lineage.
+:::

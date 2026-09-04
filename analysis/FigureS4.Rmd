@@ -1,0 +1,81 @@
+---
+title: "Extended Data Figure 4: Cluster robustness metrics"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS4.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS4.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panel **S4c** is the distribution of cosine similarity scores for the
+expression profiles of cells assigned to the same cluster across datasets. The
+similarity matrix it plots is not part of the deposited data, and the panel is
+not reproduced here.
+
+## Setup
+
+```{r figs4-setup, code=code_for("../script/FigureS4.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Experiment composition of each cluster {#figs4a}
+
+```{r figs4a-code, code=code_for("../script/FigureS4.R", "S4a"), eval=FALSE}
+```
+
+```{r figs4a-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/ExtendedDataFigure4/S4a_cluster_composition_by_IGT.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 4A.** Stacked bar plot showing the experiment (IGT)
+composition of each immgenT consensus cluster, demonstrating that no cluster is
+experiment-specific, with the exception of the DP clusters that only
+thymus-containing experiments contribute to. Each experiment's contribution is
+first normalised by its own size, so the plot reports composition rather than
+which experiments sequenced the most cells.
+:::
+
+## (B) Cluster proportions across spleen standards {#figs4b}
+
+```{r figs4b-code, code=code_for("../script/FigureS4.R", "S4b"), eval=FALSE}
+```
+
+```{r figs4b-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/ExtendedDataFigure4/S4b_cluster_proportions_spleen_standards.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 4B.** Box plots showing the distribution of immgenT
+cluster proportions across spleen standard samples, illustrating
+reproducibility across experiments. Because the input material is nominally
+identical between these samples, the spread is a read-out of measurement
+reproducibility rather than of biology. Clusters with fewer than 10 cells in a
+sample are excluded.
+:::
+
+## (D) Cluster separability in protein space {#figs4d}
+
+```{r figs4d-code, code=code_for("../script/FigureS4.R", "S4d"), eval=FALSE}
+```
+
+```{r figs4d-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/ExtendedDataFigure4/S4d_cluster_separability_ADT.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 4D.** Distribution of cluster separability scores for each
+immgenT consensus cluster in protein expression space. Scores > 0 indicate
+proteomically distinct clusters; across 3,043 cluster-by-experiment
+combinations with at least 10 cells and available CITE-seq data, 95% are
+positive. Clusters were defined on RNA, so a positive score here means the
+partition is visible in an independent measurement modality. Colours indicate
+experiment (IGT).
+:::

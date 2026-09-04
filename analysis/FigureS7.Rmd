@@ -1,0 +1,85 @@
+---
+title: "Extended Data Figure 7: Ablation tests assess the ability of T-RBI to detect T-cell states absent from the reference"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS7.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS7.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+To simulate mapping of novel T-cell states, individual CD4 reference clusters
+were removed from the immgenT reference in turn, and cells belonging to the
+omitted cluster were mapped back as query cells using T-RBI. Results were
+compared with mapping against the complete, non-ablated reference.
+
+Panel **S7d** shows single-cell discovery scores for cells from each omitted
+cluster, with and without ablation. The cached ablation objects were reduced to
+the assignment and confidence columns and do not retain the discovery score, so
+the panel is not reproduced here.
+
+## Setup
+
+```{r figs7-setup, code=code_for("../script/FigureS7.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Omitted-cluster cells on the ablated CD4 MDE {#figs7a}
+
+```{r figs7a-code, code=code_for("../script/FigureS7.R", "S7a"), eval=FALSE}
+```
+
+```{r figs7a-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(sort(list.files("assets/ExtendedDataFigure7",
+                                        pattern = "^S7a_", full.names = TRUE)))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 7A.** CD4 MDEs showing the positions of query cells from
+each omitted cluster after T-RBI against the ablated reference. Query cells map
+predominantly to the region occupied by the corresponding cluster in the
+complete reference — shown in white against the rest of the CD4 reference in
+black — thereby filling the "hole" created by its removal.
+:::
+
+## (B) Cluster assignments after ablation {#figs7b}
+
+```{r figs7b-code, code=code_for("../script/FigureS7.R", "S7b"), eval=FALSE}
+```
+
+```{r figs7b-img, echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/ExtendedDataFigure7/S7b_ablation_confusion_matrix.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 7B.** T-RBI cluster assignments of cells from each omitted
+cluster. Rows indicate the original cluster and columns the assigned cluster
+after ablation; dot size and colour indicate the proportion of cells receiving
+each assignment. Values in the "not classified" column give the percentage of
+cells remaining unannotated. Reported before fine-tuning, which is the
+conservative reading.
+:::
+
+## (C) Confidence scores for misclassified cells {#figs7c}
+
+```{r figs7c-code, code=code_for("../script/FigureS7.R", "S7c"), eval=FALSE}
+```
+
+```{r figs7c-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/ExtendedDataFigure7/S7c_ablation_confidence_scores.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 7C.** T-RBI annotation confidence scores for cells
+misclassified after ablation, shown before and after annotation fine-tuning and
+compared with scores for the same cells mapped to the complete reference
+without ablation. If two neighbouring clusters were an arbitrary split of one
+state, removing one should reassign its cells to the other at undiminished
+confidence; the drop shown here is evidence that they are distinct.
+:::

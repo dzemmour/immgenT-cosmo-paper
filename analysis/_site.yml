@@ -1,0 +1,24 @@
+name: immgenT-cosmo-analysis
+output_dir: ../docs
+navbar:
+  title: immgenT-cosmo-analysis
+  left:
+  - text: Overview
+    href: index.html
+  right:
+    - text: source
+      href: https://github.com/dzemmour/immgenT-cosmo-analysis
+output:
+  workflowr::wflow_html:
+    toc: yes
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
+    number_sections: false
+    toc_depth: 3
+    theme: readable
+    highlight: textmate
+    smart: true
+    lib_dir: site_libs
+    self_contained: no
+    css: custom.css

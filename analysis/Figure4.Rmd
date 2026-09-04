@@ -1,0 +1,146 @@
+---
+title: "Figure 4: 107 immgenT consensus clusters preserve heterogeneity and enhance biological interpretability"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure4.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure4.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **d-g** and **h-j** are two matched sets of views of the same tissue and
+cell type, with and without an immune challenge: a small-intestine lamina
+propria sample 30 days after LCMV Armstrong infection, and one from a naive
+mouse.
+
+## Setup
+
+```{r fig4-setup, code=code_for("../script/Figure4.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Saturation of cluster discovery {#fig4a}
+
+```{r fig4a-code, code=code_for("../script/Figure4.R", "4a"), eval=FALSE}
+```
+
+```{r fig4a-img, echo=FALSE, out.width="70%"}
+knitr::include_graphics("assets/Figure4/4a_saturation_clusters.png")
+```
+
+::: {.figcaption}
+**Fig. 4A.** Saturation of T-cell states within the immgenT dataset. A cluster
+counts as discovered at the experiment where its cumulative cell total first
+exceeds 50. The number of such clusters reaches saturation after the 69th
+experiment; the dashed line marks the final count of 107.
+:::
+
+## (B) Silhouette width before vs. after integration {#fig4b}
+
+```{r fig4b-code, code=code_for("../script/Figure4.R", "4b"), eval=FALSE}
+```
+
+```{r fig4b-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure4/4b_silhouette_pre_post_integration.png")
+```
+
+::: {.figcaption}
+**Fig. 4B.** Cluster separation (mean silhouette width) before integration
+(within each dataset, on its own principal components) and after integration
+into the immgenT latent space, showing the extent to which well-separated
+clusters remain distinct following integration. Clusters here are defined de
+novo within each experiment, independently of the atlas annotation. Colours
+indicate experiment (IGT). Scores > 0 denote well-separated clusters.
+R² = 0.38.
+:::
+
+## (C) Cluster separability in RNA space {#fig4c}
+
+```{r fig4c-code, code=code_for("../script/Figure4.R", "4c"), eval=FALSE}
+```
+
+```{r fig4c-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure4/4c_cluster_separability_RNA.png")
+```
+
+::: {.figcaption}
+**Fig. 4C.** Distribution of cluster separability scores (see Methods) for each
+immgenT consensus cluster across experiments, in gene expression space. Scores
+> 0 indicate transcriptionally distinct clusters; across 3,511 cluster-by-
+experiment combinations with at least 10 cells, 99.5% are positive. Colours
+indicate experiment (IGT). Proliferative clusters score lowest, consistent with
+cells from multiple lineages entering the cell cycle.
+:::
+
+## (D) One sample's composition against all samples {#fig4d}
+
+```{r fig4d-code, code=code_for("../script/Figure4.R", "4d"), eval=FALSE}
+```
+
+```{r fig4d-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure4/4d_sample_composition_I40H8.png")
+```
+
+::: {.figcaption}
+**Fig. 4D.** Proportion of each immgenT cluster within each lineage in the
+LCMV sample. Background boxplots show the distribution of cluster proportions
+across all samples in the atlas, highlighting clusters enriched in this sample:
+most of its CD8 T cells map to CD8.Q.
+:::
+
+## (E, H) Sample CD8 cells on the CD8 MDE {#fig4eh}
+
+```{r fig4eh-code, code=code_for("../script/Figure4.R", "4e/4h"), eval=FALSE}
+```
+
+```{r fig4eh-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c("assets/Figure4/4e_CD8MDE_I40H8.png",
+                          "assets/Figure4/4h_CD8MDE_I21H9.png"))
+```
+
+::: {.figcaption}
+**Fig. 4E, H.** Each sample's CD8 T cells on the CD8-specific MDE, with all
+immgenT CD8 T cells shown in grey for reference. **E**: 30 days after LCMV
+Armstrong infection. **H**: naive mouse — CD8.Q cells are rare at baseline.
+:::
+
+## (F, I) Experiment-specific UMAP {#fig4fi}
+
+```{r fig4fi-code, code=code_for("../script/Figure4.R", "4f/4i"), eval=FALSE}
+```
+
+```{r fig4fi-img, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("assets/Figure4/4f_IGT40_UMAP_CD8Q.png",
+                          "assets/Figure4/4i_IGT21_UMAP_CD8Q.png"))
+```
+
+::: {.figcaption}
+**Fig. 4F, I.** Each sample re-embedded on its own, as it would be analysed
+without the atlas, with the cells the atlas assigns to CD8.Q highlighted in
+green. **F**: in the infected sample they cluster together. **I**: in the naive
+sample the rare CD8.Q cells do not form a distinct cluster.
+:::
+
+## (G, J) CD8.Q cells in protein space {#fig4gj}
+
+```{r fig4gj-code, code=code_for("../script/Figure4.R", "4g/4j"), eval=FALSE}
+```
+
+```{r fig4gj-img, echo=FALSE, out.width="40%"}
+knitr::include_graphics(c("assets/Figure4/4g_IGT40_CD8Q_CD103_ITGB7.png",
+                          "assets/Figure4/4j_IGT21_CD8Q_CD103_ITGB7.png"))
+```
+
+::: {.figcaption}
+**Fig. 4G, J.** Each sample's CD8.Q cells express the tissue-resident memory
+markers CD103 and ITGB7 (CITE-seq, log1p(CP10K)); all other CD8 T cells from
+that experiment are shown in grey. The reference assignment was made from the
+transcriptome alone and predicts a protein phenotype it was not given, in both
+the infected (**G**) and the naive (**J**) sample.
+:::

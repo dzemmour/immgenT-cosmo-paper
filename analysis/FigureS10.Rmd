@@ -1,0 +1,70 @@
+---
+title: "Extended Data Figure 10: Transcription factor expression in immgenT clusters"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS10.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS10.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r figs10-setup, code=code_for("../script/FigureS10.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Most lineage-specific transcription factors {#figs10a}
+
+```{r figs10a-code, code=code_for("../script/FigureS10.R", "S10a"), eval=FALSE}
+```
+
+```{r figs10a-img, echo=FALSE, out.width="55%"}
+knitr::include_graphics("assets/ExtendedDataFigure10/S10a_heatmap_TF_top20_lineage.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 10A.** Heatmap showing log1p(CP10K) expression of the 20
+most specific transcription factors across T-cell lineages, ranked by the
+specificity score of [Figure 8a](Figure8.html#fig8a). Columns are fixed in
+lineage order rather than clustered.
+:::
+
+## (B) Most cluster-specific transcription factors {#figs10b}
+
+```{r figs10b-code, code=code_for("../script/FigureS10.R", "S10b"), eval=FALSE}
+```
+
+```{r figs10b-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/ExtendedDataFigure10/S10b_heatmap_TF_top20_cluster.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 10B.** The same for the 20 most specific transcription
+factors across immgenT clusters, columns in lineage order, with annotation bars
+for lineage and activation status.
+:::
+
+## (C-F) Selected transcription factors {#figs10cf}
+
+```{r figs10cf-code, code=code_for("../script/FigureS10.R", "S10c-S10f"), eval=FALSE}
+```
+
+```{r figs10cf-img, echo=FALSE, out.width="49%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure10/S10c_barplot_Sox4.png",
+  "assets/ExtendedDataFigure10/S10d_barplot_Zbtb32.png",
+  "assets/ExtendedDataFigure10/S10e_barplot_Tshz2.png",
+  "assets/ExtendedDataFigure10/S10f_barplot_Hlf.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 10C-F.** Bar plots showing average expression of Sox4 (C),
+Zbtb32 (D), Tshz2 (E) and Hlf (F) across immgenT clusters, coloured by lineage.
+:::

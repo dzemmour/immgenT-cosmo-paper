@@ -1,0 +1,130 @@
+---
+title: "Figure 2: immgenT harmonizes T-cell representation across experiments and delineates major T-cell lineages"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure2.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure2.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **2d** (TCRαβ clonotype sharing between lineages) and **2g** (expanded
+clonotypes on the all-T MDE) come from the TCR analysis and are not reproduced
+here.
+
+Lineage abbreviations used throughout: CD4, conventional CD4⁺ T cells; CD8,
+conventional CD8αβ⁺ T cells; Treg, CD4⁺Foxp3⁺ regulatory T cells; CD8aa, CD8αα
+αβ T cells; gdT, γδ T cells; Tz, Zbtb16⁺ αβ T cells; DN, CD4⁻CD8αβ⁻ αβ T cells;
+DP, CD4⁺CD8αβ⁺ αβ T cells.
+
+## Setup
+
+```{r fig2-setup, code=code_for("../script/Figure2.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) All-T MDE by lineage {#fig2a}
+
+```{r fig2a-code, code=code_for("../script/Figure2.R", "2a"), eval=FALSE}
+```
+
+```{r fig2a-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/Figure2/2a_MDE_level1.png")
+```
+
+::: {.figcaption}
+**Fig. 2A.** Reference minimum-distortion embedding of all profiled T cells
+(the all-T MDE), coloured by T-cell lineage.
+:::
+
+## (B) Surface markers by lineage {#fig2b}
+
+```{r fig2b-code, code=code_for("../script/Figure2.R", "2b"), eval=FALSE}
+```
+
+```{r fig2b-img, echo=FALSE, out.width="32%"}
+knitr::include_graphics(c("assets/Figure2/2b_FeatureScatter_TCRB_TCRGD.png",
+                          "assets/Figure2/2b_FeatureScatter_CD4_CD8B.png",
+                          "assets/Figure2/2b_FeatureScatter_CD8A_CD8B.png"))
+```
+
+::: {.figcaption}
+**Fig. 2B.** Expression of cell surface markers in the CITE-seq data
+(log1p(CP10K)), cells coloured by lineage as in (A). Dashed lines mark the
+protein positivity thresholds; the lineage annotation is derived from the joint
+RNA/protein latent space, not from these gates.
+:::
+
+## (C) Canonical lineage transcripts {#fig2c}
+
+```{r fig2c-code, code=code_for("../script/Figure2.R", "2c"), eval=FALSE}
+```
+
+```{r fig2c-img, echo=FALSE, out.width="70%"}
+knitr::include_graphics("assets/Figure2/2c_FeaturePlot_lineage_markers.png")
+```
+
+::: {.figcaption}
+**Fig. 2C.** All-T MDE colour-coded by RNA expression of canonical lineage
+transcripts (Trdc, Cd8b1, Cd4, Zbtb16, Cd8a and Foxp3), capped at the 95th
+percentile.
+:::
+
+## (E) Mki67 marks proliferating cells {#fig2e}
+
+```{r fig2e-code, code=code_for("../script/Figure2.R", "2e"), eval=FALSE}
+```
+
+```{r fig2e-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure2/2e_FeaturePlot_Mki67.png")
+```
+
+::: {.figcaption}
+**Fig. 2E.** Mki67 expression on the all-T MDE, highlighting proliferating
+cells. These form their own region of the embedding irrespective of lineage.
+:::
+
+## (F) CD62L/CD44 single-positive populations {#fig2f}
+
+```{r fig2f-code, code=code_for("../script/Figure2.R", "2f"), eval=FALSE}
+```
+
+```{r fig2f-img, echo=FALSE, out.width="32%"}
+knitr::include_graphics(c("assets/Figure2/2f_gate_CD62L_CD44.png",
+                          "assets/Figure2/2f_MDE_CD62Lpos_CD44neg.png",
+                          "assets/Figure2/2f_MDE_CD44pos_CD62Lneg.png"))
+```
+
+::: {.figcaption}
+**Fig. 2F.** All-T MDE with CD62L⁺CD44⁻ (centre) and CD44⁺CD62L⁻ (right) T
+cells highlighted as cell density, gated as shown in the adjacent CD62L versus
+CD44 protein expression plot (left; CITE-seq, log1p(CP10K)). Naive- and
+experienced-phenotype cells occupy distinct territories within every lineage.
+:::
+
+## (H) Colonic T cells before and after integration {#fig2h}
+
+```{r fig2h-code, code=code_for("../script/Figure2.R", "2h"), eval=FALSE}
+```
+
+```{r fig2h-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(c("assets/Figure2/2h_IGT20_UMAP_RNAclusters.png",
+                          "assets/Figure2/2h_IGT20_MDE_level1.png",
+                          "assets/Figure2/2h_IGT27_UMAP_RNAclusters.png",
+                          "assets/Figure2/2h_IGT27_MDE_level1.png"))
+```
+
+::: {.figcaption}
+**Fig. 2H.** Colonic T cells at baseline profiled in two independent
+experiments (IGT20, first pair; IGT27, second pair). For each: the
+pre-integration UMAP computed on that experiment alone with its own de novo
+clusters, and the post-integration representation of the same cells on the
+all-T MDE, coloured by lineage as in (A). The same states are recovered from
+both experiments despite their independent clusterings.
+:::

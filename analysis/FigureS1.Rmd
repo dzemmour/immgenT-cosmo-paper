@@ -1,0 +1,56 @@
+---
+title: "Extended Data Figure 1: Quality control metrics"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS1.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS1.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r figs1-setup, code=code_for("../script/FigureS1.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) QC pass and loss rates per experiment {#figs1a}
+
+```{r figs1a-code, code=code_for("../script/FigureS1.R", "S1a"), eval=FALSE}
+```
+
+```{r figs1a-img, echo=FALSE, out.width="70%"}
+knitr::include_graphics("assets/ExtendedDataFigure1/S1a_QC_RNA_ADT_by_IGT.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 1A.** Box plots showing, for each experiment (IGT), the
+percentage of cells retained after quality control and the percentage of cells
+removed due to low gene counts (RNA nGenes), high mitochondrial RNA content
+(RNA dead cells), low protein counts, high non-specific protein signal, or
+non-T-cell identity, relative to the pre-QC cell number. Experiments outside
+the 1.5 × IQR whiskers are labelled. The summary tables are written to
+`output/FigureS1/`; the sample-level one is published as Extended Data Table 3.
+:::
+
+## (B) Cells retained per experiment and sample {#figs1b}
+
+```{r figs1b-code, code=code_for("../script/FigureS1.R", "S1b"), eval=FALSE}
+```
+
+```{r figs1b-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/ExtendedDataFigure1/S1b_ncells_by_IGT_and_sample.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 1B.** Number of cells per experiment (IGT) and per sample,
+identified by unique hashtag (HT) within each experiment; points are coloured
+by HT. The leftmost box pools all samples and gives the distribution against
+which any one experiment should be read.
+:::

@@ -1,0 +1,85 @@
+---
+title: "Figure 1: Scope of the immgenT Open Source Project"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure1.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure1.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **1a** and **1c** are schematics drawn outside R and are not shown here.
+
+## Setup
+
+```{r fig1-setup, code=code_for("../script/Figure1.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (B) Cells by organ and by disease category {#fig1b}
+
+```{r fig1b-code, code=code_for("../script/Figure1.R", "1b"), eval=FALSE}
+```
+
+```{r fig1b-img, echo=FALSE, out.width="49%"}
+knitr::include_graphics(c("assets/Figure1/1b_cellcount_organ.png",
+                          "assets/Figure1/1b_cellcount_conditionbroad.png"))
+```
+
+::: {.figcaption}
+**Fig. 1B.** Summary of sampled conditions organised by tissue and broad
+disease category. Bar plots indicate the total number of T cells sequenced per
+organ (left; the figure places these above the condition table) and per disease
+category (right; placed to the left of the table). The table of specific
+disease models that sits between them in the published figure is typeset for
+the manuscript and is not plotted. Co-infection experiments are counted under
+*virus*.
+:::
+
+## (D) IGT5 transcriptome UMAP {#fig1d}
+
+```{r fig1d-code, code=code_for("../script/Figure1.R", "1d-1f"), eval=FALSE}
+```
+
+```{r fig1d-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure1/1d_IGT5_UMAP_RNA_clusters.png")
+```
+
+::: {.figcaption}
+**Fig. 1D.** UMAP visualization of the representative dataset IGT5 (skin, ear
+and back, baseline) based on gene expression, with cells coloured by that
+experiment's own transcriptomic clusters.
+:::
+
+## (E) IGT5 surface-protein UMAP {#fig1e}
+
+```{r fig1e-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure1/1e_IGT5_UMAP_ADT_RNAclusters.png")
+```
+
+::: {.figcaption}
+**Fig. 1E.** UMAP of the same cells based on surface protein expression
+(CITE-seq), coloured by the gene-expression clusters shown in (D). Clusters
+defined on RNA remain largely separable in protein space.
+:::
+
+## (F) Flow-cytometry-like protein plots {#fig1f}
+
+```{r fig1f-code, code=code_for("../script/Figure1.R", "doc:1f"), eval=FALSE}
+```
+
+```{r fig1f-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c("assets/Figure1/1f_IGT5_TCRB_TCRGD.png",
+                          "assets/Figure1/1f_IGT5_CD4_CD8B.png"))
+```
+
+::: {.figcaption}
+**Fig. 1F.** Flow-cytometry-like expression of TCRγδ versus TCRβ and CD4 versus
+CD8β in IGT5 (CITE-seq, log1p(CP10K)), coloured by point density.
+:::

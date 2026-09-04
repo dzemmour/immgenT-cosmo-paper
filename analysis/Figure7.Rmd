@@ -1,0 +1,62 @@
+---
+title: "Figure 7: Effector gene expression across T-cell states"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure7.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure7.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **7e-7g** show sample-to-sample variability of effector gene expression
+within a single cluster (Il4 in CD4.T, Il17a in CD4.X, Ifng in CD4.Q). They
+require a pseudobulk matrix computed per sample rather than per cluster, which
+is not part of the deposited dataset, and are not reproduced here.
+
+## Setup
+
+```{r fig7-setup, code=code_for("../script/Figure7.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Effector gene expression heatmap {#fig7a}
+
+```{r fig7a-code, code=code_for("../script/Figure7.R", "7a"), eval=FALSE}
+```
+
+```{r fig7a-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics("assets/Figure7/7a_heatmap_effector_genes.png")
+```
+
+::: {.figcaption}
+**Fig. 7A.** Heatmap of curated effector gene expression across immgenT
+clusters (log1p CP10K): the 59-gene curated list, less the five genes that
+never reach 0.5 log1p CP10K in any cluster. Rows (genes) and columns (clusters)
+are ordered by hierarchical clustering. Annotation bars indicate lineage and
+activation status (resting versus activated). Effector genes group into modules
+that are reused across lineages rather than partitioning by lineage.
+:::
+
+## (B-D) Individual effector cytokines {#fig7bd}
+
+```{r fig7bd-code, code=code_for("../script/Figure7.R", "7b-7d"), eval=FALSE}
+```
+
+```{r fig7bd-img, echo=FALSE, out.width="90%"}
+knitr::include_graphics(c("assets/Figure7/7b_barplot_Il4.png",
+                          "assets/Figure7/7c_barplot_Il17a.png",
+                          "assets/Figure7/7d_barplot_Ifng.png"))
+```
+
+::: {.figcaption}
+**Fig. 7B-D.** Bar plots showing average expression of Il4 (B), Il17a (C) and
+Ifng (D) across immgenT clusters, coloured by lineage. Each cytokine is
+conventionally assigned to a single T-helper subset; each is instead produced
+by clusters drawn from several lineages.
+:::

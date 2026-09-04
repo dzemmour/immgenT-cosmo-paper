@@ -1,0 +1,80 @@
+---
+title: "Figure 3: Reference MDE plot for each T-cell lineage"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure3.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure3.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r fig3-setup, code=code_for("../script/Figure3.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Lineage-specific MDE by cluster {#fig3a}
+
+```{r fig3a-code, code=code_for("../script/Figure3.R", "3a"), eval=FALSE}
+```
+
+```{r fig3a-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(c(
+  "assets/Figure3/3a_MDE_CD8_level2.png",
+  "assets/Figure3/3a_MDE_CD4_level2.png",
+  "assets/Figure3/3a_MDE_Treg_level2.png",
+  "assets/Figure3/3a_MDE_gdT_level2.png",
+  "assets/Figure3/3a_MDE_CD8aa_level2.png",
+  "assets/Figure3/3a_MDE_Tz_level2.png",
+  "assets/Figure3/3a_MDE_DN_level2.png",
+  "assets/Figure3/3a_MDE_DP_level2.png"))
+```
+
+::: {.figcaption}
+**Fig. 3A.** Reference MDE for each lineage, coloured and labelled by cluster:
+CD8 (21 clusters), CD4 (20), Treg (8), γδT (21), CD8aa (7), Tz (6), DN (12) and
+DP (7). Each lineage was embedded separately, so these are eight distinct 2-D
+spaces and positions are not comparable between panels.
+:::
+
+## (B) CD62L/CD44 single-positive cells per lineage {#fig3b}
+
+```{r fig3b-code, code=code_for("../script/Figure3.R", "3b"), eval=FALSE}
+```
+
+```{r fig3b-img, echo=FALSE, out.width="30%"}
+knitr::include_graphics(c(
+  "assets/Figure3/3b_gate_CD62L_CD44.png",
+  "assets/Figure3/3b_MDE_bylineage_CD44pos_CD62Lneg.png",
+  "assets/Figure3/3b_MDE_bylineage_CD62Lpos_CD44neg.png"))
+```
+
+::: {.figcaption}
+**Fig. 3B.** CD44⁺CD62L⁻ (centre) and CD62L⁺CD44⁻ (right) T cells highlighted
+as cell density within each lineage-specific MDE, gated as shown in the
+adjacent CD62L versus CD44 protein expression plot (left; CITE-seq,
+log1p(CP10K)). The published figure shows the CD44⁺CD62L⁻ row above the
+CD62L⁺CD44⁻ row.
+:::
+
+## (C) Canonical transcripts across clusters {#fig3c}
+
+```{r fig3c-code, code=code_for("../script/Figure3.R", "3c"), eval=FALSE}
+```
+
+```{r fig3c-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure3/3c_DotPlot_canonical_genes.png")
+```
+
+::: {.figcaption}
+**Fig. 3C.** Dot plot of canonical T-cell transcripts across all clusters. Dot
+colour is mean log1p(CP10K) expression, not a z-score across clusters, and dot
+size the fraction of expressing cells.
+:::

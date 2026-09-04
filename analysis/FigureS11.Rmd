@@ -1,0 +1,75 @@
+---
+title: "Extended Data Figure 11: Markers and gene signatures across immgenT states"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/FigureS11.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS11.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+The script draws panel (C) first and releases its object before loading the
+complete atlas for (A) and (B), so that only one large object is in memory at a
+time. Panels (A) and (B) are the one place in this repository that needs the
+complete atlas rather than the gene-subsetted one: three of the six transcripts
+in (B) were dropped when the subsetted object was built.
+
+## (A) Th tip clusters on the CD4 MDE {#figs11a}
+
+```{r figs11a-code, code=code_for("../script/FigureS11.R", "S11a"), eval=FALSE}
+```
+
+```{r figs11a-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure11/S11a_CD4MDE_Th_tips.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 11A.** CD4-specific MDE highlighting the Th1 (CD4.R/S),
+Th2 (CD4.T/U) and Th17 (CD4.X/Y) "tip" clusters, so named because each sits at
+the end of a projection from the main CD4 body.
+:::
+
+## (B) Th-defining receptor transcripts {#figs11b}
+
+```{r figs11b-code, code=code_for("../script/FigureS11.R", "S11b"), eval=FALSE}
+```
+
+```{r figs11b-img, echo=FALSE, out.width="32%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Cxcr3.png",
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Il12rb2.png",
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Ccr4.png",
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Il4ra.png",
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Ccr6.png",
+  "assets/ExtendedDataFigure11/S11b_CD4MDE_Il23r.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 11B.** CD4-specific MDE showing expression of Cxcr3,
+Il12rb2, Ccr4, Il4ra, Ccr6 and Il23r. None of these commonly used identifiers
+of Th differentiation is specific for the polarised tip cluster it is used to
+define — Cxcr3 and Il12rb2 for Th1, Ccr4 and Il4ra for Th2, Ccr6 for Th17 —
+with Il23r in the Th17 tip the sole exception.
+:::
+
+## (C) Core Treg signature across the atlas {#figs11c}
+
+```{r figs11c-code, code=code_for("../script/FigureS11.R", "S11c"), eval=FALSE}
+```
+
+```{r figs11c-img, echo=FALSE, out.width="50%"}
+knitr::include_graphics("assets/ExtendedDataFigure11/S11c_MDE_treg_core_signature.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 11C.** All-T MDE showing expression of the core Treg gene
+signature (Zemmour et al.) across all immgenT T cells. A signature derived from
+one state is not confined to it.
+:::

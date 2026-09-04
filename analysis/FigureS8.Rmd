@@ -1,0 +1,40 @@
+---
+title: "Extended Data Figure 8: Cluster distributions across tissues"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+This figure is produced by
+[`script/FigureS8.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS8.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Code {#figs8}
+
+It is the same plot as [Figure 6a](Figure6.html#fig6a), drawn for the five
+organs that figure leaves out. Both organ lists and the plotting code live in
+[`code/R/organ_mde.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/code/R/organ_mde.R).
+
+```{r figs8-code, code=code_for("../script/FigureS8.R", "^"), eval=FALSE}
+```
+
+```{r figs8-img, echo=FALSE, out.width="32%"}
+knitr::include_graphics(c(
+  "assets/ExtendedDataFigure8/S8_MDE_baseline_submandibulargland.png",
+  "assets/ExtendedDataFigure8/S8_MDE_baseline_uterus.png",
+  "assets/ExtendedDataFigure8/S8_MDE_baseline_peritonealcavity.png",
+  "assets/ExtendedDataFigure8/S8_MDE_baseline_placenta.png",
+  "assets/ExtendedDataFigure8/S8_MDE_baseline_bonemarrow.png"))
+```
+
+::: {.figcaption}
+**Extended Data Fig. 8.** All-T MDE showing the distribution of T cells at
+baseline in submandibular gland, uterus, peritoneal cavity, placenta and bone
+marrow, coloured by lineage.
+:::

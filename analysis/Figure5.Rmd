@@ -1,0 +1,58 @@
+---
+title: "Figure 5: T-RBI integrates external datasets into the immgenT framework"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure5.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure5.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **5a-5d** are the worked example of a single external study
+(Miller et al., GP33 tetramer-positive CD8⁺ T cells in chronic LCMV
+infection): the authors' own tSNE with their cluster labels, the same cells
+projected into the immgenT CD8 MDE by T-RBI, those cells coloured by immgenT
+cluster, and the distribution of scANVI confidence scores. They need that
+study's own embedding and cluster labels, which are not part of the deposited
+dataset, and are not reproduced here. Panel **5f** is the discovery-score
+distribution computed with non-T cells excluded; only the variant that retains
+non-T cells as positive controls is cached, and that is
+[Extended Data Figure 6h](FigureS6.html#figs6gh).
+
+## Setup
+
+```{r fig5-setup, code=code_for("../script/Figure5.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (E) Gallery of mapped external studies {#fig5e}
+
+```{r fig5e-code, code=code_for("../script/Figure5.R", "5e"), eval=FALSE}
+```
+
+```{r fig5e-img-all, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure5/5e_MDE_all_studies_level1.png")
+```
+
+```{r fig5e-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(sort(list.files("assets/Figure5",
+                                        pattern = "^5e_MDE_GSE|^5e_MDE_Tabula",
+                                        full.names = TRUE)))
+```
+
+::: {.figcaption}
+**Fig. 5E.** Gallery of 16 external datasets (Extended Data Table 5) mapped to
+the immgenT reference. The first plot shows all studies together; each
+subsequent plot highlights one study's query cells within the all-T MDE,
+coloured by lineage, over the immgenT cells in grey. Titles give the total
+cells mapped and the percentage annotated at cluster level. The 16 studies
+comprise 299,764 of the 335,042 query T cells; the remaining accession was
+mapped against a lineage-specific reference only and so has no position in the
+all-T embedding.
+:::

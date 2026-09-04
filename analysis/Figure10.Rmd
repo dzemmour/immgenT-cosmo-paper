@@ -1,0 +1,101 @@
+---
+title: "Figure 10: AI-based reference mapping reveals the limits of marker- and signature-defined T-cell identity"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure10.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure10.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+Panels **10d** and **10e** both depend on Milner et al.: (d) scores that
+paper's published tissue-resident memory gene signature across the atlas, and
+(e) maps the cells the signature was derived from onto the reference with
+T-RBI. Neither the signature nor that dataset is part of the deposited data,
+and they are not reproduced here.
+
+## Setup
+
+```{r fig10-setup, code=code_for("../script/Figure10.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) Trm cells on the CD8 MDE {#fig10a}
+
+```{r fig10a-code, code=code_for("../script/Figure10.R", "10a"), eval=FALSE}
+```
+
+```{r fig10a-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure10/10a_CD8MDE_P14_Trm_gut.png")
+```
+
+::: {.figcaption}
+**Fig. 10A.** CD8 MDE highlighting resident-memory CD8⁺ T cells mapping
+predominantly to CD8.Q. Trm cells are defined here by antigen specificity and
+timepoint rather than by marker expression — LCMV-specific (P14) CD8⁺ T cells
+isolated from the gut 30 days after LCMV Armstrong infection — so where they
+land is an independent check on the reference. Cells are coloured by immgenT
+cluster.
+:::
+
+## (B) CD103⁺CD69⁺ cells across the CD8 MDE {#fig10b}
+
+```{r fig10b-code, code=code_for("../script/Figure10.R", "10b"), eval=FALSE}
+```
+
+```{r fig10b-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics("assets/Figure10/10b_CD8MDE_CD103pos_CD69pos.png")
+```
+
+::: {.figcaption}
+**Fig. 10B.** CD8 MDE with CD103⁺CD69⁺ T cells in the full immgenT dataset
+extending well beyond CD8.Q, indicating that canonical Trm markers do not
+uniquely define this molecular state. The gating strategy is shown in (C). The
+published panel renders the same 20,132 gated cells as a white-to-purple cell
+density map rather than as solid points.
+:::
+
+## (C) CD69 vs CD103 by tissue {#fig10c}
+
+```{r fig10c-code, code=code_for("../script/Figure10.R", "10c"), eval=FALSE}
+```
+
+```{r fig10c-img, echo=FALSE, out.width="45%"}
+knitr::include_graphics(c(
+  "assets/Figure10/10c_CD103_CD69_small_intestine.png",
+  "assets/Figure10/10c_CD103_CD69_prostate.png",
+  "assets/Figure10/10c_CD103_CD69_salivary_gland.png",
+  "assets/Figure10/10c_CD103_CD69_spleen.png"))
+```
+
+::: {.figcaption}
+**Fig. 10C.** CD69 versus CD103 expression in memory cells from the small
+intestine, prostate, salivary gland and spleen (CITE-seq, log1p(CP10K); P14
+CD8⁺, 30 dpi), illustrating that canonical Trm markers are variably expressed
+across tissues, including within CD8.Q — whose cells fall on both sides of the
+gate. Cells are coloured by immgenT cluster.
+:::
+
+## (F) CD8.Q across organs and perturbations {#fig10f}
+
+```{r fig10f-code, code=code_for("../script/Figure10.R", "10f"), eval=FALSE}
+```
+
+```{r fig10f-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure10/10f_alluvial_CD8Q.png")
+```
+
+::: {.figcaption}
+**Fig. 10F.** Alluvial plot showing the contribution of CD8.Q cells (red)
+across a broad range of organs and immune perturbations, illustrating CD8.Q as
+a transcriptional basin into which cells from diverse biological conditions
+converge. Perturbations are downsampled to 1,000 cells each so that flow width
+reflects breadth of distribution rather than how many cells an experiment
+contributed.
+:::

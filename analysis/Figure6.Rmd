@@ -1,0 +1,95 @@
+---
+title: "Figure 6: Reuse and redistribution of shared T-cell states across tissues and immune perturbations"
+author: "David Zemmour"
+output: workflowr::wflow_html
+editor_options:
+  chunk_output_type: console
+---
+
+```{r doc-code, include=FALSE}
+source("../code/R/doc_code.R")
+```
+
+All panels are produced by
+[`script/Figure6.R`](https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/Figure6.R).
+The code below is shown for reference (not re-executed on this page); the
+images are its pre-rendered output.
+
+## Setup
+
+```{r fig6-setup, code=code_for("../script/Figure6.R", c("^", "Load data")), eval=FALSE}
+```
+
+## (A) All-T MDE at baseline, per organ {#fig6a}
+
+```{r fig6a-code, code=code_for("../script/Figure6.R", "6a"), eval=FALSE}
+```
+
+```{r fig6a-img, echo=FALSE, out.width="24%"}
+knitr::include_graphics(c(
+  "assets/Figure6/6a_MDE_baseline_blood.png",
+  "assets/Figure6/6a_MDE_baseline_spleen.png",
+  "assets/Figure6/6a_MDE_baseline_LN.png",
+  "assets/Figure6/6a_MDE_baseline_colonLP.png",
+  "assets/Figure6/6a_MDE_baseline_colonepi.png",
+  "assets/Figure6/6a_MDE_baseline_smallintestineLP.png",
+  "assets/Figure6/6a_MDE_baseline_smallintestineepi.png",
+  "assets/Figure6/6a_MDE_baseline_lung.png",
+  "assets/Figure6/6a_MDE_baseline_kidney.png",
+  "assets/Figure6/6a_MDE_baseline_liver.png",
+  "assets/Figure6/6a_MDE_baseline_skin.png",
+  "assets/Figure6/6a_MDE_baseline_mammarygland.png"))
+```
+
+::: {.figcaption}
+**Fig. 6A.** Gallery of all-T MDEs showing the distribution of T cells at
+baseline across organs, coloured by lineage. Each organ is capped at 10,000
+cells so that visual density reflects composition rather than sequencing depth.
+The five sparsely sampled sites are shown in
+[Extended Data Figure 8](FigureS8.html).
+:::
+
+## (B) Cluster proportions across organs {#fig6b}
+
+```{r fig6b-code, code=code_for("../script/Figure6.R", "6b"), eval=FALSE}
+```
+
+```{r fig6b-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure6/6b_DotPlot_level2_by_organ_baseline.png")
+```
+
+::: {.figcaption}
+**Fig. 6B.** Dot plot showing the proportion of immgenT clusters across organs
+at baseline. Colour intensity reflects the mean proportion of each cluster
+within its lineage, and dot size the total number of profiled cells. Computing
+the proportion within lineage rather than within sample makes tissues with very
+different lineage composition comparable.
+:::
+
+## (C) Cluster proportions across perturbations in the colon {#fig6c}
+
+```{r fig6c-code, code=code_for("../script/Figure6.R", "6c"), eval=FALSE}
+```
+
+```{r fig6c-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure6/6c_DotPlot_level2_by_condition_colon.png")
+```
+
+::: {.figcaption}
+**Fig. 6C.** The same quantity across immune perturbations in the colon lamina
+propria, with baseline as the reference row. Perturbations redistribute cells
+among the same set of clusters rather than producing new ones.
+:::
+
+## (D) Cluster proportions across perturbations in the lung {#fig6d}
+
+```{r fig6d-code, code=code_for("../script/Figure6.R", "6d"), eval=FALSE}
+```
+
+```{r fig6d-img, echo=FALSE, out.width="100%"}
+knitr::include_graphics("assets/Figure6/6d_DotPlot_level2_by_condition_lung.png")
+```
+
+::: {.figcaption}
+**Fig. 6D.** The same quantity across immune perturbations in the lung.
+:::
