@@ -362,7 +362,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
+workflowr <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -373,8 +373,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> </a>
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -387,9 +387,9 @@ aria-hidden="true"></span> </a>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 1
+aria-hidden="true"></span> 0
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -413,21 +413,18 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
-<span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
-changes </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguncommittedchanges"
+<div id="strongRMarkdownfilestronguptodate"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of
-the R Markdown file created these results, you’ll want to first commit
-it to the Git repo. If you’re still working on the analysis, you can
-ignore this warning. When you’re finished, you can run
-<code>wflow_publish</code> to commit the R Markdown file and build the
-HTML.</p>
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
 </div>
 </div>
 </div>
@@ -518,15 +515,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree5b91fc06c8d83d340e1992b94120eb4ca1996049targetblank5b91fc0a">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree99cd9495cfc74dfe46f6913cccfe98bfc237d49btargetblank99cd949a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/5b91fc06c8d83d340e1992b94120eb4ca1996049" target="_blank">5b91fc0</a>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/99cd9495cfc74dfe46f6913cccfe98bfc237d49b" target="_blank">99cd949</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree5b91fc06c8d83d340e1992b94120eb4ca1996049targetblank5b91fc0a"
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree99cd9495cfc74dfe46f6913cccfe98bfc237d49btargetblank99cd949a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -536,7 +533,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/5b91fc06c8d83d340e1992b94120eb4ca1996049" target="_blank">5b91fc0</a>.
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/99cd9495cfc74dfe46f6913cccfe98bfc237d49b" target="_blank">99cd949</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -559,31 +556,6 @@ Ignored files:
     Ignored:    figures/.DS_Store
     Ignored:    immgenT-Cosmo.zip
     Ignored:    internal/
-
-Untracked files:
-    Untracked:  analysis/assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png
-    Untracked:  analysis/assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png
-    Untracked:  figures/Extended Data Figure 6/S6c_barplot_annotated_level1.pdf
-    Untracked:  figures/Extended Data Figure 6/S6e_barplot_annotated_level2.pdf
-
-Unstaged changes:
-    Modified:   analysis/FigureS6.Rmd
-    Deleted:    analysis/assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png
-    Deleted:    analysis/assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png
-    Modified:   figures/Extended Data Figure 6/S6b_MDE_nonT_cells.pdf
-    Deleted:    figures/Extended Data Figure 6/S6c_barplot_unannotated_level1.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd4.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd8a.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd8b1.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Foxp3.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Trdc.pdf
-    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Zbtb16.pdf
-    Deleted:    figures/Extended Data Figure 6/S6e_barplot_unannotated_level2.pdf
-    Modified:   figures/Extended Data Figure 6/S6f_MDE_unannotated_level2.pdf
-    Modified:   figures/Extended Data Figure 6/S6g_MDE_discovery_score.pdf
-    Modified:   figures/Extended Data Figure 6/S6h_discovery_score_by_dataset.pdf
-    Modified:   script/Figure5.R
-    Modified:   script/FigureS6.R
 
 </code></pre>
 <p>
@@ -628,6 +600,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/99cd9495cfc74dfe46f6913cccfe98bfc237d49b/analysis/FigureS6.Rmd" target="_blank">99cd949</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-04
+</td>
+<td>
+Plot the annotated fraction in Extended Data Figure 6c and 6e
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/99cd9495cfc74dfe46f6913cccfe98bfc237d49b/docs/FigureS6.html" target="_blank">99cd949</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-04
+</td>
+<td>
+Plot the annotated fraction in Extended Data Figure 6c and 6e
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -928,7 +934,82 @@ print(
         NoGrid()
 )
 dev.off()</code></pre>
-<p><img src="assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png" width="45%" style="display: block; margin: auto;" /><img src="assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png" width="45%" style="display: block; margin: auto;" /></p>
+<p><img src="assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6c_barplot_annotated_level1">
+Past versions of S6c_barplot_annotated_level1.png
+</button>
+</p>
+<div id="fig-S6c_barplot_annotated_level1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/99cd9495cfc74dfe46f6913cccfe98bfc237d49b/docs/assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png" target="_blank">99cd949</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-04
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6e_barplot_annotated_level2">
+Past versions of S6e_barplot_annotated_level2.png
+</button>
+</p>
+<div id="fig-S6e_barplot_annotated_level2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/99cd9495cfc74dfe46f6913cccfe98bfc237d49b/docs/assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png" target="_blank">99cd949</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-04
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="figcaption">
 <p><strong>Extended Data Fig. 6C, E.</strong> Bar plots showing the
 percentage of cells from each external study annotated with a T-cell
