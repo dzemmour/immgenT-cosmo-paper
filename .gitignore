@@ -11,6 +11,9 @@
 # manifest.
 data/
 
+# The downloaded archive itself, if it is left in place after unpacking.
+immgenT-Cosmo.zip
+
 # Manuscript sources kept alongside the repository for provenance: the original
 # monolithic analysis file that script/ was ported from, and the figure PDFs as
 # submitted. Not part of the public record this repository presents.
