@@ -363,7 +363,7 @@ across experiments; T-cell lineage separation</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -374,8 +374,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -388,9 +388,9 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -414,18 +414,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -516,13 +519,13 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5224d19">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongb7c77d7">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 5224d19
+aria-hidden="true"></span> <strong>Repository version:</strong> b7c77d7
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong5224d19"
+<div id="strongRepositoryversionstrongb7c77d7"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +534,7 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 5224d19.
+The results in this page were generated with repository version b7c77d7.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -547,8 +550,38 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .claude/
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   analysis/FigureS3.Rmd
+    Modified:   analysis/assets/ExtendedDataFigure3/S3a_MDE_spleen_standard_by_IGT.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_CD4.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_CD8.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_CD8aa.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_DN.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_DP.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_Treg.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_Tz.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3b_MDE_gdT.png
+    Modified:   analysis/assets/ExtendedDataFigure3/S3f_MDE_proliferating_miniverse.png
+    Modified:   figures/Extended Data Figure 3/S3a_MDE_spleen_standard_by_IGT.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_CD4.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_CD8.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_CD8aa.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_DN.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_DP.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_Treg.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_Tz.pdf
+    Modified:   figures/Extended Data Figure 3/S3b_MDE_gdT.pdf
+    Modified:   figures/Extended Data Figure 3/S3c_FeatureScatter_CD4_CD8B_bylineage.pdf
+    Modified:   figures/Extended Data Figure 3/S3c_FeatureScatter_CD8A_CD8B_bylineage.pdf
+    Modified:   figures/Extended Data Figure 3/S3c_FeatureScatter_TCRB_TCRGD_bylineage.pdf
+    Modified:   figures/Extended Data Figure 3/S3d_MDE_iNKT.pdf
+    Modified:   figures/Extended Data Figure 3/S3e_MDE_MAIT.pdf
+    Modified:   figures/Extended Data Figure 3/S3f_MDE_proliferating_miniverse.pdf
+    Modified:   script/FigureS3.R
 
 </code></pre>
 <p>
@@ -593,6 +626,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+b7c77d7
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Add READMEs, provenance scripts, and prune unpublished panels
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -672,8 +722,9 @@ print(highlight_mde(
     seurat_object = so, umap_to_plot = &quot;mde2_totalvi_20241006&quot;,
     cells_to_highlight = names(which(so$spleen_standard == TRUE)),
     highlight_column_name = &quot;IGT&quot;, pixels = c(1024, 1024),
-    mycols = mypal_igt, title = &quot;Spleen standards, coloured by experiment&quot;,
-    highlight_size = 0.1, highlight_alpha = 0.5, labelclusters = FALSE,
+    mycols = mypal_igt, title = &quot;Spleen standards&quot;,
+    highlight_size = 1, highlight_alpha = 1, labelclusters = FALSE,
+    highlight_raster = TRUE, highlight_pixels = c(1024, 1024),
     which = &quot;plot1&quot;
 ))
 dev.off()</code></pre>
@@ -716,11 +767,12 @@ David Zemmour
 </div>
 </div>
 <div class="figcaption">
-<p><strong>Extended Data Fig. 3A.</strong> All-T MDE highlighting spleen
-standard samples, coloured by experiment (IGT), demonstrating overlap of
-standards across experiments. A standardised spleen preparation was
-spiked into every experiment; if a batch effect had survived
-integration, each experiment’s standard would occupy its own region.</p>
+<p><strong>Extended Data Fig. 3A.</strong> All-T MDE highlighting the
+spleen standard samples, coloured by experiment (IGT), demonstrating
+overlap of standards across experiments. A standardised spleen
+preparation was spiked into every experiment; if a batch effect had
+survived integration, each experiment’s standard would occupy its own
+region.</p>
 </div>
 </div>
 <div id="figs3b" class="section level2">
@@ -730,17 +782,23 @@ integration, each experiment’s standard would occupy its own region.</p>
 # ============================================================
 # One panel per lineage rather than the single colour-coded MDE of Figure 2a:
 # overlapping lineages hide each other in a combined plot, and the point here is
-# each lineage&#39;s full extent.
+# each lineage&#39;s full extent. Drawn at full opacity so the lineage&#39;s territory
+# reads as a solid block, with the lineage name as a title rather than as
+# labels inside the panel.
 for (lin in LINEAGES) {
     panel_pdf(figure_dir, sprintf(&quot;S3b_MDE_%s&quot;, lin), 10, 10)
-    print(highlight_mde(
-        seurat_object = so, umap_to_plot = &quot;mde2_totalvi_20241006&quot;,
-        cells_to_highlight = colnames(so)[so$annotation_level1 == lin],
-        highlight_column_name = &quot;annotation_level1&quot;, pixels = c(1024, 1024),
-        mycols = mypal_level1, title = lin,
-        highlight_size = 0.1, highlight_alpha = 0.5, labelclusters = TRUE,
-        which = &quot;plot3&quot;
-    ))
+    print(
+        highlight_mde(
+            seurat_object = so, umap_to_plot = &quot;mde2_totalvi_20241006&quot;,
+            cells_to_highlight = colnames(so)[so$annotation_level1 == lin],
+            highlight_column_name = &quot;annotation_level1&quot;,
+            pixels = c(1024, 1024),
+            mycols = mypal_level1,
+            highlight_size = 1, highlight_alpha = 1, labelclusters = FALSE,
+            highlight_raster = TRUE, highlight_pixels = c(1024, 1024),
+            which = &quot;plot2&quot;
+        ) + ggtitle(lin)
+    )
     dev.off()
 }</code></pre>
 <p><img src="assets/ExtendedDataFigure3/S3b_MDE_CD8.png" width="24%" style="display: block; margin: auto;" /></p>
@@ -1049,8 +1107,9 @@ David Zemmour
 </div>
 <div class="figcaption">
 <p><strong>Extended Data Fig. 3B.</strong> All-T MDE highlighting each
-major T-cell lineage separately, with cluster labels placed at each
-cluster’s median position.</p>
+major T-cell lineage separately, at full opacity so that each lineage’s
+territory reads as a solid block against the rest of the atlas in
+grey.</p>
 </div>
 </div>
 <div id="figs3c" class="section level2">

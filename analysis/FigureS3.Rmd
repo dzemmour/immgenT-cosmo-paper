@@ -30,7 +30,7 @@ knitr::include_graphics("assets/ExtendedDataFigure3/S3a_MDE_spleen_standard_by_I
 ```
 
 ::: {.figcaption}
-**Extended Data Fig. 3A.** All-T MDE highlighting spleen standard samples,
+**Extended Data Fig. 3A.** All-T MDE highlighting the spleen standard samples,
 coloured by experiment (IGT), demonstrating overlap of standards across
 experiments. A standardised spleen preparation was spiked into every
 experiment; if a batch effect had survived integration, each experiment's
@@ -56,7 +56,8 @@ knitr::include_graphics(c(
 
 ::: {.figcaption}
 **Extended Data Fig. 3B.** All-T MDE highlighting each major T-cell lineage
-separately, with cluster labels placed at each cluster's median position.
+separately, at full opacity so that each lineage's territory reads as a solid
+block against the rest of the atlas in grey.
 :::
 
 ## (C) Surface markers per lineage {#figs3c}

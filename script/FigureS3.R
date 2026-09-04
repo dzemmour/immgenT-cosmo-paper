@@ -14,6 +14,14 @@
 # Ported from cosmo_paper.Rmd section "Figure 2/S3 - Integration (ok)"
 # (line 1009), whose chunks produce both Figure 2 and this figure.
 #
+# Panels S3a and S3b highlight tens to hundreds of thousands of cells, so their
+# highlight layers are rasterised (highlight_raster = TRUE, at the same 1024 px
+# as the background) as every other highlight panel in this repository does.
+# Left as vector points, the CD4 and CD8 panels alone came to 13 MB and 11 MB of
+# overlapping paths -- files no vector editor will open, for no gain, since the
+# point cloud carries no structure worth editing. Titles, legends and axes stay
+# vector.
+#
 # Panel S3f: the Rmd drew all five annotation_level2_group values in one
 # DimPlot with the resting/activated palette. The published panel shows only the
 # proliferating and miniverse groups, in black and red, so it is drawn here as a
@@ -54,8 +62,9 @@ print(highlight_mde(
     seurat_object = so, umap_to_plot = "mde2_totalvi_20241006",
     cells_to_highlight = names(which(so$spleen_standard == TRUE)),
     highlight_column_name = "IGT", pixels = c(1024, 1024),
-    mycols = mypal_igt, title = "Spleen standards, coloured by experiment",
-    highlight_size = 0.1, highlight_alpha = 0.5, labelclusters = FALSE,
+    mycols = mypal_igt, title = "Spleen standards",
+    highlight_size = 1, highlight_alpha = 1, labelclusters = FALSE,
+    highlight_raster = TRUE, highlight_pixels = c(1024, 1024),
     which = "plot1"
 ))
 dev.off()
@@ -65,17 +74,23 @@ dev.off()
 # ============================================================
 # One panel per lineage rather than the single colour-coded MDE of Figure 2a:
 # overlapping lineages hide each other in a combined plot, and the point here is
-# each lineage's full extent.
+# each lineage's full extent. Drawn at full opacity so the lineage's territory
+# reads as a solid block, with the lineage name as a title rather than as
+# labels inside the panel.
 for (lin in LINEAGES) {
     panel_pdf(figure_dir, sprintf("S3b_MDE_%s", lin), 10, 10)
-    print(highlight_mde(
-        seurat_object = so, umap_to_plot = "mde2_totalvi_20241006",
-        cells_to_highlight = colnames(so)[so$annotation_level1 == lin],
-        highlight_column_name = "annotation_level1", pixels = c(1024, 1024),
-        mycols = mypal_level1, title = lin,
-        highlight_size = 0.1, highlight_alpha = 0.5, labelclusters = TRUE,
-        which = "plot3"
-    ))
+    print(
+        highlight_mde(
+            seurat_object = so, umap_to_plot = "mde2_totalvi_20241006",
+            cells_to_highlight = colnames(so)[so$annotation_level1 == lin],
+            highlight_column_name = "annotation_level1",
+            pixels = c(1024, 1024),
+            mycols = mypal_level1,
+            highlight_size = 1, highlight_alpha = 1, labelclusters = FALSE,
+            highlight_raster = TRUE, highlight_pixels = c(1024, 1024),
+            which = "plot2"
+        ) + ggtitle(lin)
+    )
     dev.off()
 }
 
