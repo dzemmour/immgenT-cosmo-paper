@@ -77,6 +77,7 @@ header comment pointing back at this table.
 | `TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds` | **gap** | Per-cell discovery score in each study's own PCA space, retaining non-T cells as positive controls (Extended Data Figure 6g/6h). `R/discovery.R` holds the scoring functions, but the driver that ran them across studies is not preserved; the original analysis file read this table without producing it. |
 | `CD4Ablation_trbi_seurat_objects.Rds` | *(primary input)* | One reduced Seurat object per ablated CD4 cluster (18 in all), holding the assignment and confidence columns before and after fine-tuning plus the ablated-reference MDE. |
 | `CD4NoAblation_trbi_seurat.Rds` | *(primary input)* | The same 20,277 CD4 query cells mapped against the complete reference, as the no-ablation comparison for Extended Data Figure 7c. |
+| `CD4Ablation_discovery_scores.csv` | *(primary input)* | Per-cell discovery score for the 19,643 CD4 query cells, scored twice: against the complete reference and against the reference with the cell's own cluster removed (Extended Data Figure 7d). Not derivable from the ablation objects above, which were dieted down to the assignment and confidence columns. |
 | `CD4NoAblation_trbi_predictions.csv` | *(unused)* | Per-cell predictions from the no-ablation run. Superseded by the columns carried on the object above; no script reads it. |
 | `QC_RNA_ADT_sample_summary_table.tsv`, `QC_ncells_perIGTandsample.pdf` | *(outputs of an earlier run)* | Earlier copies of what `FigureS1.R` now writes into `output/FigureS1/`. Kept for comparison; nothing reads them. |
 
@@ -95,7 +96,6 @@ header comment pointing back at this table.
 | Extended Data Figure 2 (all) | The CITE-seq per-antibody evaluation, documented in the companion CITE-seq manuscript; results published as Extended Data Table 4. |
 | Extended Data Figure 4c | The per-cluster cross-experiment cosine similarity matrix. |
 | Extended Data Figure 6a | The Miller et al. study's own UMAP embedding. |
-| Extended Data Figure 7d | The per-cell discovery score under ablation. The cached ablation objects were reduced to the assignment and confidence columns and do not retain it. |
 
 None of these gaps blocks reproducing the panels that are listed as produced;
 they only matter for the specific panels named.

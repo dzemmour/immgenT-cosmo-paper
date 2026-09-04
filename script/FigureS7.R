@@ -10,11 +10,8 @@
 #   S7b  Cluster assignments of cells from each omitted cluster.
 #   S7c  Annotation confidence for misclassified cells: no ablation, and
 #        ablation before and after fine-tuning.
-#
-# Panel S7d (single-cell discovery scores per omitted cluster) is not
-# reproduced here: the cached ablation objects were dieted down to the
-# confidence and assignment columns and do not retain the discovery score.
-# See analysis/FigureS7.Rmd and code/README.md.
+#   S7d  Single-cell discovery scores per omitted cluster, with the complete
+#        reference and after ablation.
 #
 # --- internal ---
 # Ported from cosmo_paper.Rmd section "TRBI ablation analysis (ok)"
@@ -26,12 +23,18 @@
 # The background here is the CD4 raster from ZemmourLib plus the omitted
 # cluster's own position in the complete reference, which is what `bg_cl`
 # was for.
+#
+# Panel d had no source at all until DZ supplied
+# CD4Ablation_discovery_scores.csv on 2026-09-04: the cached ablation objects
+# were dieted down to the assignment and confidence columns and do not retain
+# the discovery score.
 # --- end internal ---
 #
 # Required inputs (data/) -- see code/README.md:
 #   immgenT_seurat_ADT_GeneSubset.Rds        [primary input]
 #   CD4Ablation_trbi_seurat_objects.Rds      [primary input]
 #   CD4NoAblation_trbi_seurat.Rds            [primary input]
+#   CD4Ablation_discovery_scores.csv         [primary input]
 
 suppressPackageStartupMessages({
     library(dplyr)
@@ -52,6 +55,12 @@ ABLATED_CLUSTERS <- c(
     "CD4.I", "CD4.Q", "CD4.R", "CD4.S", "CD4.T", "CD4.U", "CD4.X", "CD4.Y",
     "CD4.wZ", "CD4.P"
 )
+
+# Panel d shows seventeen of them, in alphabetical order. CD4.wZ is omitted, as
+# it is in the published panel, though it appears in panels b and c. The score
+# table also carries cells from CD4.wM and CD4.wN, whose clusters were never
+# ablated; they are excluded here too.
+DISCOVERY_CLUSTERS <- sort(setdiff(ABLATED_CLUSTERS, "CD4.wZ"))
 
 # ============================================================
 # Load data
@@ -213,4 +222,53 @@ p_s7c <- ggplot(df, aes(cluster, confidence_score, fill = condition)) +
 
 panel_pdf(figure_dir, "S7c_ablation_confidence_scores", 10, 6)
 print(p_s7c)
+dev.off()
+
+# ============================================================
+# S7d: Discovery scores per omitted cluster
+# ============================================================
+# The same 19,643 query cells scored twice: against the complete reference and
+# against the reference with their own cluster removed. The threshold is the
+# 1.1 used for the external studies (see code/R/discovery.R). One point per
+# cell, jittered within each cluster and dodged by condition.
+scores <- read.csv(sprintf("%s/CD4Ablation_discovery_scores.csv", data_path),
+                   row.names = 1, check.names = FALSE)
+
+df_s7d <- scores %>%
+    mutate(cell = rownames(scores)) %>%
+    pivot_longer(cols = c("No Ablation", "Ablation"),
+                 names_to = "condition", values_to = "discovery_score") %>%
+    filter(level2_orig %in% DISCOVERY_CLUSTERS) %>%
+    mutate(
+        level2_orig = factor(level2_orig, levels = DISCOVERY_CLUSTERS),
+        condition = factor(condition, levels = c("No Ablation", "Ablation"))
+    )
+
+p_s7d <- ggplot(df_s7d,
+                aes(level2_orig, discovery_score, colour = condition)) +
+    geom_point(
+        position = position_jitterdodge(jitter.width = 0.35, dodge.width = 0.8),
+        size = 0.2, alpha = 0.4
+    ) +
+    scale_colour_manual(values = c("No Ablation" = "black",
+                                   "Ablation" = "red")) +
+    geom_hline(yintercept = 1.1, linetype = "dashed", linewidth = 0.4) +
+    ylim(0, 2) +
+    labs(x = NULL, y = "Discovery score", colour = NULL) +
+    # Legend inside the panel, top left, as in the published figure. Point size
+    # is overridden in the key so the legend is readable at the size the data
+    # points are drawn.
+    guides(colour = guide_legend(override.aes = list(size = 2, alpha = 1))) +
+    theme_classic(base_size = 12) +
+    theme(
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "inside",
+        legend.position.inside = c(0.02, 0.98),
+        legend.justification = c(0, 1),
+        legend.background = element_blank()
+    ) +
+    NoGrid()
+
+panel_pdf(figure_dir, "S7d_discovery_scores_by_cluster", 8, 5)
+print(p_s7d)
 dev.off()

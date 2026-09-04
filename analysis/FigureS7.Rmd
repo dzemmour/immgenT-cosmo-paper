@@ -20,11 +20,6 @@ were removed from the immgenT reference in turn, and cells belonging to the
 omitted cluster were mapped back as query cells using T-RBI. Results were
 compared with mapping against the complete, non-ablated reference.
 
-Panel **S7d** shows single-cell discovery scores for cells from each omitted
-cluster, with and without ablation. The cached ablation objects were reduced to
-the assignment and confidence columns and do not retain the discovery score, so
-the panel is not reproduced here.
-
 ## Setup
 
 ```{r figs7-setup, code=code_for("../script/FigureS7.R", c("^", "Load data")), eval=FALSE}
@@ -82,4 +77,23 @@ compared with scores for the same cells mapped to the complete reference
 without ablation. If two neighbouring clusters were an arbitrary split of one
 state, removing one should reassign its cells to the other at undiminished
 confidence; the drop shown here is evidence that they are distinct.
+:::
+
+## (D) Discovery scores per omitted cluster {#figs7d}
+
+```{r figs7d-code, code=code_for("../script/FigureS7.R", "S7d"), eval=FALSE}
+```
+
+```{r figs7d-img, echo=FALSE, out.width="80%"}
+knitr::include_graphics("assets/ExtendedDataFigure7/S7d_discovery_scores_by_cluster.png")
+```
+
+::: {.figcaption}
+**Extended Data Fig. 7D.** Single-cell discovery scores for cells from each
+omitted cluster with the complete reference (black) or after ablation (red).
+The dashed line indicates the discovery-score threshold of 1.1 used to flag
+candidate states not represented in the reference. Against the complete
+reference 0.1% of these cells exceed the threshold; after ablation 16.0% do.
+Seventeen of the eighteen ablated clusters are shown, as in the published
+panel; CD4.wZ appears in (B) and (C) but not here.
 :::

@@ -36,7 +36,7 @@ Rscript script/Figure4.R
 | S4 | `FigureS4.R` | S4a, S4b, S4d | S4c |
 | S5 | `FigureS5.R` | S5a–S5k | — |
 | S6 | `FigureS6.R` | S6b–S6h | S6a |
-| S7 | `FigureS7.R` | S7a, S7b, S7c | S7d |
+| S7 | `FigureS7.R` | S7a–S7d | — |
 | S8 | `FigureS8.R` | S8 | — |
 | S9 | `FigureS9.R` | S9a, S9b | — |
 | S10 | `FigureS10.R` | S10a–S10f | — |

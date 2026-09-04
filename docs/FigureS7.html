@@ -364,7 +364,7 @@ reference</h1>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -375,8 +375,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -385,13 +385,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-09-03
+<strong>Last updated:</strong> 2026-09-04
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -415,18 +415,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -517,15 +520,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreead6d1095aec6448bec167f7f40c70e9107e34fa4targetblankad6d109a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/ad6d1095aec6448bec167f7f40c70e9107e34fa4" target="_blank">ad6d109</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreead6d1095aec6448bec167f7f40c70e9107e34fa4targetblankad6d109a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -535,7 +538,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/ad6d1095aec6448bec167f7f40c70e9107e34fa4" target="_blank">ad6d109</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,39 +554,43 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .Rproj.user/
     Ignored:    .claude/
     Ignored:    code/.DS_Store
     Ignored:    data/
+    Ignored:    figures/.DS_Store
+    Ignored:    immgenT-Cosmo.zip
     Ignored:    internal/
 
+Untracked files:
+    Untracked:  analysis/assets/ExtendedDataFigure7/S7d_discovery_scores_by_cluster.png
+    Untracked:  figures/Extended Data Figure 7/S7d_discovery_scores_by_cluster.pdf
+
 Unstaged changes:
-    Modified:   code/R/alluvial.R
-    Modified:   code/R/composition.R
-    Modified:   code/R/discovery.R
-    Modified:   code/R/gene_auc.R
-    Modified:   code/R/organ_mde.R
-    Modified:   code/R/separability.R
-    Modified:   code/R/setup.R
-    Modified:   code/R/trbi_plots.R
-    Modified:   script/Figure1.R
-    Modified:   script/Figure10.R
-    Modified:   script/Figure2.R
-    Modified:   script/Figure3.R
-    Modified:   script/Figure4.R
-    Modified:   script/Figure5.R
-    Modified:   script/Figure6.R
-    Modified:   script/Figure7.R
-    Modified:   script/Figure8.R
-    Modified:   script/FigureS1.R
-    Modified:   script/FigureS10.R
-    Modified:   script/FigureS11.R
-    Modified:   script/FigureS3.R
-    Modified:   script/FigureS4.R
-    Modified:   script/FigureS5.R
-    Modified:   script/FigureS6.R
+    Modified:   analysis/FigureS7.Rmd
+    Modified:   code/README.md
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.A.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.B.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.C.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.D.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.E.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.F.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.G.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.H.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.I.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.P.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.Q.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.R.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.S.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.T.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.U.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.X.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.Y.pdf
+    Modified:   figures/Extended Data Figure 7/S7a_ablation_MDE_CD4.wZ.pdf
+    Modified:   figures/Extended Data Figure 7/S7b_ablation_confusion_matrix.pdf
+    Modified:   figures/Extended Data Figure 7/S7c_ablation_confidence_scores.pdf
     Modified:   script/FigureS7.R
-    Modified:   script/FigureS8.R
-    Modified:   script/FigureS9.R
+    Modified:   script/README.md
 
 </code></pre>
 <p>
@@ -628,6 +635,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/2c6008b94accd57d20158288dcc83e474c0672df/docs/FigureS7.html" target="_blank">2c6008b</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Drop interpretive commentary from the code comments
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -729,11 +753,6 @@ clusters were removed from the immgenT reference in turn, and cells
 belonging to the omitted cluster were mapped back as query cells using
 T-RBI. Results were compared with mapping against the complete,
 non-ablated reference.</p>
-<p>Panel <strong>S7d</strong> shows single-cell discovery scores for
-cells from each omitted cluster, with and without ablation. The cached
-ablation objects were reduced to the assignment and confidence columns
-and do not retain the discovery score, so the panel is not reproduced
-here.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
 <pre class="r"><code># Extended Data Figure 7. Ablation tests assess the ability of T-RBI to detect
@@ -748,17 +767,15 @@ here.</p>
 #   S7b  Cluster assignments of cells from each omitted cluster.
 #   S7c  Annotation confidence for misclassified cells: no ablation, and
 #        ablation before and after fine-tuning.
-#
-# Panel S7d (single-cell discovery scores per omitted cluster) is not
-# reproduced here: the cached ablation objects were dieted down to the
-# confidence and assignment columns and do not retain the discovery score.
-# See analysis/FigureS7.Rmd and code/README.md.
+#   S7d  Single-cell discovery scores per omitted cluster, with the complete
+#        reference and after ablation.
 #
 #
 # Required inputs (data/) -- see code/README.md:
 #   immgenT_seurat_ADT_GeneSubset.Rds        [primary input]
 #   CD4Ablation_trbi_seurat_objects.Rds      [primary input]
 #   CD4NoAblation_trbi_seurat.Rds            [primary input]
+#   CD4Ablation_discovery_scores.csv         [primary input]
 
 suppressPackageStartupMessages({
     library(dplyr)
@@ -779,6 +796,12 @@ ABLATED_CLUSTERS &lt;- c(
     &quot;CD4.I&quot;, &quot;CD4.Q&quot;, &quot;CD4.R&quot;, &quot;CD4.S&quot;, &quot;CD4.T&quot;, &quot;CD4.U&quot;, &quot;CD4.X&quot;, &quot;CD4.Y&quot;,
     &quot;CD4.wZ&quot;, &quot;CD4.P&quot;
 )
+
+# Panel d shows seventeen of them, in alphabetical order. CD4.wZ is omitted, as
+# it is in the published panel, though it appears in panels b and c. The score
+# table also carries cells from CD4.wM and CD4.wN, whose clusters were never
+# ablated; they are excluded here too.
+DISCOVERY_CLUSTERS &lt;- sort(setdiff(ABLATED_CLUSTERS, &quot;CD4.wZ&quot;))
 
 # ============================================================
 # Load data
@@ -1732,6 +1755,68 @@ mapped to the complete reference without ablation. If two neighbouring
 clusters were an arbitrary split of one state, removing one should
 reassign its cells to the other at undiminished confidence; the drop
 shown here is evidence that they are distinct.</p>
+</div>
+</div>
+<div id="figs7d" class="section level2">
+<h2>(D) Discovery scores per omitted cluster</h2>
+<pre class="r"><code># ============================================================
+# S7d: Discovery scores per omitted cluster
+# ============================================================
+# The same 19,643 query cells scored twice: against the complete reference and
+# against the reference with their own cluster removed. The threshold is the
+# 1.1 used for the external studies (see code/R/discovery.R). One point per
+# cell, jittered within each cluster and dodged by condition.
+scores &lt;- read.csv(sprintf(&quot;%s/CD4Ablation_discovery_scores.csv&quot;, data_path),
+                   row.names = 1, check.names = FALSE)
+
+df_s7d &lt;- scores %&gt;%
+    mutate(cell = rownames(scores)) %&gt;%
+    pivot_longer(cols = c(&quot;No Ablation&quot;, &quot;Ablation&quot;),
+                 names_to = &quot;condition&quot;, values_to = &quot;discovery_score&quot;) %&gt;%
+    filter(level2_orig %in% DISCOVERY_CLUSTERS) %&gt;%
+    mutate(
+        level2_orig = factor(level2_orig, levels = DISCOVERY_CLUSTERS),
+        condition = factor(condition, levels = c(&quot;No Ablation&quot;, &quot;Ablation&quot;))
+    )
+
+p_s7d &lt;- ggplot(df_s7d,
+                aes(level2_orig, discovery_score, colour = condition)) +
+    geom_point(
+        position = position_jitterdodge(jitter.width = 0.35, dodge.width = 0.8),
+        size = 0.2, alpha = 0.4
+    ) +
+    scale_colour_manual(values = c(&quot;No Ablation&quot; = &quot;black&quot;,
+                                   &quot;Ablation&quot; = &quot;red&quot;)) +
+    geom_hline(yintercept = 1.1, linetype = &quot;dashed&quot;, linewidth = 0.4) +
+    ylim(0, 2) +
+    labs(x = NULL, y = &quot;Discovery score&quot;, colour = NULL) +
+    # Legend inside the panel, top left, as in the published figure. Point size
+    # is overridden in the key so the legend is readable at the size the data
+    # points are drawn.
+    guides(colour = guide_legend(override.aes = list(size = 2, alpha = 1))) +
+    theme_classic(base_size = 12) +
+    theme(
+        axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = &quot;inside&quot;,
+        legend.position.inside = c(0.02, 0.98),
+        legend.justification = c(0, 1),
+        legend.background = element_blank()
+    ) +
+    NoGrid()
+
+panel_pdf(figure_dir, &quot;S7d_discovery_scores_by_cluster&quot;, 8, 5)
+print(p_s7d)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure7/S7d_discovery_scores_by_cluster.png" width="80%" style="display: block; margin: auto;" /></p>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 7D.</strong> Single-cell discovery scores
+for cells from each omitted cluster with the complete reference (black)
+or after ablation (red). The dashed line indicates the discovery-score
+threshold of 1.1 used to flag candidate states not represented in the
+reference. Against the complete reference 0.1% of these cells exceed the
+threshold; after ablation 16.0% do. Seventeen of the eighteen ablated
+clusters are shown, as in the published panel; CD4.wZ appears in (B) and
+(C) but not here.</p>
 </div>
 <br>
 <p>
