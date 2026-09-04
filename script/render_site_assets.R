@@ -40,6 +40,12 @@ pdfs <- list.files(src, pattern = "\\.pdf$", recursive = TRUE,
                    full.names = TRUE)
 if (!length(pdfs)) stop("No panel PDFs found under ", src, "/")
 
+# Clear the asset tree first. Without this, a panel that a figure script stops
+# producing -- renamed, or dropped as unpublished -- leaves its PNG behind, and
+# the site keeps a stale image that nothing regenerates.
+if (dir.exists(dst)) unlink(dst, recursive = TRUE)
+dir.create(dst, recursive = TRUE, showWarnings = FALSE)
+
 n <- 0L
 for (pdf in pdfs) {
     figure <- basename(dirname(pdf))

@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="David Zemmour" />
+
+
+<title>Extended Data Figure 6: T-RBI metrics</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">immgenT-cosmo-analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dzemmour/immgenT-cosmo-analysis">source</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Extended Data Figure 6: T-RBI metrics</h1>
+<h4 class="author">David Zemmour</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-09-03
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>Cosmo_paper_github/analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed1code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(1)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed1code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(1)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5224d19">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 5224d19
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong5224d19"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 5224d19.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    data/
+    Ignored:    internal/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/FigureS6.Rmd</code>) and HTML
+(<code>docs/FigureS6.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Port cosmo_paper.Rmd into a workflowr repository
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>All panels are produced by <a
+href="https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS6.R"><code>script/FigureS6.R</code></a>.
+The code below is shown for reference (not re-executed on this page);
+the images are its pre-rendered output.</p>
+<p>Panel <strong>S6a</strong> shows the Miller et al. dataset on its own
+UMAP with the immgenT unclassified cells marked. It needs that study’s
+own embedding, which is not part of the deposited data, and is not
+reproduced here.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<pre class="r"><code># Extended Data Figure 6. T-RBI metrics.
+#
+# Panels produced:
+#   S6b  Non-T cells from the external studies on the all-T MDE, as a positive
+#        control for detecting states absent from the reference.
+#   S6c  Proportion of cells per study without a lineage (level-1) annotation.
+#   S6d  Lineage marker expression across the integrated external cells.
+#   S6e  Proportion of T cells per study without a cluster (level-2) annotation.
+#   S6f  Cluster-level unannotated T cells on the all-T MDE.
+#   S6g  Single-cell discovery score on the all-T MDE.
+#   S6h  Discovery score distribution per study.
+#
+# Panel S6a (UMAP of the Miller et al. dataset with unclassified cells marked)
+# needs that study&#39;s own embedding, which is not among the cached inputs; see
+# analysis/FigureS6.Rmd and code/README.md.
+#
+#
+# Required inputs (data/) -- see code/README.md:
+#   immgenT_seurat_ADT_GeneSubset.Rds                              [primary input]
+#   trbi_17studies_diet_merged.Rds                                 [primary input]
+#   TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds       [code/pipeline/03]
+
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(ggplot2)
+    library(scattermore)
+})
+
+source(&quot;code/R/setup.R&quot;)
+source(&quot;code/R/trbi_plots.R&quot;)
+
+figure_dir &lt;- &quot;Extended Data Figure 6&quot;
+
+# level2_final values that name a lineage rather than a cluster: cells placed
+# confidently in a lineage but left unresolved at cluster level.
+UNANNOTATED_LEVEL2 &lt;- c(&quot;not classified&quot;, &quot;CD4&quot;, &quot;CD8&quot;, &quot;Treg&quot;, &quot;gdT&quot;,
+                        &quot;nonconv&quot;, &quot;Tz&quot;, &quot;CD8aa&quot;, &quot;DN&quot;, &quot;DP&quot;, &quot;thymocyte&quot;)
+
+# ============================================================
+# Load data
+# ============================================================
+so_atlas &lt;- readRDS(sprintf(&quot;%s/immgenT_seurat_ADT_GeneSubset.Rds&quot;, data_path))
+so_merged_orig &lt;- readRDS(sprintf(&quot;%s/trbi_17studies_diet_merged.Rds&quot;,
+                                  data_path))
+
+so_merged &lt;- so_merged_orig[, !so_merged_orig$level1_final %in%
+                                c(&quot;nonT&quot;, &quot;unclear&quot;)]
+so_merged$level1_final[so_merged$level1_final == &quot;nonconv&quot;] &lt;- &quot;Tz&quot;
+
+bkrg &lt;- trbi_background(so_atlas, &quot;mde2_totalvi_20241006&quot;)</code></pre>
+</div>
+<div id="figs6b" class="section level2">
+<h2>(B) Non-T cells as a positive control</h2>
+<pre class="r"><code># ============================================================
+# S6b: Non-T cells as a positive control
+# ============================================================
+# Contaminating non-T cells are the one population certain to be absent from a
+# T-cell reference, so where they land tests whether integration forces query
+# cells onto the reference manifold. They do not overlap it.
+so_merged_orig$is_nonT &lt;- so_merged_orig$level1_final == &quot;nonT&quot;
+dat_all &lt;- trbi_foreground_df(so_merged_orig, &quot;mde_incremental_allT&quot;)
+
+panel_pdf(figure_dir, &quot;S6b_MDE_nonT_cells&quot;, 5, 5)
+print(
+    bkrg +
+        geom_scattermore(data = dat_all, aes(dim1, dim2), color = &quot;black&quot;,
+                         pointsize = 3, pixels = c(1024, 1024)) +
+        geom_point(data = dat_all[dat_all$is_nonT, ], aes(dim1, dim2),
+                   color = &quot;red&quot;, size = 1, alpha = 0.1) +
+        ggtitle(&quot;non-T in red, other query cells black, immgenT grey&quot;) +
+        trbi_theme() + NoLegend()
+)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure6/S6b_MDE_nonT_cells.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6b_MDE_nonT_cells">
+Past versions of S6b_MDE_nonT_cells.png
+</button>
+</p>
+<div id="fig-S6b_MDE_nonT_cells" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 6B.</strong> All-T MDE with T cells from
+16 external studies integrated by T-RBI, immgenT cells in the background
+(grey). Non-T cells from the external studies (red) cluster separately,
+demonstrating that integration does not force overlap with T cells. They
+are the one population certain to be absent from a T-cell reference and
+so serve as the positive control for detecting states the reference
+lacks.</p>
+</div>
+</div>
+<div id="figs6ce" class="section level2">
+<h2>(C, E) Unannotated fractions per study</h2>
+<pre class="r"><code># ============================================================
+# S6c/S6e: Unannotated fractions per study
+# ============================================================
+prop_level1 &lt;- so_merged@meta.data %&gt;%
+    as.data.frame() %&gt;%
+    count(dataset, level1_final, name = &quot;n_cells&quot;) %&gt;%
+    group_by(dataset) %&gt;%
+    mutate(prop = n_cells / sum(n_cells)) %&gt;%
+    ungroup() %&gt;%
+    filter(level1_final == &quot;not classified&quot;)
+
+panel_pdf(figure_dir, &quot;S6c_barplot_unannotated_level1&quot;, 5, 5)
+print(
+    ggplot(prop_level1, aes(x = dataset, y = prop * 100)) +
+        geom_col(fill = &quot;black&quot;) +
+        labs(x = &quot;Dataset&quot;, y = &quot;% not annotated&quot;,
+             title = &quot;Cells without a lineage annotation&quot;) +
+        theme_bw(base_size = 12) +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        NoGrid()
+)
+dev.off()
+
+prop_level2 &lt;- so_merged@meta.data %&gt;%
+    as.data.frame() %&gt;%
+    group_by(dataset) %&gt;%
+    summarise(prop_unannotated = mean(level2_final %in% UNANNOTATED_LEVEL2),
+              .groups = &quot;drop&quot;)
+
+panel_pdf(figure_dir, &quot;S6e_barplot_unannotated_level2&quot;, 5, 5)
+print(
+    ggplot(prop_level2, aes(x = dataset, y = prop_unannotated * 100)) +
+        geom_col(fill = &quot;black&quot;) +
+        labs(x = &quot;Dataset&quot;, y = &quot;% not annotated&quot;,
+             title = &quot;T cells without a cluster annotation&quot;) +
+        theme_bw(base_size = 12) +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        NoGrid()
+)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6c_barplot_unannotated_level1">
+Past versions of S6c_barplot_unannotated_level1.png
+</button>
+</p>
+<div id="fig-S6c_barplot_unannotated_level1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6e_barplot_unannotated_level2">
+Past versions of S6e_barplot_unannotated_level2.png
+</button>
+</p>
+<div id="fig-S6e_barplot_unannotated_level2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 6C, E.</strong> Bar plots showing the
+proportion of cells from each external study that are not annotated with
+a T-cell lineage (level 1, C) and the proportion of T cells not
+annotated with an immgenT cluster (level 2, E). A cell counts as
+unannotated at cluster level either when its confidence falls below
+threshold or when it is confidently placed in a lineage but left
+unresolved within it.</p>
+</div>
+</div>
+<div id="figs6d" class="section level2">
+<h2>(D) Lineage markers across integrated cells</h2>
+<pre class="r"><code># ============================================================
+# S6d: Lineage markers across the integrated external cells
+# ============================================================
+# Marker expression is not used by the mapping, so agreement between where a
+# query cell lands and which lineage transcript it expresses is an independent
+# check on the annotation.
+for (gene in c(&quot;Cd4&quot;, &quot;Cd8b1&quot;, &quot;Cd8a&quot;, &quot;Trdc&quot;, &quot;Foxp3&quot;, &quot;Zbtb16&quot;)) {
+    # Cd8b1 and Cd8a are left uncapped, as in the original analysis; the other
+    # four are capped at the 90th percentile.
+    max_cut &lt;- if (gene %in% c(&quot;Cd8b1&quot;, &quot;Cd8a&quot;)) NA else &quot;q90&quot;
+    panel_pdf(figure_dir, sprintf(&quot;S6d_FeaturePlot_%s&quot;, gene), 5, 5)
+    print(
+        FeaturePlot(so_merged_orig, raster.dpi = c(1024, 1024),
+                    features = gene, order = TRUE,
+                    reduction = &quot;mde_incremental_allT&quot;,
+                    max.cutoff = max_cut) +
+            xlim(TRBI_XLIM) + ylim(TRBI_YLIM) + theme_void()
+    )
+    dev.off()
+}</code></pre>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd4.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Cd4">
+Past versions of S6d_FeaturePlot_Cd4.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Cd4" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd8b1.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Cd8b1">
+Past versions of S6d_FeaturePlot_Cd8b1.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Cd8b1" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Cd8a.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Cd8a">
+Past versions of S6d_FeaturePlot_Cd8a.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Cd8a" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Trdc.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Trdc">
+Past versions of S6d_FeaturePlot_Trdc.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Trdc" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Foxp3.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Foxp3">
+Past versions of S6d_FeaturePlot_Foxp3.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Foxp3" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6d_FeaturePlot_Zbtb16.png" width="32%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6d_FeaturePlot_Zbtb16">
+Past versions of S6d_FeaturePlot_Zbtb16.png
+</button>
+</p>
+<div id="fig-S6d_FeaturePlot_Zbtb16" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 6D.</strong> All-T MDE showing expression
+of Cd4, Cd8b1, Cd8a, Trdc, Foxp3 and Zbtb16 in the external studies,
+illustrating concordance between lineage marker expression and immgenT
+positioning. Marker expression is not used by the mapping, so this
+agreement is an independent check on the annotation.</p>
+</div>
+</div>
+<div id="figs6f" class="section level2">
+<h2>(F) Cluster-level unannotated T cells</h2>
+<pre class="r"><code># ============================================================
+# S6f: Cluster-level unannotated T cells
+# ============================================================
+# Unannotated T cells are interspersed among annotated ones rather than
+# forming a population of their own, which is what distinguishes ordinary
+# boundary ambiguity from a state the reference lacks.
+so_merged$is_unannotated_level2 &lt;-
+    so_merged$level2_final %in% UNANNOTATED_LEVEL2
+dat_frg &lt;- trbi_foreground_df(so_merged, &quot;mde_incremental_allT&quot;)
+
+panel_pdf(figure_dir, &quot;S6f_MDE_unannotated_level2&quot;, 5, 5)
+print(
+    bkrg +
+        geom_scattermore(data = dat_frg, aes(dim1, dim2), col = &quot;grey0&quot;,
+                         pointsize = 3, pixels = c(1024, 1024)) +
+        geom_scattermore(data = dat_frg[dat_frg$is_unannotated_level2, ],
+                         aes(dim1, dim2), color = &quot;red&quot;,
+                         pixels = c(512, 512)) +
+        ggtitle(&quot;Cluster-level unannotated T cells in red&quot;) +
+        trbi_theme() + NoLegend()
+)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure6/S6f_MDE_unannotated_level2.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6f_MDE_unannotated_level2">
+Past versions of S6f_MDE_unannotated_level2.png
+</button>
+</p>
+<div id="fig-S6f_MDE_unannotated_level2" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 6F.</strong> All-T MDE with integrated
+external T cells in the foreground and immgenT cells in grey. T cells
+unannotated at cluster level (red) remain embedded within the immgenT
+manifold and do not form distinct clusters, which is what distinguishes
+ordinary boundary ambiguity from a state the reference lacks.</p>
+</div>
+</div>
+<div id="figs6gh" class="section level2">
+<h2>(G, H) Discovery score</h2>
+<pre class="r"><code># ============================================================
+# S6g/S6h: Discovery score
+# ============================================================
+# Scores are read from cache: each is computed in its own study&#39;s PCA space,
+# independently of the integration (see code/R/discovery.R). Non-T cells are
+# retained here as the positive control, which is what distinguishes these two
+# panels from Figure 5f.
+scores &lt;- readRDS(sprintf(
+    &quot;%s/TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds&quot;, data_path
+))
+
+# Diverging ramp centred on 1, the value at which a cell is equidistant from
+# annotated and unannotated neighbours, and squished at 2 so the conservative
+# 1.1 threshold sits in the visible part of the scale.
+score_ramp &lt;- rev(colorRampPalette(c(&quot;red&quot;, &quot;white&quot;, &quot;blue&quot;))(20))
+
+panel_pdf(figure_dir, &quot;S6g_MDE_discovery_score&quot;, 5, 5)
+print(
+    bkrg +
+        geom_scattermore(data = dat_frg, aes(dim1, dim2), col = &quot;grey0&quot;,
+                         pointsize = 3, pixels = c(1024, 1024)) +
+        geom_point(data = scores[!is.na(scores$ratio), ],
+                   aes(mde_incremental_allT_dim1, mde_incremental_allT_dim2,
+                       colour = ratio),
+                   size = 0.25) +
+        scale_color_gradientn(colours = score_ramp, limits = c(0, 2),
+                              oob = scales::squish) +
+        ggtitle(&quot;Discovery score&quot;) +
+        trbi_theme()
+)
+dev.off()
+
+panel_pdf(figure_dir, &quot;S6h_discovery_score_by_dataset&quot;, 5, 5)
+print(
+    ggplot(scores, aes(x = dataset, y = ratio)) +
+        geom_boxplot(outlier.shape = NA, fill = NA, colour = &quot;black&quot;) +
+        geom_jitter(width = 0.2, alpha = 0.3, size = 0.1) +
+        geom_hline(yintercept = 1.1, colour = &quot;brown&quot;, linetype = &quot;dashed&quot;,
+                   linewidth = 0.5) +
+        labs(x = &quot;Dataset&quot;, y = &quot;Discovery score&quot;) +
+        ylim(0, 10) +
+        theme_bw(base_size = 11) +
+        theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+        NoGrid()
+)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure6/S6g_MDE_discovery_score.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6g_MDE_discovery_score">
+Past versions of S6g_MDE_discovery_score.png
+</button>
+</p>
+<div id="fig-S6g_MDE_discovery_score" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure6/S6h_discovery_score_by_dataset.png" width="45%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6h_discovery_score_by_dataset">
+Past versions of S6h_discovery_score_by_dataset.png
+</button>
+</p>
+<div id="fig-S6h_discovery_score_by_dataset" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 6G, H.</strong> <strong>G</strong>: all-T
+MDE coloured by the single-cell discovery score for the external
+studies; non-T cells exhibit high scores (red; &gt; 1.1).
+<strong>H</strong>: distribution of discovery scores across external
+studies, including non-T cells as positive controls. High scores
+indicate query cells that form coherent states outside the immgenT
+reference. Each score is computed in its own study’s PCA space,
+independently of the integration it audits.</p>
+</div>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.2 (2024-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: America/Chicago
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5       cli_3.6.5         knitr_1.50        rlang_1.1.6      
+ [5] xfun_0.52         stringi_1.8.7     promises_1.3.2    jsonlite_2.0.0   
+ [9] workflowr_1.7.2   glue_1.8.0        rprojroot_2.0.4   git2r_0.36.2     
+[13] htmltools_0.5.8.1 httpuv_1.6.16     sass_0.4.10       rmarkdown_2.29   
+[17] evaluate_1.0.3    jquerylib_0.1.4   tibble_3.3.0      fastmap_1.2.0    
+[21] yaml_2.3.10       lifecycle_1.0.4   whisker_0.4.1     stringr_1.5.1    
+[25] compiler_4.4.2    fs_1.6.6          Rcpp_1.1.0        pkgconfig_2.0.3  
+[29] later_1.4.2       digest_0.6.37     R6_2.6.1          pillar_1.11.0    
+[33] magrittr_2.0.3    bslib_0.9.0       tools_4.4.2       cachem_1.1.0     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

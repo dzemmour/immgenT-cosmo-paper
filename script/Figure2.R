@@ -35,6 +35,11 @@
 # Panel 2f: the Rmd additionally gated CD62L-single-positive, CD44-single-
 # positive, double-positive and double-negative populations and drew all four on
 # the all-T MDE. Only the two single-positive panels are published.
+#
+# Panel 2h: the Rmd also placed each experiment's own clusters on the all-T MDE,
+# an intermediate view between the two the panel shows. Not published, so not
+# drawn here; `mypal_batch` is still keyed on those clusters so the
+# pre-integration plot keeps its colours.
 # --- end internal ---
 #
 # Required inputs (data/) -- see code/README.md:
@@ -252,18 +257,6 @@ for (igt_id in names(colon_experiments)) {
     tmp@meta.data$RNA_clusters <- as.character(
         igt$RNA_clusters[match(colnames(tmp), colnames(igt))]
     )
-
-    panel_pdf(figure_dir,
-              sprintf("2h_%s_MDE_RNAclusters", igt_id), 5, 5)
-    print(
-        highlight_mde(
-            tmp, umap_to_plot = "mde2_totalvi_20241006",
-            cells_to_highlight = colon_cells,
-            highlight_column_name = "RNA_clusters", mycols = mypal_batch,
-            labelclusters = FALSE, which = "plot2"
-        )
-    )
-    dev.off()
 
     panel_pdf(figure_dir,
               sprintf("2h_%s_MDE_level1", igt_id), 5, 5)

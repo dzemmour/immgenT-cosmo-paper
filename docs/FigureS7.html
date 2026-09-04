@@ -1,0 +1,1772 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="David Zemmour" />
+
+
+<title>Extended Data Figure 7: Ablation tests assess the ability of T-RBI to detect T-cell states absent from the reference</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">immgenT-cosmo-analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dzemmour/immgenT-cosmo-analysis">source</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Extended Data Figure 7: Ablation tests
+assess the ability of T-RBI to detect T-cell states absent from the
+reference</h1>
+<h4 class="author">David Zemmour</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-09-03
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>Cosmo_paper_github/analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed1code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(1)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed1code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(1)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5224d19">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 5224d19
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong5224d19"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 5224d19.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    data/
+    Ignored:    internal/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/FigureS7.Rmd</code>) and HTML
+(<code>docs/FigureS7.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Port cosmo_paper.Rmd into a workflowr repository
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>All panels are produced by <a
+href="https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS7.R"><code>script/FigureS7.R</code></a>.
+The code below is shown for reference (not re-executed on this page);
+the images are its pre-rendered output.</p>
+<p>To simulate mapping of novel T-cell states, individual CD4 reference
+clusters were removed from the immgenT reference in turn, and cells
+belonging to the omitted cluster were mapped back as query cells using
+T-RBI. Results were compared with mapping against the complete,
+non-ablated reference.</p>
+<p>Panel <strong>S7d</strong> shows single-cell discovery scores for
+cells from each omitted cluster, with and without ablation. The cached
+ablation objects were reduced to the assignment and confidence columns
+and do not retain the discovery score, so the panel is not reproduced
+here.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<pre class="r"><code># Extended Data Figure 7. Ablation tests assess the ability of T-RBI to detect
+# T-cell states absent from the reference.
+#
+# Individual CD4 clusters were removed from the reference in turn and their
+# cells mapped back as queries, then compared with mapping against the complete
+# reference.
+#
+# Panels produced:
+#   S7a  Query cells from each omitted cluster on the ablated CD4 MDE.
+#   S7b  Cluster assignments of cells from each omitted cluster.
+#   S7c  Annotation confidence for misclassified cells: no ablation, and
+#        ablation before and after fine-tuning.
+#
+# Panel S7d (single-cell discovery scores per omitted cluster) is not
+# reproduced here: the cached ablation objects were dieted down to the
+# confidence and assignment columns and do not retain the discovery score.
+# See analysis/FigureS7.Rmd and code/README.md.
+#
+#
+# Required inputs (data/) -- see code/README.md:
+#   immgenT_seurat_ADT_GeneSubset.Rds        [primary input]
+#   CD4Ablation_trbi_seurat_objects.Rds      [primary input]
+#   CD4NoAblation_trbi_seurat.Rds            [primary input]
+
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(purrr)
+    library(ggplot2)
+    library(scattermore)
+    library(tidyr)
+    library(scales)
+})
+
+source(&quot;code/R/setup.R&quot;)
+
+figure_dir &lt;- &quot;Extended Data Figure 7&quot;
+
+# The 18 CD4 clusters ablated in turn.
+ABLATED_CLUSTERS &lt;- c(
+    &quot;CD4.A&quot;, &quot;CD4.B&quot;, &quot;CD4.C&quot;, &quot;CD4.D&quot;, &quot;CD4.E&quot;, &quot;CD4.F&quot;, &quot;CD4.G&quot;, &quot;CD4.H&quot;,
+    &quot;CD4.I&quot;, &quot;CD4.Q&quot;, &quot;CD4.R&quot;, &quot;CD4.S&quot;, &quot;CD4.T&quot;, &quot;CD4.U&quot;, &quot;CD4.X&quot;, &quot;CD4.Y&quot;,
+    &quot;CD4.wZ&quot;, &quot;CD4.P&quot;
+)
+
+# ============================================================
+# Load data
+# ============================================================
+so_list &lt;- readRDS(sprintf(&quot;%s/CD4Ablation_trbi_seurat_objects.Rds&quot;,
+                           data_path))
+so_orig &lt;- readRDS(sprintf(&quot;%s/immgenT_seurat_ADT_GeneSubset.Rds&quot;, data_path))
+so_cd4 &lt;- so_orig[, so_orig@meta.data %&gt;%
+                      filter(annotation_level1 == &quot;CD4&quot;,
+                             organ_simplified != &quot;thymus&quot;) %&gt;%
+                      rownames()]</code></pre>
+</div>
+<div id="figs7a" class="section level2">
+<h2>(A) Omitted-cluster cells on the ablated CD4 MDE</h2>
+<pre class="r"><code># ============================================================
+# S7a: Omitted-cluster cells on the ablated CD4 MDE
+# ============================================================
+# Two background layers: the whole CD4 reference in black, and in white the
+# position the omitted cluster occupied in the complete reference. The query
+# cells land in that white gap, which is the panel&#39;s point -- MDE preserves
+# local neighbourhoods, so cells return to the hole their cluster left behind.
+bg_cd4 &lt;- AddEmbeddingRasterBackground(
+    lineage = &quot;CD4&quot;, interpolate = FALSE, color = &quot;black&quot;, alpha = 0.5
+)
+
+for (mycl in ABLATED_CLUSTERS) {
+    so &lt;- so_list[[mycl]]
+
+    bg_cluster &lt;- geom_scattermore(
+        data = as.data.frame(
+            so_cd4[, so_cd4$annotation_level2 == mycl][[&quot;mde_incremental&quot;]]@cell.embeddings
+        ),
+        aes(mdeincremental_1, mdeincremental_2),
+        color = &quot;white&quot;
+    )
+
+    p &lt;- DimPlot(
+        so[, so$level2_orig == mycl],
+        reduction = &quot;mde_incremental_level2&quot;,
+        group.by = &quot;level2_orig&quot;,
+        pt.size = 2, label = FALSE, raster = TRUE,
+        cols = mypal_level2
+    )
+    p$layers &lt;- c(list(bg_cd4), list(bg_cluster), p$layers)
+
+    panel_pdf(figure_dir, sprintf(&quot;S7a_ablation_MDE_%s&quot;, mycl), 6, 6)
+    print(
+        p + theme_void() +
+            coord_fixed(xlim = c(-2.5, 3.5), ylim = c(-2.5, 2.5)) +
+            ggtitle(mycl) + NoLegend()
+    )
+    dev.off()
+}</code></pre>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.A.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.A">
+Past versions of S7a_ablation_MDE_CD4.A.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.A" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.B.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.B">
+Past versions of S7a_ablation_MDE_CD4.B.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.B" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.C.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.C">
+Past versions of S7a_ablation_MDE_CD4.C.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.C" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.D.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.D">
+Past versions of S7a_ablation_MDE_CD4.D.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.D" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.E.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.E">
+Past versions of S7a_ablation_MDE_CD4.E.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.E" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.F.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.F">
+Past versions of S7a_ablation_MDE_CD4.F.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.F" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.G.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.G">
+Past versions of S7a_ablation_MDE_CD4.G.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.G" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.H.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.H">
+Past versions of S7a_ablation_MDE_CD4.H.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.H" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.I.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.I">
+Past versions of S7a_ablation_MDE_CD4.I.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.I" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.P.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.P">
+Past versions of S7a_ablation_MDE_CD4.P.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.P" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.Q.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.Q">
+Past versions of S7a_ablation_MDE_CD4.Q.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.Q" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.R.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.R">
+Past versions of S7a_ablation_MDE_CD4.R.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.R" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.S.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.S">
+Past versions of S7a_ablation_MDE_CD4.S.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.S" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.T.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.T">
+Past versions of S7a_ablation_MDE_CD4.T.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.T" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.U.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.U">
+Past versions of S7a_ablation_MDE_CD4.U.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.U" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.X.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.X">
+Past versions of S7a_ablation_MDE_CD4.X.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.X" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.Y.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.Y">
+Past versions of S7a_ablation_MDE_CD4.Y.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.Y" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure7/S7a_ablation_MDE_CD4.wZ.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7a_ablation_MDE_CD4.wZ">
+Past versions of S7a_ablation_MDE_CD4.wZ.png
+</button>
+</p>
+<div id="fig-S7a_ablation_MDE_CD4.wZ" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 7A.</strong> CD4 MDEs showing the
+positions of query cells from each omitted cluster after T-RBI against
+the ablated reference. Query cells map predominantly to the region
+occupied by the corresponding cluster in the complete reference — shown
+in white against the rest of the CD4 reference in black — thereby
+filling the “hole” created by its removal.</p>
+</div>
+</div>
+<div id="figs7b" class="section level2">
+<h2>(B) Cluster assignments after ablation</h2>
+<pre class="r"><code># ============================================================
+# S7b: Cluster assignments after ablation
+# ============================================================
+# Rows are the omitted cluster, columns the assignment T-RBI gave its cells
+# once that cluster was gone. Reported before fine-tuning, which is the
+# conservative reading: fine-tuning uses confidently annotated query cells to
+# resolve the remainder and so increases reassignment to neighbours.
+prop_df &lt;- imap_dfr(so_list, function(so, mycl) {
+    so@meta.data %&gt;%
+        filter(level2_orig == mycl) %&gt;%
+        count(l2 = level2_before_iter, name = &quot;n&quot;) %&gt;%
+        mutate(level2_orig = mycl, n_total = sum(n), prop = n / n_total)
+})
+
+# Columns start with &quot;not classified&quot; (the outcome the ablation is testing for)
+# and end with the miniverse clusters, which are not lineage neighbours of
+# anything and would otherwise interrupt the block of CD4 clusters.
+row_order &lt;- intersect(names(so_list), unique(prop_df$l2))
+col_order &lt;- c(row_order, setdiff(unique(prop_df$l2), row_order))
+col_order &lt;- c(
+    &quot;not classified&quot;,
+    setdiff(col_order, c(&quot;not classified&quot;, &quot;CD4.wM&quot;, &quot;CD4.wN&quot;, &quot;CD4.wZ&quot;)),
+    c(&quot;CD4.wZ&quot;, &quot;CD4.wM&quot;, &quot;CD4.wN&quot;)
+)
+
+prop_df &lt;- prop_df %&gt;%
+    mutate(
+        level2_orig = factor(level2_orig, levels = rev(row_order)),
+        l2 = factor(l2, levels = col_order)
+    )
+
+p_s7b &lt;- ggplot(prop_df, aes(l2, level2_orig)) +
+    geom_point(aes(size = prop, color = prop)) +
+    geom_text(aes(label = percent(prop, accuracy = 1)), size = 2.5,
+              color = &quot;black&quot;) +
+    scale_size_continuous(range = c(2, 9), labels = percent,
+                          name = &quot;Proportion&quot;) +
+    scale_color_gradient(low = &quot;white&quot;, high = &quot;#B40426&quot;, labels = percent,
+                         name = &quot;Proportion&quot;) +
+    scale_x_discrete(drop = FALSE) +
+    scale_y_discrete(drop = FALSE) +
+    labs(x = &quot;Assignment after ablation&quot;, y = &quot;Omitted cluster&quot;) +
+    theme_classic(base_size = 11) +
+    theme(axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1),
+          panel.grid.major = element_line(color = &quot;grey92&quot;, linewidth = 0.3)) +
+    NoGrid()
+
+panel_pdf(figure_dir, &quot;S7b_ablation_confusion_matrix&quot;, 8, 6)
+print(p_s7b)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure7/S7b_ablation_confusion_matrix.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7b_ablation_confusion_matrix">
+Past versions of S7b_ablation_confusion_matrix.png
+</button>
+</p>
+<div id="fig-S7b_ablation_confusion_matrix" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 7B.</strong> T-RBI cluster assignments of
+cells from each omitted cluster. Rows indicate the original cluster and
+columns the assigned cluster after ablation; dot size and colour
+indicate the proportion of cells receiving each assignment. Values in
+the “not classified” column give the percentage of cells remaining
+unannotated. Reported before fine-tuning, which is the conservative
+reading.</p>
+</div>
+</div>
+<div id="figs7c" class="section level2">
+<h2>(C) Confidence scores for misclassified cells</h2>
+<pre class="r"><code># ============================================================
+# S7c: Confidence scores for misclassified cells
+# ============================================================
+# The same cells under three conditions. If two neighbouring clusters were an
+# arbitrary split of one state, removing one should reassign its cells to the
+# other at undiminished confidence; the drop shown here is the evidence that
+# they are distinct.
+so_noabl &lt;- readRDS(sprintf(&quot;%s/CD4NoAblation_trbi_seurat.Rds&quot;, data_path))
+
+df &lt;- lapply(ABLATED_CLUSTERS, function(mycl) {
+    so &lt;- so_list[[mycl]]
+    cells &lt;- colnames(so)[so$level2_orig == mycl]
+    cells &lt;- intersect(cells, colnames(so_noabl))
+    md &lt;- so@meta.data[cells, , drop = FALSE]
+
+    # Cells left unclassified have no confidence score to report, so they enter
+    # as NA rather than as a low score.
+    data.frame(
+        cluster = mycl,
+        cell = cells,
+        no_ablation = so_noabl@meta.data[cells, &quot;confidence_score_after_iter&quot;],
+        before_iter = ifelse(
+            !is.na(md$level2_before_iter) &amp;
+                md$level2_before_iter != &quot;not classified&quot;,
+            md$confidence_score_before_iter, NA_real_
+        ),
+        after_iter = ifelse(
+            !is.na(md$level2_after_iter) &amp;
+                md$level2_after_iter != &quot;not classified&quot;,
+            md$confidence_score_after_iter, NA_real_
+        )
+    )
+}) %&gt;%
+    bind_rows() %&gt;%
+    tidyr::pivot_longer(cols = c(no_ablation, before_iter, after_iter),
+                        names_to = &quot;condition&quot;,
+                        values_to = &quot;confidence_score&quot;)
+
+df$cluster &lt;- factor(df$cluster, levels = ABLATED_CLUSTERS)
+df$condition &lt;- factor(
+    df$condition,
+    levels = c(&quot;no_ablation&quot;, &quot;before_iter&quot;, &quot;after_iter&quot;),
+    labels = c(&quot;No ablation&quot;, &quot;Ablation - before fine tuning&quot;,
+               &quot;Ablation - after fine tuning&quot;)
+)
+
+p_s7c &lt;- ggplot(df, aes(cluster, confidence_score, fill = condition)) +
+    geom_boxplot(position = position_dodge(width = 0.8), width = 0.7,
+                 outlier.shape = NA) +
+    scale_fill_manual(values = c(
+        &quot;No ablation&quot; = &quot;white&quot;,
+        &quot;Ablation - before fine tuning&quot; = &quot;grey70&quot;,
+        &quot;Ablation - after fine tuning&quot; = &quot;grey30&quot;
+    )) +
+    labs(x = NULL, y = &quot;Confidence score of misclassified cells&quot;, fill = NULL) +
+    theme_classic(base_size = 14) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1),
+          legend.position = &quot;top&quot;)
+
+panel_pdf(figure_dir, &quot;S7c_ablation_confidence_scores&quot;, 10, 6)
+print(p_s7c)
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure7/S7c_ablation_confidence_scores.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S7c_ablation_confidence_scores">
+Past versions of S7c_ablation_confidence_scores.png
+</button>
+</p>
+<div id="fig-S7c_ablation_confidence_scores" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 7C.</strong> T-RBI annotation confidence
+scores for cells misclassified after ablation, shown before and after
+annotation fine-tuning and compared with scores for the same cells
+mapped to the complete reference without ablation. If two neighbouring
+clusters were an arbitrary split of one state, removing one should
+reassign its cells to the other at undiminished confidence; the drop
+shown here is evidence that they are distinct.</p>
+</div>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.2 (2024-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: America/Chicago
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5       cli_3.6.5         knitr_1.50        rlang_1.1.6      
+ [5] xfun_0.52         stringi_1.8.7     promises_1.3.2    jsonlite_2.0.0   
+ [9] workflowr_1.7.2   glue_1.8.0        rprojroot_2.0.4   git2r_0.36.2     
+[13] htmltools_0.5.8.1 httpuv_1.6.16     sass_0.4.10       rmarkdown_2.29   
+[17] evaluate_1.0.3    jquerylib_0.1.4   tibble_3.3.0      fastmap_1.2.0    
+[21] yaml_2.3.10       lifecycle_1.0.4   whisker_0.4.1     stringr_1.5.1    
+[25] compiler_4.4.2    fs_1.6.6          Rcpp_1.1.0        pkgconfig_2.0.3  
+[29] later_1.4.2       digest_0.6.37     R6_2.6.1          pillar_1.11.0    
+[33] magrittr_2.0.3    bslib_0.9.0       tools_4.4.2       cachem_1.1.0     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

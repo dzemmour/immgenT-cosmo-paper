@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="David Zemmour" />
+
+
+<title>Extended Data Figure 5: Distribution of stress-related transcriptional signatures across the immgenT atlas</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.13.2/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/main/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="custom.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">immgenT-cosmo-analysis</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/dzemmour/immgenT-cosmo-analysis">source</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Extended Data Figure 5: Distribution of
+stress-related transcriptional signatures across the immgenT atlas</h1>
+<h4 class="author">David Zemmour</h4>
+
+</div>
+
+
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
+<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+workflowr <span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span>
+</button>
+</p>
+<div id="workflowr-report" class="collapse">
+<ul class="nav nav-tabs">
+<li class="active">
+<a data-toggle="tab" href="#summary">Summary</a>
+</li>
+<li>
+<a data-toggle="tab" href="#checks"> Checks <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
+</a>
+</li>
+<li>
+<a data-toggle="tab" href="#versions">Past versions</a>
+</li>
+</ul>
+<div class="tab-content">
+<div id="summary" class="tab-pane fade in active">
+<p>
+<strong>Last updated:</strong> 2026-09-03
+</p>
+<p>
+<strong>Checks:</strong> <span
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> 0
+</p>
+<p>
+<strong>Knit directory:</strong>
+<code>Cosmo_paper_github/analysis/</code> <span
+class="glyphicon glyphicon-question-sign" aria-hidden="true"
+title="This is the local directory in which the code in this file was executed.">
+</span>
+</p>
+<p>
+This reproducible <a href="https://rmarkdown.rstudio.com">R Markdown</a>
+analysis was created with <a
+  href="https://github.com/workflowr/workflowr">workflowr</a> (version
+1.7.2). The <em>Checks</em> tab describes the reproducibility checks
+that were applied when the results were created. The <em>Past
+versions</em> tab lists the development history.
+</p>
+<hr>
+</div>
+<div id="checks" class="tab-pane fade">
+<div id="workflowr-checks" class="panel-group">
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
+</a>
+</p>
+</div>
+<div id="strongRMarkdownfilestronguptodate"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great! Since the R Markdown file has been committed to the Git
+repository, you know the exact version of the code that produced these
+results.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the
+global environment can affect the analysis in your R Markdown file in
+unknown ways. For reproduciblity it’s best to always run the code in an
+empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed1code">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Seed:</strong>
+<code>set.seed(1)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed1code"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(1)</code> was run prior to running the
+code in the R Markdown file. Setting a seed ensures that any results
+that rely on randomness, e.g. subsampling or permutations, are
+reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Session information:</strong>
+recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package
+versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be
+confident that you successfully produced the results during this
+run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr
+project makes it easier to run your code on other machines.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong5224d19">
+<span class="glyphicon glyphicon-ok text-success"
+aria-hidden="true"></span> <strong>Repository version:</strong> 5224d19
+</a>
+</p>
+</div>
+<div id="strongRepositoryversionstrong5224d19"
+class="panel-collapse collapse">
+<div class="panel-body">
+<p>
+Great! You are using Git for version control. Tracking code development
+and connecting the code version to the results is critical for
+reproducibility.
+</p>
+<p>
+The results in this page were generated with repository version 5224d19.
+See the <em>Past versions</em> tab to see a history of the changes made
+to the R Markdown and HTML files.
+</p>
+<p>
+Note that you need to be careful to ensure that all relevant files for
+the analysis have been committed to Git prior to generating the results
+(you can use <code>wflow_publish</code> or
+<code>wflow_git_commit</code>). workflowr only checks the R Markdown
+file, but you know if there are other scripts or data files that it
+depends on. Below is the status of the Git repository when the results
+were generated:
+</p>
+<pre><code>
+Ignored files:
+    Ignored:    .DS_Store
+    Ignored:    data/
+    Ignored:    internal/
+
+</code></pre>
+<p>
+Note that any generated files, e.g. HTML, png, CSS, etc., are not
+included in this status report because it is ok for generated content to
+have uncommitted changes.
+</p>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</div>
+<div id="versions" class="tab-pane fade">
+<p>
+These are the previous versions of the repository in which changes were
+made to the R Markdown (<code>analysis/FigureS5.Rmd</code>) and HTML
+(<code>docs/FigureS5.html</code>) files. If you’ve configured a remote
+Git repository (see <code>?wflow_git_remote</code>), click on the
+hyperlinks in the table below to view the files as they were in that
+past version.
+</p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Port cosmo_paper.Rmd into a workflowr repository
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+</div>
+</div>
+</div>
+<p>All panels are produced by <a
+href="https://github.com/dzemmour/immgenT-cosmo-analysis/blob/main/script/FigureS5.R"><code>script/FigureS5.R</code></a>.
+The code below is shown for reference (not re-executed on this page);
+the images are its pre-rendered output.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<pre class="r"><code># Extended Data Figure 5. Distribution of stress-related transcriptional
+# signatures across the immgenT atlas.
+#
+# Panels produced:
+#   S5a-S5h  Single-cell scores for eight representative signatures on the
+#            all-T MDE.
+#   S5i      Mean signature scores across immune perturbations.
+#   S5j      Mean signature scores across anatomical sites.
+#   S5k      Mean signature scores across clusters.
+#
+#
+# Required inputs (data/) -- see code/README.md:
+#   immgenT_seurat_ADT_GeneSubset.Rds   [primary input]
+#   signatures_stress.Rds               [curated input]
+#   signature_stress_scores.csv         [code/pipeline/02]
+
+suppressPackageStartupMessages({
+    library(dplyr)
+    library(tidyr)
+    library(tibble)
+    library(ComplexHeatmap)
+    library(circlize)
+})
+
+source(&quot;code/R/setup.R&quot;)
+
+figure_dir &lt;- &quot;Extended Data Figure 5&quot;
+
+# The eight signatures shown as MDE panels, in published order.
+SIGNATURE_PANELS &lt;- c(
+    &quot;S5a&quot; = &quot;dissociation1h&quot;,
+    &quot;S5b&quot; = &quot;dissociation2h&quot;,
+    &quot;S5c&quot; = &quot;ier&quot;,
+    &quot;S5d&quot; = &quot;isr&quot;,
+    &quot;S5e&quot; = &quot;erstress_GO0034976&quot;,
+    &quot;S5f&quot; = &quot;isg_immgen&quot;,
+    &quot;S5g&quot; = &quot;hypoxia_GO0001666&quot;,
+    &quot;S5h&quot; = &quot;mt_genes&quot;
+)
+
+# ============================================================
+# Load data
+# ============================================================
+so_orig &lt;- readRDS(sprintf(&quot;%s/immgenT_seurat_ADT_GeneSubset.Rds&quot;, data_path))
+sig_list &lt;- readRDS(sprintf(&quot;%s/signatures_stress.Rds&quot;, data_path))
+
+# Scores were computed once with AddModuleScore() on the complete object and
+# cached, because scoring fourteen signatures against 683,000 cells with 100
+# control genes each is the expensive step. See code/pipeline/02_stress_scores.R.
+sig_scores &lt;- read.csv(sprintf(&quot;%s/signature_stress_scores.csv&quot;, data_path),
+                       stringsAsFactors = FALSE, check.names = FALSE)
+sig_scores &lt;- sig_scores[match(colnames(so_orig), sig_scores$cellID), ]
+stopifnot(identical(sig_scores$cellID, colnames(so_orig)))
+
+score_cols &lt;- setdiff(colnames(sig_scores), &quot;cellID&quot;)
+so_orig@meta.data[, score_cols] &lt;- sig_scores[, score_cols, drop = FALSE]
+
+so &lt;- so_orig[, so_orig@meta.data %&gt;%
+                  filter(organ_simplified != &quot;thymus&quot;) %&gt;% rownames()]</code></pre>
+</div>
+<div id="figs5ah" class="section level2">
+<h2>(A-H) Signature scores on the all-T MDE</h2>
+<pre class="r"><code># ============================================================
+# S5a-S5h: Signature scores on the all-T MDE
+# ============================================================
+# Capped at the 5th and 99th percentiles: module scores have long tails in both
+# directions, and without the cap a few extreme cells set the scale and
+# everything else renders as one flat colour.
+for (panel in names(SIGNATURE_PANELS)) {
+    sig &lt;- SIGNATURE_PANELS[[panel]]
+    panel_pdf(figure_dir, sprintf(&quot;%s_MDE_%s&quot;, panel, sig), 5, 5)
+    print(
+        FeaturePlot(
+            so, reduction = &quot;mde2_totalvi_20241006&quot;, features = sig,
+            order = TRUE, raster = TRUE, raster.dpi = c(512, 512),
+            min.cutoff = &quot;q5&quot;, max.cutoff = &quot;q99&quot;
+        ) +
+            theme_void() + ggtitle(sig) +
+            xlim(-2.5, 2.5) + ylim(-2.5, 2.5) + NoLegend()
+    )
+    dev.off()
+}</code></pre>
+<p><img src="assets/ExtendedDataFigure5/S5a_MDE_dissociation1h.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5a_MDE_dissociation1h">
+Past versions of S5a_MDE_dissociation1h.png
+</button>
+</p>
+<div id="fig-S5a_MDE_dissociation1h" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5b_MDE_dissociation2h.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5b_MDE_dissociation2h">
+Past versions of S5b_MDE_dissociation2h.png
+</button>
+</p>
+<div id="fig-S5b_MDE_dissociation2h" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5c_MDE_ier.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5c_MDE_ier">
+Past versions of S5c_MDE_ier.png
+</button>
+</p>
+<div id="fig-S5c_MDE_ier" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5d_MDE_isr.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5d_MDE_isr">
+Past versions of S5d_MDE_isr.png
+</button>
+</p>
+<div id="fig-S5d_MDE_isr" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5e_MDE_erstress_GO0034976.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5e_MDE_erstress_GO0034976">
+Past versions of S5e_MDE_erstress_GO0034976.png
+</button>
+</p>
+<div id="fig-S5e_MDE_erstress_GO0034976" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5f_MDE_isg_immgen.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5f_MDE_isg_immgen">
+Past versions of S5f_MDE_isg_immgen.png
+</button>
+</p>
+<div id="fig-S5f_MDE_isg_immgen" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5g_MDE_hypoxia_GO0001666.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5g_MDE_hypoxia_GO0001666">
+Past versions of S5g_MDE_hypoxia_GO0001666.png
+</button>
+</p>
+<div id="fig-S5g_MDE_hypoxia_GO0001666" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5h_MDE_mt_genes.png" width="24%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5h_MDE_mt_genes">
+Past versions of S5h_MDE_mt_genes.png
+</button>
+</p>
+<div id="fig-S5h_MDE_mt_genes" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 5A-H.</strong> All-T MDE showing
+single-cell scores for representative signatures: (A) 1-hour
+dissociation and (B) 2-hour dissociation signatures from van den Brink
+et al.; (C) immediate-early response signature from Bahrami et al.; (D)
+integrated stress response signature from Alicea Pauneto et al.; (E)
+ER-stress signature (<a href="GO:0034976" class="uri">GO:0034976</a>);
+(F) interferon-stimulated gene signature from ImmGen; (G) hypoxia
+signature (<a href="GO:0001666" class="uri">GO:0001666</a>); and (H)
+mitochondrial genes. Higher scores are indicated by increasing colour
+intensity; scores are capped at the 5th and 99th percentiles.</p>
+</div>
+</div>
+<div id="figs5ik" class="section level2">
+<h2>(I-K) Mean scores by condition, organ and cluster</h2>
+<pre class="r"><code># ============================================================
+# S5i-S5k: Mean signature scores by condition, organ and cluster
+# ============================================================
+# Rows are mean-centred, so the colour is a signature&#39;s deviation from its own
+# average across the groupings shown. Without centring the plot would be
+# dominated by the fact that some signatures have larger scores than others
+# everywhere, which says nothing about where stress is elevated.
+#
+# ifn_gp16 and ifn_gp182 are excluded from the heatmaps: they are small
+# interferon gene-programme subsets superseded by isg_immgen, which is shown.
+heatmap_cols &lt;- setdiff(names(sig_list), c(&quot;ifn_gp16&quot;, &quot;ifn_gp182&quot;))
+heatmap_cols &lt;- intersect(heatmap_cols, colnames(so@meta.data))
+
+signature_heatmap &lt;- function(meta, group_col, group_levels = NULL) {
+    avg &lt;- meta %&gt;%
+        filter(!is.na(.data[[group_col]])) %&gt;%
+        group_by(.data[[group_col]]) %&gt;%
+        summarise(across(all_of(heatmap_cols), ~ mean(.x, na.rm = TRUE)),
+                  .groups = &quot;drop&quot;)
+
+    mat &lt;- avg %&gt;%
+        column_to_rownames(group_col) %&gt;%
+        as.matrix() %&gt;%
+        t()
+
+    if (!is.null(group_levels)) {
+        mat &lt;- mat[, intersect(group_levels, colnames(mat)), drop = FALSE]
+    }
+    mat &lt;- sweep(mat, 1, rowMeans(mat, na.rm = TRUE), &quot;-&quot;)
+
+    lim &lt;- max(abs(mat), na.rm = TRUE)
+    Heatmap(
+        mat,
+        name = &quot;Mean score (centered)&quot;,
+        col = colorRamp2(c(-lim, 0, lim), c(&quot;#3B4CC0&quot;, &quot;white&quot;, &quot;#B40426&quot;)),
+        cluster_rows = FALSE, cluster_columns = FALSE,
+        column_names_rot = 90
+    )
+}
+
+# By perturbation. Computed on the full object, including thymus, because the
+# thymic samples are their own baseline condition. &quot;other&quot; pools perturbations
+# too sparse to interpret.
+meta_cond &lt;- so_orig@meta.data %&gt;%
+    filter(condition_detailed_simplified != &quot;other&quot;)
+panel_pdf(figure_dir, &quot;S5i_heatmap_by_condition&quot;, 15, 5)
+draw(signature_heatmap(meta_cond, &quot;condition_detailed_simplified&quot;))
+dev.off()
+
+# By anatomical site. SLO is dropped: it is a catch-all for secondary lymphoid
+# tissue that does not resolve to a specific organ.
+meta_organ &lt;- so@meta.data %&gt;% filter(organ_simplified != &quot;SLO&quot;)
+panel_pdf(figure_dir, &quot;S5j_heatmap_by_organ&quot;, 6, 4)
+draw(signature_heatmap(meta_organ, &quot;organ_simplified&quot;,
+                       levels(so$organ_simplified)))
+dev.off()
+
+# By cluster, in lineage order.
+panel_pdf(figure_dir, &quot;S5k_heatmap_by_cluster&quot;, 18, 3)
+draw(signature_heatmap(so@meta.data, &quot;annotation_level2&quot;,
+                       levels(so$annotation_level2)))
+dev.off()</code></pre>
+<p><img src="assets/ExtendedDataFigure5/S5i_heatmap_by_condition.png" width="100%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5i_heatmap_by_condition">
+Past versions of S5i_heatmap_by_condition.png
+</button>
+</p>
+<div id="fig-S5i_heatmap_by_condition" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5j_heatmap_by_organ.png" width="49%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5j_heatmap_by_organ">
+Past versions of S5j_heatmap_by_organ.png
+</button>
+</p>
+<div id="fig-S5j_heatmap_by_organ" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><img src="assets/ExtendedDataFigure5/S5k_heatmap_by_cluster.png" width="49%" style="display: block; margin: auto;" /></p>
+<p>
+<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S5k_heatmap_by_cluster">
+Past versions of S5k_heatmap_by_cluster.png
+</button>
+</p>
+<div id="fig-S5k_heatmap_by_cluster" class="collapse">
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+5224d19
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="figcaption">
+<p><strong>Extended Data Fig. 5I-K.</strong> Heatmaps of mean signature
+scores across immune conditions (I), anatomical sites (J) and immgenT
+clusters (K), for an expanded set of stress-related signatures including
+the ER-stress signature from Chow et al., the hypoxia signature from
+Bono et al. and the immediate-early response signature from Bahrami et
+al. Values are mean-centred per signature, so colour is a signature’s
+deviation from its own average rather than its absolute level.
+Interferon-related signatures show selective enrichment in specific
+states, including CD8.F and CD4.D, whereas most other stress-related
+programmes are distributed broadly across clusters, conditions and
+tissues.</p>
+</div>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.4.2 (2024-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.7.5
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: America/Chicago
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] vctrs_0.6.5       cli_3.6.5         knitr_1.50        rlang_1.1.6      
+ [5] xfun_0.52         stringi_1.8.7     promises_1.3.2    jsonlite_2.0.0   
+ [9] workflowr_1.7.2   glue_1.8.0        rprojroot_2.0.4   git2r_0.36.2     
+[13] htmltools_0.5.8.1 httpuv_1.6.16     sass_0.4.10       rmarkdown_2.29   
+[17] evaluate_1.0.3    jquerylib_0.1.4   tibble_3.3.0      fastmap_1.2.0    
+[21] yaml_2.3.10       lifecycle_1.0.4   whisker_0.4.1     stringr_1.5.1    
+[25] compiler_4.4.2    fs_1.6.6          Rcpp_1.1.0        pkgconfig_2.0.3  
+[29] later_1.4.2       digest_0.6.37     R6_2.6.1          pillar_1.11.0    
+[33] magrittr_2.0.3    bslib_0.9.0       tools_4.4.2       cachem_1.1.0     </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+https://docs.mathjax.org/en/latest/web/configuration.html. This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

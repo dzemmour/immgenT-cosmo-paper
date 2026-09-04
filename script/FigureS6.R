@@ -25,7 +25,7 @@
 # Required inputs (data/) -- see code/README.md:
 #   immgenT_seurat_ADT_GeneSubset.Rds                              [primary input]
 #   trbi_17studies_diet_merged.Rds                                 [primary input]
-#   TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds       [code/pipeline/03]
+#   TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds       [gap -- see code/README.md]
 
 suppressPackageStartupMessages({
     library(dplyr)

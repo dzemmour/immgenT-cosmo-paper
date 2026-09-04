@@ -10,7 +10,7 @@
 # Panel c is ported from the "Treg signature score from Zemmour et al. 2021"
 # chunk of cosmo_paper.Rmd section "Figure 9" (line 2442). The score is read
 # from cache rather than recomputed with AddModuleScore() as the Rmd does; the
-# code that produced it is code/pipeline/02_stress_scores.R.
+# code that produced it is code/pipeline/02_signature_scores.R.
 #
 # Panels a and b have no counterpart in the Rmd. They are reconstructed here
 # from the cluster assignments and the marker transcripts the legend names.

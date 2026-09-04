@@ -55,7 +55,7 @@ sig_list <- readRDS(sprintf("%s/signatures_stress.Rds", data_path))
 
 # Scores were computed once with AddModuleScore() on the complete object and
 # cached, because scoring fourteen signatures against 683,000 cells with 100
-# control genes each is the expensive step. See code/pipeline/02_stress_scores.R.
+# control genes each is the expensive step. See code/pipeline/02_signature_scores.R.
 sig_scores <- read.csv(sprintf("%s/signature_stress_scores.csv", data_path),
                        stringsAsFactors = FALSE, check.names = FALSE)
 sig_scores <- sig_scores[match(colnames(so_orig), sig_scores$cellID), ]
