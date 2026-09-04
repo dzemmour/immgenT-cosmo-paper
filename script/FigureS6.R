@@ -3,9 +3,9 @@
 # Panels produced:
 #   S6b  Non-T cells from the external studies on the all-T MDE, as a positive
 #        control for detecting states absent from the reference.
-#   S6c  Proportion of cells per study without a lineage (level-1) annotation.
+#   S6c  Percentage of cells per study annotated to a lineage (level 1).
 #   S6d  Lineage marker expression across the integrated external cells.
-#   S6e  Proportion of T cells per study without a cluster (level-2) annotation.
+#   S6e  Percentage of T cells per study annotated to a cluster (level 2).
 #   S6f  Cluster-level unannotated T cells on the all-T MDE.
 #   S6g  Single-cell discovery score on the all-T MDE.
 #   S6h  Discovery score distribution per study.
@@ -54,6 +54,16 @@ so_merged <- so_merged_orig[, !so_merged_orig$level1_final %in%
                                 c("nonT", "unclear")]
 so_merged$level1_final[so_merged$level1_final == "nonconv"] <- "Tz"
 
+# The 16 studies this figure reports, defined as those with all-T MDE
+# coordinates -- the same set script/Figure5.R plots. The 17th accession in the
+# object, GSE199563, was mapped against a lineage-specific reference only, so it
+# has no position in the all-T embedding and appears in no panel of this figure.
+# The cached discovery-score table already covers only these 16.
+plotted_datasets <- sort(unique(as.character(
+    so_merged@meta.data[rownames(so_merged[["mde_incremental_allT"]]), "dataset"]
+)))
+stopifnot(length(plotted_datasets) == 16)
+
 bkrg <- trbi_background(so_atlas, "mde2_totalvi_20241006")
 
 # ============================================================
@@ -77,22 +87,27 @@ print(
 dev.off()
 
 # ============================================================
-# S6c/S6e: Unannotated fractions per study
+# S6c/S6e: Annotated fraction per study
 # ============================================================
+# Plotted as the percentage annotated, so the bars read directly as the
+# annotation rates the paper quotes (>99% at lineage level, mean 97% at cluster
+# level). The y axis is fixed to 0-100 rather than left to autoscale: at
+# level 1 every study sits between 99 and 100%, and an autoscaled axis would
+# magnify that last percent into apparent variation.
 prop_level1 <- so_merged@meta.data %>%
     as.data.frame() %>%
-    count(dataset, level1_final, name = "n_cells") %>%
+    filter(dataset %in% plotted_datasets) %>%
     group_by(dataset) %>%
-    mutate(prop = n_cells / sum(n_cells)) %>%
-    ungroup() %>%
-    filter(level1_final == "not classified")
+    summarise(pct_annotated = 100 * mean(level1_final != "not classified"),
+              .groups = "drop")
 
-panel_pdf(figure_dir, "S6c_barplot_unannotated_level1", 5, 5)
+panel_pdf(figure_dir, "S6c_barplot_annotated_level1", 5, 5)
 print(
-    ggplot(prop_level1, aes(x = dataset, y = prop * 100)) +
+    ggplot(prop_level1, aes(x = dataset, y = pct_annotated)) +
         geom_col(fill = "black") +
-        labs(x = "Dataset", y = "% not annotated",
-             title = "Cells without a lineage annotation") +
+        scale_y_continuous(limits = c(0, 100)) +
+        labs(x = "Dataset", y = "% annotated",
+             title = "Fraction of 'classified' cells per dataset at level1") +
         theme_bw(base_size = 12) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         NoGrid()
@@ -101,16 +116,20 @@ dev.off()
 
 prop_level2 <- so_merged@meta.data %>%
     as.data.frame() %>%
+    filter(dataset %in% plotted_datasets) %>%
     group_by(dataset) %>%
-    summarise(prop_unannotated = mean(level2_final %in% UNANNOTATED_LEVEL2),
-              .groups = "drop")
+    summarise(
+        pct_annotated = 100 * mean(!level2_final %in% UNANNOTATED_LEVEL2),
+        .groups = "drop"
+    )
 
-panel_pdf(figure_dir, "S6e_barplot_unannotated_level2", 5, 5)
+panel_pdf(figure_dir, "S6e_barplot_annotated_level2", 5, 5)
 print(
-    ggplot(prop_level2, aes(x = dataset, y = prop_unannotated * 100)) +
+    ggplot(prop_level2, aes(x = dataset, y = pct_annotated)) +
         geom_col(fill = "black") +
-        labs(x = "Dataset", y = "% not annotated",
-             title = "T cells without a cluster annotation") +
+        scale_y_continuous(limits = c(0, 100)) +
+        labs(x = "Dataset", y = "% annotated",
+             title = "Fraction of 'classified' cells per dataset at level2") +
         theme_bw(base_size = 12) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         NoGrid()

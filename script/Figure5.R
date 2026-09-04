@@ -10,7 +10,8 @@
 # Panels 5a-5d (the Miller et al. worked example: author tSNE, T-RBI
 # projection, immgenT annotation, confidence scores) and 5f (discovery score
 # distribution across studies, excluding non-T cells) are not reproduced here;
-# see analysis/Figure5.Rmd and code/README.md.
+# see analysis/Figure5.Rmd and code/README.md. 5f including non-T cells is in
+# Extended Data Figure 6h (script/FigureS6.R).
 #
 # --- internal ---
 # Ported from cosmo_paper.Rmd section "Figure 5 T-RBI" (line 2077), chunks

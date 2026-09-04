@@ -42,23 +42,23 @@ absent from a T-cell reference and so serve as the positive control for
 detecting states the reference lacks.
 :::
 
-## (C, E) Unannotated fractions per study {#figs6ce}
+## (C, E) Annotated fraction per study {#figs6ce}
 
 ```{r figs6ce-code, code=code_for("../script/FigureS6.R", "S6c/S6e"), eval=FALSE}
 ```
 
 ```{r figs6ce-img, echo=FALSE, out.width="45%"}
-knitr::include_graphics(c("assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png",
-                          "assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png"))
+knitr::include_graphics(c("assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png",
+                          "assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png"))
 ```
 
 ::: {.figcaption}
-**Extended Data Fig. 6C, E.** Bar plots showing the proportion of cells from
-each external study that are not annotated with a T-cell lineage (level 1, C)
-and the proportion of T cells not annotated with an immgenT cluster (level 2,
-E). A cell counts as unannotated at cluster level either when its confidence
-falls below threshold or when it is confidently placed in a lineage but left
-unresolved within it.
+**Extended Data Fig. 6C, E.** Bar plots showing the percentage of cells from
+each external study annotated with a T-cell lineage (level 1, C) and the
+percentage of T cells annotated with an immgenT cluster (level 2, E). A cell
+counts as unannotated at cluster level either when its confidence falls below
+threshold or when it is confidently placed in a lineage but left unresolved
+within it.
 :::
 
 ## (D) Lineage markers across integrated cells {#figs6d}

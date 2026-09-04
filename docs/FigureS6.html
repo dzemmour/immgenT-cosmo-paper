@@ -362,7 +362,7 @@ div.tocify {
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
 <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-workflowr <span class="glyphicon glyphicon-ok text-success"
+workflowr <span class="glyphicon glyphicon-exclamation-sign text-danger"
 aria-hidden="true"></span>
 </button>
 </p>
@@ -373,8 +373,8 @@ aria-hidden="true"></span>
 </li>
 <li>
 <a data-toggle="tab" href="#checks"> Checks <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</a>
+class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> </a>
 </li>
 <li>
 <a data-toggle="tab" href="#versions">Past versions</a>
@@ -383,13 +383,13 @@ class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2026-09-03
+<strong>Last updated:</strong> 2026-09-04
 </p>
 <p>
 <strong>Checks:</strong> <span
-class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7
+class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6
 <span class="glyphicon glyphicon-exclamation-sign text-danger"
-aria-hidden="true"></span> 0
+aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong>
@@ -413,18 +413,21 @@ versions</em> tab lists the development history.
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate">
-<span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date
-</a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguncommittedchanges">
+<span class="glyphicon glyphicon-exclamation-sign text-danger"
+aria-hidden="true"></span> <strong>R Markdown file:</strong> uncommitted
+changes </a>
 </p>
 </div>
-<div id="strongRMarkdownfilestronguptodate"
+<div id="strongRMarkdownfilestronguncommittedchanges"
 class="panel-collapse collapse">
 <div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git
-repository, you know the exact version of the code that produced these
-results.</p>
+<p>The R Markdown file has unstaged changes. To know which version of
+the R Markdown file created these results, you’ll want to first commit
+it to the Git repo. If you’re still working on the analysis, you can
+ignore this warning. When you’re finished, you can run
+<code>wflow_publish</code> to commit the R Markdown file and build the
+HTML.</p>
 </div>
 </div>
 </div>
@@ -515,15 +518,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree5b91fc06c8d83d340e1992b94120eb4ca1996049targetblank5b91fc0a">
 <span class="glyphicon glyphicon-ok text-success"
 aria-hidden="true"></span> <strong>Repository version:</strong>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/5b91fc06c8d83d340e1992b94120eb4ca1996049" target="_blank">5b91fc0</a>
 </a>
 </p>
 </div>
 <div
-id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertree5b91fc06c8d83d340e1992b94120eb4ca1996049targetblank5b91fc0a"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -533,7 +536,7 @@ reproducibility.
 </p>
 <p>
 The results in this page were generated with repository version
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/5b91fc06c8d83d340e1992b94120eb4ca1996049" target="_blank">5b91fc0</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -549,39 +552,38 @@ were generated:
 <pre><code>
 Ignored files:
     Ignored:    .DS_Store
+    Ignored:    .Rproj.user/
     Ignored:    .claude/
     Ignored:    code/.DS_Store
     Ignored:    data/
+    Ignored:    figures/.DS_Store
+    Ignored:    immgenT-Cosmo.zip
     Ignored:    internal/
 
+Untracked files:
+    Untracked:  analysis/assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png
+    Untracked:  analysis/assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png
+    Untracked:  figures/Extended Data Figure 6/S6c_barplot_annotated_level1.pdf
+    Untracked:  figures/Extended Data Figure 6/S6e_barplot_annotated_level2.pdf
+
 Unstaged changes:
-    Modified:   code/R/alluvial.R
-    Modified:   code/R/composition.R
-    Modified:   code/R/discovery.R
-    Modified:   code/R/gene_auc.R
-    Modified:   code/R/organ_mde.R
-    Modified:   code/R/separability.R
-    Modified:   code/R/setup.R
-    Modified:   code/R/trbi_plots.R
-    Modified:   script/Figure1.R
-    Modified:   script/Figure10.R
-    Modified:   script/Figure2.R
-    Modified:   script/Figure3.R
-    Modified:   script/Figure4.R
+    Modified:   analysis/FigureS6.Rmd
+    Deleted:    analysis/assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png
+    Deleted:    analysis/assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png
+    Modified:   figures/Extended Data Figure 6/S6b_MDE_nonT_cells.pdf
+    Deleted:    figures/Extended Data Figure 6/S6c_barplot_unannotated_level1.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd4.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd8a.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Cd8b1.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Foxp3.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Trdc.pdf
+    Modified:   figures/Extended Data Figure 6/S6d_FeaturePlot_Zbtb16.pdf
+    Deleted:    figures/Extended Data Figure 6/S6e_barplot_unannotated_level2.pdf
+    Modified:   figures/Extended Data Figure 6/S6f_MDE_unannotated_level2.pdf
+    Modified:   figures/Extended Data Figure 6/S6g_MDE_discovery_score.pdf
+    Modified:   figures/Extended Data Figure 6/S6h_discovery_score_by_dataset.pdf
     Modified:   script/Figure5.R
-    Modified:   script/Figure6.R
-    Modified:   script/Figure7.R
-    Modified:   script/Figure8.R
-    Modified:   script/FigureS1.R
-    Modified:   script/FigureS10.R
-    Modified:   script/FigureS11.R
-    Modified:   script/FigureS3.R
-    Modified:   script/FigureS4.R
-    Modified:   script/FigureS5.R
     Modified:   script/FigureS6.R
-    Modified:   script/FigureS7.R
-    Modified:   script/FigureS8.R
-    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -626,6 +628,23 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/2c6008b94accd57d20158288dcc83e474c0672df/docs/FigureS6.html" target="_blank">2c6008b</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Drop interpretive commentary from the code comments
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -733,9 +752,9 @@ reproduced here.</p>
 # Panels produced:
 #   S6b  Non-T cells from the external studies on the all-T MDE, as a positive
 #        control for detecting states absent from the reference.
-#   S6c  Proportion of cells per study without a lineage (level-1) annotation.
+#   S6c  Percentage of cells per study annotated to a lineage (level 1).
 #   S6d  Lineage marker expression across the integrated external cells.
-#   S6e  Proportion of T cells per study without a cluster (level-2) annotation.
+#   S6e  Percentage of T cells per study annotated to a cluster (level 2).
 #   S6f  Cluster-level unannotated T cells on the all-T MDE.
 #   S6g  Single-cell discovery score on the all-T MDE.
 #   S6h  Discovery score distribution per study.
@@ -776,6 +795,16 @@ so_merged_orig &lt;- readRDS(sprintf(&quot;%s/trbi_17studies_diet_merged.Rds&quo
 so_merged &lt;- so_merged_orig[, !so_merged_orig$level1_final %in%
                                 c(&quot;nonT&quot;, &quot;unclear&quot;)]
 so_merged$level1_final[so_merged$level1_final == &quot;nonconv&quot;] &lt;- &quot;Tz&quot;
+
+# The 16 studies this figure reports, defined as those with all-T MDE
+# coordinates -- the same set script/Figure5.R plots. The 17th accession in the
+# object, GSE199563, was mapped against a lineage-specific reference only, so it
+# has no position in the all-T embedding and appears in no panel of this figure.
+# The cached discovery-score table already covers only these 16.
+plotted_datasets &lt;- sort(unique(as.character(
+    so_merged@meta.data[rownames(so_merged[[&quot;mde_incremental_allT&quot;]]), &quot;dataset&quot;]
+)))
+stopifnot(length(plotted_datasets) == 16)
 
 bkrg &lt;- trbi_background(so_atlas, &quot;mde2_totalvi_20241006&quot;)</code></pre>
 </div>
@@ -849,24 +878,29 @@ lacks.</p>
 </div>
 </div>
 <div id="figs6ce" class="section level2">
-<h2>(C, E) Unannotated fractions per study</h2>
+<h2>(C, E) Annotated fraction per study</h2>
 <pre class="r"><code># ============================================================
-# S6c/S6e: Unannotated fractions per study
+# S6c/S6e: Annotated fraction per study
 # ============================================================
+# Plotted as the percentage annotated, so the bars read directly as the
+# annotation rates the paper quotes (&gt;99% at lineage level, mean 97% at cluster
+# level). The y axis is fixed to 0-100 rather than left to autoscale: at
+# level 1 every study sits between 99 and 100%, and an autoscaled axis would
+# magnify that last percent into apparent variation.
 prop_level1 &lt;- so_merged@meta.data %&gt;%
     as.data.frame() %&gt;%
-    count(dataset, level1_final, name = &quot;n_cells&quot;) %&gt;%
+    filter(dataset %in% plotted_datasets) %&gt;%
     group_by(dataset) %&gt;%
-    mutate(prop = n_cells / sum(n_cells)) %&gt;%
-    ungroup() %&gt;%
-    filter(level1_final == &quot;not classified&quot;)
+    summarise(pct_annotated = 100 * mean(level1_final != &quot;not classified&quot;),
+              .groups = &quot;drop&quot;)
 
-panel_pdf(figure_dir, &quot;S6c_barplot_unannotated_level1&quot;, 5, 5)
+panel_pdf(figure_dir, &quot;S6c_barplot_annotated_level1&quot;, 5, 5)
 print(
-    ggplot(prop_level1, aes(x = dataset, y = prop * 100)) +
+    ggplot(prop_level1, aes(x = dataset, y = pct_annotated)) +
         geom_col(fill = &quot;black&quot;) +
-        labs(x = &quot;Dataset&quot;, y = &quot;% not annotated&quot;,
-             title = &quot;Cells without a lineage annotation&quot;) +
+        scale_y_continuous(limits = c(0, 100)) +
+        labs(x = &quot;Dataset&quot;, y = &quot;% annotated&quot;,
+             title = &quot;Fraction of &#39;classified&#39; cells per dataset at level1&quot;) +
         theme_bw(base_size = 12) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         NoGrid()
@@ -875,105 +909,33 @@ dev.off()
 
 prop_level2 &lt;- so_merged@meta.data %&gt;%
     as.data.frame() %&gt;%
+    filter(dataset %in% plotted_datasets) %&gt;%
     group_by(dataset) %&gt;%
-    summarise(prop_unannotated = mean(level2_final %in% UNANNOTATED_LEVEL2),
-              .groups = &quot;drop&quot;)
+    summarise(
+        pct_annotated = 100 * mean(!level2_final %in% UNANNOTATED_LEVEL2),
+        .groups = &quot;drop&quot;
+    )
 
-panel_pdf(figure_dir, &quot;S6e_barplot_unannotated_level2&quot;, 5, 5)
+panel_pdf(figure_dir, &quot;S6e_barplot_annotated_level2&quot;, 5, 5)
 print(
-    ggplot(prop_level2, aes(x = dataset, y = prop_unannotated * 100)) +
+    ggplot(prop_level2, aes(x = dataset, y = pct_annotated)) +
         geom_col(fill = &quot;black&quot;) +
-        labs(x = &quot;Dataset&quot;, y = &quot;% not annotated&quot;,
-             title = &quot;T cells without a cluster annotation&quot;) +
+        scale_y_continuous(limits = c(0, 100)) +
+        labs(x = &quot;Dataset&quot;, y = &quot;% annotated&quot;,
+             title = &quot;Fraction of &#39;classified&#39; cells per dataset at level2&quot;) +
         theme_bw(base_size = 12) +
         theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
         NoGrid()
 )
 dev.off()</code></pre>
-<p><img src="assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png" width="45%" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6c_barplot_unannotated_level1">
-Past versions of S6c_barplot_unannotated_level1.png
-</button>
-</p>
-<div id="fig-S6c_barplot_unannotated_level1" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure6/S6c_barplot_unannotated_level1.png" target="_blank">5224d19</a>
-</td>
-<td>
-David Zemmour
-</td>
-<td>
-2026-09-03
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p><img src="assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png" width="45%" style="display: block; margin: auto;" /></p>
-<p>
-<button type="button" class="btn btn-default btn-xs btn-workflowr btn-workflowr-fig" data-toggle="collapse" data-target="#fig-S6e_barplot_unannotated_level2">
-Past versions of S6e_barplot_unannotated_level2.png
-</button>
-</p>
-<div id="fig-S6e_barplot_unannotated_level2" class="collapse">
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure6/S6e_barplot_unannotated_level2.png" target="_blank">5224d19</a>
-</td>
-<td>
-David Zemmour
-</td>
-<td>
-2026-09-03
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p><img src="assets/ExtendedDataFigure6/S6c_barplot_annotated_level1.png" width="45%" style="display: block; margin: auto;" /><img src="assets/ExtendedDataFigure6/S6e_barplot_annotated_level2.png" width="45%" style="display: block; margin: auto;" /></p>
 <div class="figcaption">
 <p><strong>Extended Data Fig. 6C, E.</strong> Bar plots showing the
-proportion of cells from each external study that are not annotated with
-a T-cell lineage (level 1, C) and the proportion of T cells not
-annotated with an immgenT cluster (level 2, E). A cell counts as
-unannotated at cluster level either when its confidence falls below
-threshold or when it is confidently placed in a lineage but left
-unresolved within it.</p>
+percentage of cells from each external study annotated with a T-cell
+lineage (level 1, C) and the percentage of T cells annotated with an
+immgenT cluster (level 2, E). A cell counts as unannotated at cluster
+level either when its confidence falls below threshold or when it is
+confidently placed in a lineage but left unresolved within it.</p>
 </div>
 </div>
 <div id="figs6d" class="section level2">
