@@ -8,7 +8,7 @@
 # The same plot as Figure 6a, drawn for the five organs that figure leaves out.
 # Both organ lists and the plotting code live in code/R/organ_mde.R; the Rmd
 # produced them in a single loop over every baseline organ (section "Fig 6a -
-# S6 - MDE plots organ", line 1663, whose "S6" is stale).
+# S6 - MDE plots organ", line 1663, whose "S6" label is stale).
 # --- end internal ---
 #
 # Required inputs (data/) -- see code/README.md:

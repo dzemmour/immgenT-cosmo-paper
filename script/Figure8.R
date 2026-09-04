@@ -63,7 +63,7 @@ write.table(res_l1$auc, file.path(out_dir, "8a_TF_AUC_lineage.txt"),
             quote = FALSE, col.names = TRUE, row.names = FALSE, sep = "\t")
 
 # Only the three most specific factors are labelled: with eight lineages the
-# curves are short and a fuller set of labels obscures them.
+# curves are short and more labels overlap them.
 panel_pdf(figure_dir, "8a_TF_cumulative_curves_lineage", 7, 7)
 print(plot_gene_auc_curves(res_l1, n_top = 3, mypal = mypal))
 dev.off()
@@ -84,9 +84,7 @@ dev.off()
 # ============================================================
 # 8c-8m: Selected transcription factors across clusters
 # ============================================================
-# In panel order. Foxp3 and Zbtb16 are lineage-defining and come first as the
-# reference cases; the rest are factors whose expression is shared across
-# clusters from different lineages.
+# In panel order.
 tf_panels <- c("8c" = "Foxp3", "8d" = "Zbtb16", "8e" = "Sox13",
                "8f" = "Rorc",  "8g" = "Pparg",  "8h" = "Hes1",
                "8i" = "Gata3", "8j" = "Tcf7",   "8k" = "Tbx21",

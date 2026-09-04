@@ -74,9 +74,8 @@ rm(so_list)
 # ============================================================
 # 3b: CD62L/CD44 single-positive cells on each lineage MDE
 # ============================================================
-# Same gate as Figure 2f, applied here within each lineage. Density rather than
-# individual points, because the question is where in each lineage the naive-
-# and experienced-phenotype cells sit, not which individual cells they are.
+# Same gate as Figure 2f, applied within each lineage and drawn as cell density
+# rather than individual points.
 so_cite <- so_orig[, so_orig@meta.data %>%
                        filter(organ_simplified != "thymus", cite_seq == TRUE) %>%
                        rownames()]
@@ -134,8 +133,7 @@ dev.off()
 # 3c: Canonical transcripts across clusters
 # ============================================================
 # scale = FALSE: the dot colour is mean log1p CP10K expression, not a z-score
-# across clusters. Scaling would make a gene expressed at a low level
-# everywhere look as structured as a genuine lineage marker.
+# across clusters.
 genes <- c("Cd3e", "Cd8a", "Cd8b1", "Cd4", "Trdc", "Zbtb16", "Foxp3", "Rorc",
            "Sell", "Cd44", "Itgae", "Ifng", "Il4", "Il17a", "Gzma", "Pdcd1",
            "Klrg1")

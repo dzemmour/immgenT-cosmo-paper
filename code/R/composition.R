@@ -1,14 +1,12 @@
 # Cluster composition helpers.
 #
-# Two related but distinct questions:
-#   CompositionOfEachCluster()      -- which experiments contribute to a cluster
-#                                      (Extended Data Figure 4a)
-#   make_comp_dotdata_and_plot()    -- what proportion of a lineage each cluster
-#                                      accounts for, per tissue or perturbation
-#                                      (Figure 6b-d)
-#   load_sample_composition()       -- the per-sample proportion table both
-#                                      Figure 4d and Extended Data Figure 4b are
-#                                      built from
+# Three entry points:
+#   CompositionOfEachCluster()   -- experiment composition of a cluster
+#                                   (Extended Data Figure 4a)
+#   make_comp_dotdata_and_plot() -- cluster proportion within lineage, per
+#                                   tissue or perturbation (Figure 6b-d)
+#   load_sample_composition()    -- the per-sample proportion table Figure 4d
+#                                   and Extended Data Figure 4b are built from
 
 suppressPackageStartupMessages({
     library(dplyr)
@@ -23,10 +21,8 @@ suppressPackageStartupMessages({
 #' Experiment composition of each cluster
 #'
 #' Counts cells per cluster x sample, then normalises twice: first within
-#' sample, so that large samples do not dominate, and then within cluster, so
-#' the result is the relative contribution of each sample to that cluster and
-#' sums to 1. Without the first normalisation the plot would mostly report
-#' which experiments sequenced the most cells.
+#' sample, so that large samples do not dominate, then within cluster, so the
+#' result is each sample's relative contribution to that cluster and sums to 1.
 #'
 #' @param meta A metadata data frame.
 #' @param cluster_col,sample_col Column names to cross-tabulate.
@@ -67,11 +63,10 @@ CompositionOfEachCluster <- function(meta,
 #' Takes the per-sample proportion table, averages each cluster's
 #' within-lineage proportion across the samples of each group (tissue,
 #' perturbation, ...), and returns both the aggregated data and the dot plot.
-#' Dot fill is the mean proportion and dot size the log10 number of cells, so
-#' that a high proportion resting on very few cells is visibly distinguishable
-#' from a well-sampled one. Rows are ordered by hierarchical clustering on the
-#' proportion profiles, with "baseline"/"healthy" pinned to the top as the
-#' reference row.
+#' Dot fill is the mean proportion, dot size the log10 number of cells, so a
+#' proportion resting on very few cells is distinguishable from a well-sampled
+#' one. Rows are ordered by hierarchical clustering on the proportion profiles,
+#' with "baseline"/"healthy" pinned to the top.
 #'
 #' @param data Per-sample proportion table (see `load_sample_composition`).
 #' @param so Seurat object, used only for its lineage and cluster factor
@@ -168,8 +163,8 @@ make_comp_dotdata_and_plot <- function(data, so,
 #' Reads the cached per-sample proportion table (each cluster's share of its
 #' own lineage within a sample) and joins the curated sample metadata. Organ
 #' and perturbation are returned as factors in anatomical / reference-first
-#' order rather than alphabetically, because that ordering is what every
-#' composition panel uses.
+#' order rather than alphabetically, which is the order every composition panel
+#' uses.
 #'
 #' @param data_dir Directory holding the two input files.
 #' @return A data frame, one row per sample (IGTHT).

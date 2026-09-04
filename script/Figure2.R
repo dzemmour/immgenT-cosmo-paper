@@ -84,9 +84,7 @@ dev.off()
 # ============================================================
 # 2b: Surface marker expression by lineage
 # ============================================================
-# Dashed lines mark the positivity thresholds used to reconcile the
-# protein-based lineage calls with the transcriptome-based annotation. They are
-# drawn for orientation; the annotation itself is not a product of these gates.
+# Dashed lines mark the protein positivity thresholds.
 so <- NormalizeData(so, assay = "ADT",
                     normalization.method = "LogNormalize", verbose = FALSE)
 
@@ -122,8 +120,8 @@ for (i in seq_along(features_list)) {
 # 2c: Canonical lineage transcripts on the all-T MDE
 # ============================================================
 # RNA in this object is already log-normalised (see load_immgent()); no further
-# normalisation is applied. Expression is capped at the 95th percentile so that
-# a handful of very high cells do not flatten the rest of the scale.
+# normalisation is applied. Capped at the 95th percentile so that a handful of
+# very high cells do not flatten the rest of the scale.
 panel_pdf(figure_dir, "2c_FeaturePlot_lineage_markers", 12, 15)
 print(
     FeaturePlot(
@@ -154,8 +152,8 @@ dev.off()
 # 2f: CD62L/CD44 gate and the single-positive populations
 # ============================================================
 # Restricted to CITE-seq cells, and re-derived from so_orig rather than reusing
-# the object above, because the ADT normalisation must be computed on exactly
-# the cells being gated for the thresholds to mean the same thing.
+# the object above: the ADT normalisation has to be computed on exactly the
+# cells being gated for the thresholds to mean the same thing.
 so_cite <- so_orig[, so_orig@meta.data %>%
                        filter(organ_simplified != "thymus", cite_seq == TRUE) %>%
                        rownames()]
@@ -217,11 +215,9 @@ rm(so_cite)
 # ============================================================
 # 2h: Colonic T cells before and after integration
 # ============================================================
-# The point of the panel is that two experiments which cluster colonic T cells
-# differently on their own land on the same states once integrated. So the
-# left-hand plot uses each experiment's own UMAP and its own de novo cluster
-# numbering, and the right-hand plot places the same cells on the shared all-T
-# MDE coloured by immgenT lineage.
+# Two plots per experiment: the experiment's own UMAP with its own de novo
+# cluster numbering, then the same cells on the shared all-T MDE coloured by
+# immgenT lineage.
 colon_experiments <- list(
     IGT20 = "Colon",       # sample_name pattern selecting the colonic samples
     IGT27 = "No_colon_M"

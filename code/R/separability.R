@@ -2,11 +2,10 @@
 # centroid-based cluster separability.
 #
 # Both quantities are computed once per experiment (IGT) and cached, because
-# each requires an independent PCA of that experiment's cells. The cached
-# results are the .Rds files read by script/Figure4.R and
-# script/FigureS4.R; the functions here are the code that produced them and are
-# retained so the cached files have a documented provenance. See
-# code/pipeline/ for the drivers that call them.
+# each requires an independent clustering or PCA of that experiment's cells.
+# script/Figure4.R and script/FigureS4.R read the cached .Rds files; the
+# functions here are what produced them, retained so those files have a
+# documented provenance. See code/pipeline/01_cluster_metrics.R for the driver.
 
 suppressPackageStartupMessages({
     library(Seurat)
@@ -16,12 +15,11 @@ suppressPackageStartupMessages({
 
 #' Silhouette width per cluster, before and after integration
 #'
-#' Clusters an experiment's cells de novo on its own transcriptome (so the
-#' clustering is independent of the atlas annotation), then scores how well
+#' Clusters an experiment's cells de novo on its own transcriptome, so the
+#' clustering is independent of the atlas annotation, then scores how well
 #' separated those clusters are in two spaces: the experiment's own PCA
 #' ("pre-integration") and the shared totalVI latent space
-#' ("post-integration"). Comparing the two shows whether integration preserves
-#' the structure each experiment sees on its own, which is what Figure 4b plots.
+#' ("post-integration").
 #'
 #' @param so Seurat object holding a single experiment's cells.
 #' @param reduc_integrated Name of the integrated latent-space reduction.
@@ -74,10 +72,8 @@ BioConservationSilhouette <- function(so, reduc_integrated) {
 #' [-1, 1]; positive values mean cells of a cluster are on average closer to
 #' each other than to other clusters.
 #'
-#' This is preferred over a per-cell silhouette here because it is insensitive
-#' to cluster size and to the local neighbourhood structure that makes
-#' silhouette widths unstable on the continuous transcriptional gradients T
-#' cells occupy.
+#' Used in place of a per-cell silhouette because it is insensitive to cluster
+#' size and to local neighbourhood structure.
 #'
 #' @param emb Cell x dimension embedding matrix.
 #' @param clusters Cluster label per cell, in the row order of `emb`.

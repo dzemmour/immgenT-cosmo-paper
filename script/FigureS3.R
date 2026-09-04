@@ -53,10 +53,8 @@ mypal_igt <- load_igt_palette()
 # ============================================================
 # S3a: Spleen standard samples across experiments
 # ============================================================
-# A standard spleen sample was spiked into every experiment. Colouring those
-# cells by experiment shows whether integration places biologically identical
-# material from different runs in the same place; if a batch effect survived,
-# each experiment's standard would sit in its own region.
+# A standardised spleen sample was spiked into every experiment; those cells
+# are highlighted here and coloured by experiment.
 panel_pdf(figure_dir, "S3a_MDE_spleen_standard_by_IGT", 5, 5)
 print(highlight_mde(
     seurat_object = so, umap_to_plot = "mde2_totalvi_20241006",
@@ -72,11 +70,9 @@ dev.off()
 # ============================================================
 # S3b: Each lineage on the all-T MDE
 # ============================================================
-# One panel per lineage rather than the single colour-coded MDE of Figure 2a:
-# overlapping lineages hide each other in a combined plot, and the point here is
-# each lineage's full extent. Drawn at full opacity so the lineage's territory
-# reads as a solid block, with the lineage name as a title rather than as
-# labels inside the panel.
+# One panel per lineage rather than the single colour-coded MDE of Figure 2a,
+# at full opacity, with the lineage name as a title rather than as labels
+# inside the panel.
 for (lin in LINEAGES) {
     panel_pdf(figure_dir, sprintf("S3b_MDE_%s", lin), 10, 10)
     print(
@@ -97,8 +93,7 @@ for (lin in LINEAGES) {
 # ============================================================
 # S3c: Surface marker expression per lineage
 # ============================================================
-# The same three marker pairs as Figure 2b, split by lineage so each lineage's
-# protein phenotype can be read on its own.
+# The same three marker pairs as Figure 2b, split by lineage.
 so <- NormalizeData(so, assay = "ADT",
                     normalization.method = "LogNormalize", verbose = FALSE)
 
@@ -134,9 +129,8 @@ for (i in seq_along(features_list)) {
 # ============================================================
 # S3d/S3e: Invariant-TCR populations
 # ============================================================
-# iNKT and MAIT cells are called from TCR sequence alone, with no reference to
-# the transcriptome, so where they land is an independent check that the
-# embedding recovers known populations.
+# Both populations are called from TCR sequence alone, with no reference to the
+# transcriptome; the selection criteria are in the plot titles.
 panel_pdf(figure_dir, "S3d_MDE_iNKT", 10, 10)
 print(highlight_mde(
     seurat_object = so, umap_to_plot = "mde2_totalvi_20241006",
@@ -163,10 +157,8 @@ dev.off()
 # ============================================================
 # S3f: Proliferating and miniverse cells
 # ============================================================
-# Both groups draw cells from every lineage, so they are shown together: the
-# proliferating clusters because cell cycle overrides lineage identity
-# transcriptionally, and the miniverse (wM) clusters because their origin is
-# interpreted cautiously in the paper.
+# The two annotation_level2_group values shown by this panel, highlighted
+# together over the rest of the atlas in grey.
 so$proliferating_or_miniverse <- dplyr::case_when(
     so$annotation_level2_group == "proliferating" ~ "proliferating",
     so$annotation_level2_group == "miniverse" ~ "miniverse",

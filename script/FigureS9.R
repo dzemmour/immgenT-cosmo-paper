@@ -12,8 +12,8 @@
 # 1,821-gene GO:0005615 list, cut to its 100 most cluster-specific genes, which
 # is what distinguishes the two heatmaps.
 #
-# Il9 is in the curated list but is not among its top-scoring genes, so the
-# Rmd's Gene_AUC() barplot sweep never emitted it; it is drawn directly here.
+# Il9 is in the curated list but not among its top-scoring genes, so the Rmd's
+# Gene_AUC() barplot sweep never emitted it; it is drawn directly here.
 # --- end internal ---
 #
 # Required inputs (data/) -- see code/README.md:

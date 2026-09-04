@@ -516,13 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74cde38">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 74cde38
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74cde38"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +533,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74cde38.
+The results in this page were generated with repository version
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,6 +554,35 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   code/R/alluvial.R
+    Modified:   code/R/composition.R
+    Modified:   code/R/discovery.R
+    Modified:   code/R/gene_auc.R
+    Modified:   code/R/organ_mde.R
+    Modified:   code/R/separability.R
+    Modified:   code/R/setup.R
+    Modified:   code/R/trbi_plots.R
+    Modified:   script/Figure1.R
+    Modified:   script/Figure10.R
+    Modified:   script/Figure2.R
+    Modified:   script/Figure3.R
+    Modified:   script/Figure4.R
+    Modified:   script/Figure5.R
+    Modified:   script/Figure6.R
+    Modified:   script/Figure7.R
+    Modified:   script/Figure8.R
+    Modified:   script/FigureS1.R
+    Modified:   script/FigureS10.R
+    Modified:   script/FigureS11.R
+    Modified:   script/FigureS3.R
+    Modified:   script/FigureS4.R
+    Modified:   script/FigureS5.R
+    Modified:   script/FigureS6.R
+    Modified:   script/FigureS7.R
+    Modified:   script/FigureS8.R
+    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -597,10 +629,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/e90404e75e6c63a44814ba53a31891c96be6da96/docs/FigureS5.html" target="_blank">e90404e</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Rebuild site after the rename
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-74cde38
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/74cde385c6394e75b3464828cc08d42d3fa764d1/analysis/FigureS5.Rmd" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -617,7 +666,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-74cde38
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/74cde385c6394e75b3464828cc08d42d3fa764d1/docs/FigureS5.html" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -634,7 +683,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-b7c77d7
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/b7c77d77bfa4d55f8e8879556afe64e303fcf3da/docs/FigureS5.html" target="_blank">b7c77d7</a>
 </td>
 <td>
 David Zemmour
@@ -651,7 +700,7 @@ Add READMEs, provenance scripts, and prune unpublished panels
 Rmd
 </td>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/analysis/FigureS5.Rmd" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -723,8 +772,7 @@ so_orig &lt;- readRDS(sprintf(&quot;%s/immgenT_seurat_ADT_GeneSubset.Rds&quot;, 
 sig_list &lt;- readRDS(sprintf(&quot;%s/signatures_stress.Rds&quot;, data_path))
 
 # Scores were computed once with AddModuleScore() on the complete object and
-# cached, because scoring fourteen signatures against 683,000 cells with 100
-# control genes each is the expensive step. See code/pipeline/02_signature_scores.R.
+# cached; see code/pipeline/02_signature_scores.R.
 sig_scores &lt;- read.csv(sprintf(&quot;%s/signature_stress_scores.csv&quot;, data_path),
                        stringsAsFactors = FALSE, check.names = FALSE)
 sig_scores &lt;- sig_scores[match(colnames(so_orig), sig_scores$cellID), ]
@@ -742,8 +790,7 @@ so &lt;- so_orig[, so_orig@meta.data %&gt;%
 # S5a-S5h: Signature scores on the all-T MDE
 # ============================================================
 # Capped at the 5th and 99th percentiles: module scores have long tails in both
-# directions, and without the cap a few extreme cells set the scale and
-# everything else renders as one flat colour.
+# directions, and uncapped a few extreme cells set the whole scale.
 for (panel in names(SIGNATURE_PANELS)) {
     sig &lt;- SIGNATURE_PANELS[[panel]]
     panel_pdf(figure_dir, sprintf(&quot;%s_MDE_%s&quot;, panel, sig), 5, 5)
@@ -783,7 +830,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5a_MDE_dissociation1h.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -821,7 +868,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5b_MDE_dissociation2h.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -859,7 +906,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5c_MDE_ier.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -897,7 +944,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5d_MDE_isr.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -935,7 +982,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5e_MDE_erstress_GO0034976.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -973,7 +1020,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5f_MDE_isg_immgen.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1011,7 +1058,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5g_MDE_hypoxia_GO0001666.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1049,7 +1096,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5h_MDE_mt_genes.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1081,9 +1128,8 @@ intensity; scores are capped at the 5th and 99th percentiles.</p>
 # S5i-S5k: Mean signature scores by condition, organ and cluster
 # ============================================================
 # Rows are mean-centred, so the colour is a signature&#39;s deviation from its own
-# average across the groupings shown. Without centring the plot would be
-# dominated by the fact that some signatures have larger scores than others
-# everywhere, which says nothing about where stress is elevated.
+# average across the groupings shown; module scores are not comparable between
+# signatures on an absolute scale.
 #
 # ifn_gp16 and ifn_gp182 are excluded from the heatmaps: they are small
 # interferon gene-programme subsets superseded by isg_immgen, which is shown.
@@ -1117,17 +1163,16 @@ signature_heatmap &lt;- function(meta, group_col, group_levels = NULL) {
     )
 }
 
-# By perturbation. Computed on the full object, including thymus, because the
-# thymic samples are their own baseline condition. &quot;other&quot; pools perturbations
-# too sparse to interpret.
+# By perturbation, on the full object including thymus. &quot;other&quot; pools
+# perturbations too sparsely sampled to report.
 meta_cond &lt;- so_orig@meta.data %&gt;%
     filter(condition_detailed_simplified != &quot;other&quot;)
 panel_pdf(figure_dir, &quot;S5i_heatmap_by_condition&quot;, 15, 5)
 draw(signature_heatmap(meta_cond, &quot;condition_detailed_simplified&quot;))
 dev.off()
 
-# By anatomical site. SLO is dropped: it is a catch-all for secondary lymphoid
-# tissue that does not resolve to a specific organ.
+# By anatomical site. SLO is dropped: it is a catch-all that does not resolve
+# to a specific organ.
 meta_organ &lt;- so@meta.data %&gt;% filter(organ_simplified != &quot;SLO&quot;)
 panel_pdf(figure_dir, &quot;S5j_heatmap_by_organ&quot;, 6, 4)
 draw(signature_heatmap(meta_organ, &quot;organ_simplified&quot;,
@@ -1164,7 +1209,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5i_heatmap_by_condition.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1202,7 +1247,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5j_heatmap_by_organ.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1240,7 +1285,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/ExtendedDataFigure5/S5k_heatmap_by_cluster.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour

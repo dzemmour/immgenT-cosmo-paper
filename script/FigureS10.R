@@ -68,9 +68,7 @@ ann_palettes <- list(
 # ============================================================
 # S10a: Most lineage-specific transcription factors
 # ============================================================
-# Columns fixed in lineage order rather than clustered: with eight columns the
-# useful comparison is between named lineages, not between dendrogram
-# neighbours.
+# Columns fixed in lineage order rather than clustered.
 res_l1 <- gene_specificity_auc(pb_level1, tf_all, expr_threshold = 0.5)
 
 ht_s10a <- plot_gene_heatmap(

@@ -68,9 +68,8 @@ so_cd4 <- so_orig[, so_orig@meta.data %>%
 # S7a: Omitted-cluster cells on the ablated CD4 MDE
 # ============================================================
 # Two background layers: the whole CD4 reference in black, and in white the
-# position the omitted cluster occupied in the complete reference. The query
-# cells land in that white gap, which is the panel's point -- MDE preserves
-# local neighbourhoods, so cells return to the hole their cluster left behind.
+# position the omitted cluster occupied in the complete reference, so that the
+# gap its removal left is visible under the query cells.
 bg_cd4 <- AddEmbeddingRasterBackground(
     lineage = "CD4", interpolate = FALSE, color = "black", alpha = 0.5
 )
@@ -108,9 +107,9 @@ for (mycl in ABLATED_CLUSTERS) {
 # S7b: Cluster assignments after ablation
 # ============================================================
 # Rows are the omitted cluster, columns the assignment T-RBI gave its cells
-# once that cluster was gone. Reported before fine-tuning, which is the
-# conservative reading: fine-tuning uses confidently annotated query cells to
-# resolve the remainder and so increases reassignment to neighbours.
+# once that cluster was gone. Taken before fine-tuning (level2_before_iter);
+# fine-tuning uses confidently annotated query cells to resolve the remainder
+# and so increases reassignment to neighbouring clusters.
 prop_df <- imap_dfr(so_list, function(so, mycl) {
     so@meta.data %>%
         filter(level2_orig == mycl) %>%
@@ -158,10 +157,8 @@ dev.off()
 # ============================================================
 # S7c: Confidence scores for misclassified cells
 # ============================================================
-# The same cells under three conditions. If two neighbouring clusters were an
-# arbitrary split of one state, removing one should reassign its cells to the
-# other at undiminished confidence; the drop shown here is the evidence that
-# they are distinct.
+# The same cells under three conditions: mapped to the complete reference, and
+# mapped to the ablated reference before and after fine-tuning.
 so_noabl <- readRDS(sprintf("%s/CD4NoAblation_trbi_seurat.Rds", data_path))
 
 df <- lapply(ABLATED_CLUSTERS, function(mycl) {
@@ -170,8 +167,8 @@ df <- lapply(ABLATED_CLUSTERS, function(mycl) {
     cells <- intersect(cells, colnames(so_noabl))
     md <- so@meta.data[cells, , drop = FALSE]
 
-    # Cells left unclassified have no confidence score to report, so they enter
-    # as NA rather than as a low score.
+    # Cells left unclassified have no assignment to score, so they enter as NA
+    # rather than as a low confidence value.
     data.frame(
         cluster = mycl,
         cell = cells,

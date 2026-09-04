@@ -54,8 +54,7 @@ so_orig <- readRDS(sprintf("%s/immgenT_seurat_ADT_GeneSubset.Rds", data_path))
 sig_list <- readRDS(sprintf("%s/signatures_stress.Rds", data_path))
 
 # Scores were computed once with AddModuleScore() on the complete object and
-# cached, because scoring fourteen signatures against 683,000 cells with 100
-# control genes each is the expensive step. See code/pipeline/02_signature_scores.R.
+# cached; see code/pipeline/02_signature_scores.R.
 sig_scores <- read.csv(sprintf("%s/signature_stress_scores.csv", data_path),
                        stringsAsFactors = FALSE, check.names = FALSE)
 sig_scores <- sig_scores[match(colnames(so_orig), sig_scores$cellID), ]
@@ -71,8 +70,7 @@ so <- so_orig[, so_orig@meta.data %>%
 # S5a-S5h: Signature scores on the all-T MDE
 # ============================================================
 # Capped at the 5th and 99th percentiles: module scores have long tails in both
-# directions, and without the cap a few extreme cells set the scale and
-# everything else renders as one flat colour.
+# directions, and uncapped a few extreme cells set the whole scale.
 for (panel in names(SIGNATURE_PANELS)) {
     sig <- SIGNATURE_PANELS[[panel]]
     panel_pdf(figure_dir, sprintf("%s_MDE_%s", panel, sig), 5, 5)
@@ -92,9 +90,8 @@ for (panel in names(SIGNATURE_PANELS)) {
 # S5i-S5k: Mean signature scores by condition, organ and cluster
 # ============================================================
 # Rows are mean-centred, so the colour is a signature's deviation from its own
-# average across the groupings shown. Without centring the plot would be
-# dominated by the fact that some signatures have larger scores than others
-# everywhere, which says nothing about where stress is elevated.
+# average across the groupings shown; module scores are not comparable between
+# signatures on an absolute scale.
 #
 # ifn_gp16 and ifn_gp182 are excluded from the heatmaps: they are small
 # interferon gene-programme subsets superseded by isg_immgen, which is shown.
@@ -128,17 +125,16 @@ signature_heatmap <- function(meta, group_col, group_levels = NULL) {
     )
 }
 
-# By perturbation. Computed on the full object, including thymus, because the
-# thymic samples are their own baseline condition. "other" pools perturbations
-# too sparse to interpret.
+# By perturbation, on the full object including thymus. "other" pools
+# perturbations too sparsely sampled to report.
 meta_cond <- so_orig@meta.data %>%
     filter(condition_detailed_simplified != "other")
 panel_pdf(figure_dir, "S5i_heatmap_by_condition", 15, 5)
 draw(signature_heatmap(meta_cond, "condition_detailed_simplified"))
 dev.off()
 
-# By anatomical site. SLO is dropped: it is a catch-all for secondary lymphoid
-# tissue that does not resolve to a specific organ.
+# By anatomical site. SLO is dropped: it is a catch-all that does not resolve
+# to a specific organ.
 meta_organ <- so@meta.data %>% filter(organ_simplified != "SLO")
 panel_pdf(figure_dir, "S5j_heatmap_by_organ", 6, 4)
 draw(signature_heatmap(meta_organ, "organ_simplified",

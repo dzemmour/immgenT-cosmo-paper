@@ -50,10 +50,9 @@ so <- load_immgent()
 # ============================================================
 # 1b: Cell counts by organ and by broad disease category
 # ============================================================
-# Organs are collapsed to the seven groups the figure shows. Spleen, lymph
-# node, other secondary lymphoid organs and blood are pooled as the circulating
-# / lymphoid compartment; colon and small intestine as gut; and the remaining
-# sparsely sampled sites as "other".
+# Organs are collapsed to the seven groups the figure shows: spleen, lymph node,
+# other secondary lymphoid organs and blood pooled together; colon and small
+# intestine as gut; the remaining sparsely sampled sites as "other".
 df <- so@meta.data
 df$organ_grouped <- as.character(df$organ_simplified)
 df$organ_grouped[df$organ_simplified %in%
@@ -92,10 +91,9 @@ panel_pdf(figure_dir, "1b_cellcount_organ", 10, 7)
 print(p_1b_organ)
 dev.off()
 
-# Co-infection experiments are reported under "virus": every experiment in the
-# multiinfection category pairs a viral challenge with a second agent, and the
-# figure shows ten disease categories, not eleven. Merging here reproduces the
-# published Virus bar exactly (116,922 + 11,676 = 128,598 cells).
+# The figure shows ten disease categories, not eleven: multiinfection is
+# reported under virus. Merging here reproduces the published Virus bar exactly
+# (116,922 + 11,676 = 128,598 cells).
 df$condition_broad[df$condition_broad == "multiinfection"] <- "virus"
 
 df_cond <- df %>%
@@ -136,10 +134,9 @@ dev.off()
 # ============================================================
 # 1d-1f: Representative experiment IGT5 (skin, baseline)
 # ============================================================
-# IGT5 is shown as delivered by the per-experiment pipeline: its own
-# transcriptome and protein UMAPs and its own de novo clusters, before any
-# cross-experiment integration. That is the starting point the rest of the
-# paper integrates away from.
+# IGT5 as delivered by the per-experiment pipeline: its own transcriptome and
+# protein UMAPs and its own de novo clusters, before any cross-experiment
+# integration.
 igt <- readRDS(sprintf("%s/IGT5_seurat.Rds", data_path))
 
 # Written through @meta.data rather than `igt$all_cells <-`. The

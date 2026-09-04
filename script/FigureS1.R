@@ -65,9 +65,8 @@ mypal_igt <- load_igt_palette()
 # S1a: QC pass and loss rates per experiment
 # ============================================================
 # Sample-level counts are summed to the experiment, then expressed as a
-# percentage of the pre-QC count. Percentages rather than counts, because
-# experiments differ by an order of magnitude in size and the question is
-# whether any experiment lost an unusual *fraction* of its cells.
+# percentage of the pre-QC count: experiments differ by an order of magnitude
+# in size, so raw counts are not comparable between them.
 igt_qc <- sample_qc %>%
     group_by(IGT) %>%
     summarize(across(c(ncells_preqc, ncells_outliers_nGenes,
@@ -96,8 +95,8 @@ vars_keep <- c("percent_postqc", "percent_RNA_nGenes",
                "percent_RNA_deadcells", "percent_Protein_lowCount",
                "percent_Protein_nonspecific_signal", "percent_nonTcells")
 
-# Only the experiments outside the 1.5 x IQR whiskers are labelled: labelling
-# all 80 would bury the plot, and the outliers are the ones worth naming.
+# Only the experiments outside the 1.5 x IQR whiskers are labelled; labelling
+# all 80 would bury the plot.
 df <- melt(igt_qc, id.vars = "IGT") %>%
     filter(variable %in% vars_keep) %>%
     group_by(variable) %>%
@@ -131,9 +130,8 @@ dev.off()
 # ============================================================
 # S1b: Cells retained per experiment and per sample
 # ============================================================
-# One point per sample, coloured by hashtag, against a single boxplot of all
-# samples pooled: the "All" column gives the distribution any one experiment
-# should be read against.
+# One point per sample, coloured by hashtag, plus an "All" column pooling every
+# sample into a single boxplot.
 sample_qc <- sample_qc %>%
     mutate(percent_postqc = ncells_postqc / ncells_preqc * 100)
 

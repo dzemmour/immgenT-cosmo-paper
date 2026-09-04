@@ -56,8 +56,7 @@ set.seed(1)
 # memory timepoints across tissues.
 TRM_EXPERIMENTS <- c("IGT38", "IGT40")
 
-# Protein positivity thresholds for the two tissue-residency markers, read off
-# the bimodal distributions in panel c.
+# Protein positivity thresholds, read off the bimodal distributions in panel c.
 CD103_GATE <- 4.5
 CD69_GATE <- 4
 # Panel b gates CD103 one step lower than panel c's dashed line, as the
@@ -74,9 +73,8 @@ cd8 <- so_orig[, so_orig$annotation_level1 == "CD8"]
 # ============================================================
 # 10a: Trm cells on the CD8-specific MDE
 # ============================================================
-# Bona fide memory cells, identified by antigen specificity and timepoint
-# rather than by marker expression, so that where they land is an independent
-# check on the reference rather than a restatement of the gate.
+# Cells selected by antigen specificity and timepoint, not by marker
+# expression: P14 (LCMV GP33-specific) CD8 cells from the gut, 30+ dpi.
 trm_cells <- cd8@meta.data %>%
     filter(Ag_spe == "P14",
            IGT %in% TRM_EXPERIMENTS,
@@ -99,9 +97,7 @@ dev.off()
 # ============================================================
 # 10b: CD103+CD69+ cells across the CD8 MDE
 # ============================================================
-# The complement of panel a: instead of asking where known memory cells land,
-# this asks where the canonical marker combination is found. It is not confined
-# to the region panel a picks out, which is the figure's point.
+# Every CITE-seq CD8 cell passing the CD103/CD69 gate, over the CD8 MDE.
 cd8_cite <- cd8[, cd8$cite_seq == TRUE]
 cd8_cite <- NormalizeData(cd8_cite, assay = "ADT",
                           normalization.method = "LogNormalize",
@@ -126,10 +122,8 @@ dev.off()
 # ============================================================
 # 10c: CD69 vs CD103 by tissue, coloured by cluster
 # ============================================================
-# One panel per tissue rather than one pooled panel: the markers are variably
-# expressed between tissues, and pooling averages that variation away. Cells
-# are coloured by their immgenT cluster, so within a panel one can see that
-# CD8.Q cells sit on both sides of the gate.
+# One panel per tissue rather than one pooled panel, cells coloured by immgenT
+# cluster.
 cd8_cite_all <- NormalizeData(cd8, assay = "ADT",
                               normalization.method = "LogNormalize",
                               verbose = FALSE)
@@ -176,11 +170,9 @@ rm(cd8_cite, cd8_cite_all)
 # ============================================================
 # 10f: CD8.Q against organ and immune perturbation
 # ============================================================
-# Perturbations are downsampled to 1,000 cells each so that flow width
-# reflects how broadly a cluster is distributed rather than how many cells a
-# given experiment contributed. CD8.P and CD8.wM (the proliferating and
-# miniverse clusters) and SLO are excluded: they draw cells from every
-# condition and would obscure the rest.
+# Perturbations are downsampled to 1,000 cells each, so flow width does not
+# simply track how many cells an experiment contributed. CD8.P and CD8.wM (the
+# proliferating and miniverse clusters) and SLO are excluded.
 df0 <- so_orig@meta.data %>%
     filter(annotation_level1 == "CD8",
            !(annotation_level2 %in% c("CD8.P", "CD8.wM")),
@@ -190,8 +182,7 @@ df0 <- so_orig@meta.data %>%
     ungroup()
 
 # Each axis is ordered by hierarchical clustering of its own cross-tabulation,
-# so that similar clusters, tissues and conditions sit next to each other and
-# the ribbons cross as little as possible.
+# which keeps similar strata adjacent and minimises ribbon crossing.
 hclust_order <- function(df, rows, cols) {
     mat <- df %>%
         count(.data[[rows]], .data[[cols]], name = "count") %>%

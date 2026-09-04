@@ -38,8 +38,8 @@ source("code/R/trbi_plots.R")
 
 figure_dir <- "Extended Data Figure 6"
 
-# level2_final values that name a lineage rather than a cluster: cells placed
-# confidently in a lineage but left unresolved at cluster level.
+# level2_final values that name a lineage rather than a cluster, i.e. cells
+# resolved only to lineage. Counted as unannotated alongside "not classified".
 UNANNOTATED_LEVEL2 <- c("not classified", "CD4", "CD8", "Treg", "gdT",
                         "nonconv", "Tz", "CD8aa", "DN", "DP", "thymocyte")
 
@@ -59,9 +59,8 @@ bkrg <- trbi_background(so_atlas, "mde2_totalvi_20241006")
 # ============================================================
 # S6b: Non-T cells as a positive control
 # ============================================================
-# Contaminating non-T cells are the one population certain to be absent from a
-# T-cell reference, so where they land tests whether integration forces query
-# cells onto the reference manifold. They do not overlap it.
+# The non-T cells that script/Figure5.R drops, drawn in red over the other
+# query cells in black and the atlas in grey.
 so_merged_orig$is_nonT <- so_merged_orig$level1_final == "nonT"
 dat_all <- trbi_foreground_df(so_merged_orig, "mde_incremental_allT")
 
@@ -121,9 +120,7 @@ dev.off()
 # ============================================================
 # S6d: Lineage markers across the integrated external cells
 # ============================================================
-# Marker expression is not used by the mapping, so agreement between where a
-# query cell lands and which lineage transcript it expresses is an independent
-# check on the annotation.
+# Drawn on the query cells' anchored MDE coordinates, before the non-T filter.
 for (gene in c("Cd4", "Cd8b1", "Cd8a", "Trdc", "Foxp3", "Zbtb16")) {
     # Cd8b1 and Cd8a are left uncapped, as in the original analysis; the other
     # four are capped at the 90th percentile.
@@ -142,9 +139,7 @@ for (gene in c("Cd4", "Cd8b1", "Cd8a", "Trdc", "Foxp3", "Zbtb16")) {
 # ============================================================
 # S6f: Cluster-level unannotated T cells
 # ============================================================
-# Unannotated T cells are interspersed among annotated ones rather than
-# forming a population of their own, which is what distinguishes ordinary
-# boundary ambiguity from a state the reference lacks.
+# Query T cells without a cluster-level assignment, in red over the rest.
 so_merged$is_unannotated_level2 <-
     so_merged$level2_final %in% UNANNOTATED_LEVEL2
 dat_frg <- trbi_foreground_df(so_merged, "mde_incremental_allT")
@@ -166,16 +161,16 @@ dev.off()
 # S6g/S6h: Discovery score
 # ============================================================
 # Scores are read from cache: each is computed in its own study's PCA space,
-# independently of the integration (see code/R/discovery.R). Non-T cells are
-# retained here as the positive control, which is what distinguishes these two
-# panels from Figure 5f.
+# independently of the integration (see code/R/discovery.R). This is the score
+# table that retains non-T cells, which is what distinguishes these two panels
+# from Figure 5f.
 scores <- readRDS(sprintf(
     "%s/TRBI_discovery_scores_tbl_merged_DatasetPCA_withnonT.Rds", data_path
 ))
 
 # Diverging ramp centred on 1, the value at which a cell is equidistant from
-# annotated and unannotated neighbours, and squished at 2 so the conservative
-# 1.1 threshold sits in the visible part of the scale.
+# annotated and unannotated neighbours, squished at 2 so the 1.1 threshold
+# falls in the visible part of the scale.
 score_ramp <- rev(colorRampPalette(c("red", "white", "blue"))(20))
 
 panel_pdf(figure_dir, "S6g_MDE_discovery_score", 5, 5)

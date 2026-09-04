@@ -517,13 +517,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74cde38">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 74cde38
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74cde38"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -532,7 +534,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74cde38.
+The results in this page were generated with repository version
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -552,6 +555,35 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   code/R/alluvial.R
+    Modified:   code/R/composition.R
+    Modified:   code/R/discovery.R
+    Modified:   code/R/gene_auc.R
+    Modified:   code/R/organ_mde.R
+    Modified:   code/R/separability.R
+    Modified:   code/R/setup.R
+    Modified:   code/R/trbi_plots.R
+    Modified:   script/Figure1.R
+    Modified:   script/Figure10.R
+    Modified:   script/Figure2.R
+    Modified:   script/Figure3.R
+    Modified:   script/Figure4.R
+    Modified:   script/Figure5.R
+    Modified:   script/Figure6.R
+    Modified:   script/Figure7.R
+    Modified:   script/Figure8.R
+    Modified:   script/FigureS1.R
+    Modified:   script/FigureS10.R
+    Modified:   script/FigureS11.R
+    Modified:   script/FigureS3.R
+    Modified:   script/FigureS4.R
+    Modified:   script/FigureS5.R
+    Modified:   script/FigureS6.R
+    Modified:   script/FigureS7.R
+    Modified:   script/FigureS8.R
+    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -598,10 +630,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/e90404e75e6c63a44814ba53a31891c96be6da96/docs/Figure2.html" target="_blank">e90404e</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Rebuild site after the rename
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-74cde38
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/74cde385c6394e75b3464828cc08d42d3fa764d1/analysis/Figure2.Rmd" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -618,7 +667,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-74cde38
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/74cde385c6394e75b3464828cc08d42d3fa764d1/docs/Figure2.html" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -635,7 +684,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-b7c77d7
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/b7c77d77bfa4d55f8e8879556afe64e303fcf3da/docs/Figure2.html" target="_blank">b7c77d7</a>
 </td>
 <td>
 David Zemmour
@@ -652,7 +701,7 @@ Add READMEs, provenance scripts, and prune unpublished panels
 Rmd
 </td>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/analysis/Figure2.Rmd" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -767,7 +816,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2a_MDE_level1.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -790,9 +839,7 @@ all profiled T cells (the all-T MDE), coloured by T-cell lineage.</p>
 <pre class="r"><code># ============================================================
 # 2b: Surface marker expression by lineage
 # ============================================================
-# Dashed lines mark the positivity thresholds used to reconcile the
-# protein-based lineage calls with the transcriptome-based annotation. They are
-# drawn for orientation; the annotation itself is not a product of these gates.
+# Dashed lines mark the protein positivity thresholds.
 so &lt;- NormalizeData(so, assay = &quot;ADT&quot;,
                     normalization.method = &quot;LogNormalize&quot;, verbose = FALSE)
 
@@ -848,7 +895,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2b_FeatureScatter_TCRB_TCRGD.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -886,7 +933,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2b_FeatureScatter_CD4_CD8B.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -924,7 +971,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2b_FeatureScatter_CD8A_CD8B.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -951,8 +998,8 @@ these gates.</p>
 # 2c: Canonical lineage transcripts on the all-T MDE
 # ============================================================
 # RNA in this object is already log-normalised (see load_immgent()); no further
-# normalisation is applied. Expression is capped at the 95th percentile so that
-# a handful of very high cells do not flatten the rest of the scale.
+# normalisation is applied. Capped at the 95th percentile so that a handful of
+# very high cells do not flatten the rest of the scale.
 panel_pdf(figure_dir, &quot;2c_FeaturePlot_lineage_markers&quot;, 12, 15)
 print(
     FeaturePlot(
@@ -989,7 +1036,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2c_FeaturePlot_lineage_markers.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1048,7 +1095,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2e_FeaturePlot_Mki67.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1073,8 +1120,8 @@ embedding irrespective of lineage.</p>
 # 2f: CD62L/CD44 gate and the single-positive populations
 # ============================================================
 # Restricted to CITE-seq cells, and re-derived from so_orig rather than reusing
-# the object above, because the ADT normalisation must be computed on exactly
-# the cells being gated for the thresholds to mean the same thing.
+# the object above: the ADT normalisation has to be computed on exactly the
+# cells being gated for the thresholds to mean the same thing.
 so_cite &lt;- so_orig[, so_orig@meta.data %&gt;%
                        filter(organ_simplified != &quot;thymus&quot;, cite_seq == TRUE) %&gt;%
                        rownames()]
@@ -1157,7 +1204,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2f_gate_CD62L_CD44.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1195,7 +1242,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2f_MDE_CD62Lpos_CD44neg.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1233,7 +1280,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2f_MDE_CD44pos_CD62Lneg.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1259,11 +1306,9 @@ distinct territories within every lineage.</p>
 <pre class="r"><code># ============================================================
 # 2h: Colonic T cells before and after integration
 # ============================================================
-# The point of the panel is that two experiments which cluster colonic T cells
-# differently on their own land on the same states once integrated. So the
-# left-hand plot uses each experiment&#39;s own UMAP and its own de novo cluster
-# numbering, and the right-hand plot places the same cells on the shared all-T
-# MDE coloured by immgenT lineage.
+# Two plots per experiment: the experiment&#39;s own UMAP with its own de novo
+# cluster numbering, then the same cells on the shared all-T MDE coloured by
+# immgenT lineage.
 colon_experiments &lt;- list(
     IGT20 = &quot;Colon&quot;,       # sample_name pattern selecting the colonic samples
     IGT27 = &quot;No_colon_M&quot;
@@ -1339,7 +1384,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2h_IGT20_UMAP_RNAclusters.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1377,7 +1422,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2h_IGT20_MDE_level1.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1415,7 +1460,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2h_IGT27_UMAP_RNAclusters.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1453,7 +1498,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure2/2h_IGT27_MDE_level1.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour

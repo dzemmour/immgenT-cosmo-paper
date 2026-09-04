@@ -49,10 +49,9 @@ so_atlas <- readRDS(sprintf("%s/immgenT_seurat_ADT_GeneSubset.Rds", data_path))
 so_merged_orig <- readRDS(sprintf("%s/trbi_17studies_diet_merged.Rds",
                                   data_path))
 
-# Non-T cells and cells that failed T-cell filtering are dropped here: the
-# panel is about T-cell states, and the non-T cells are shown separately as the
-# positive control in Extended Data Figure 6b. This leaves the 335,042 query
-# T cells the paper reports.
+# Drop non-T cells and cells that failed T-cell filtering, leaving the 335,042
+# query T cells the paper reports. The non-T cells are drawn separately by
+# script/FigureS6.R.
 so_merged <- so_merged_orig[, !so_merged_orig$level1_final %in%
                                 c("nonT", "unclear")]
 # "nonconv" was renamed Tz during revision; the palettes and every other figure
@@ -75,8 +74,7 @@ dat_frg <- trbi_foreground_df(so_merged, "mde_incremental_allT")
 message("query cells positioned in the all-T MDE: ", nrow(dat_frg))
 plotted_datasets <- sort(unique(as.character(dat_frg$dataset)))
 
-# All studies together first, as the reference view the per-study plots are
-# read against.
+# All studies together first, then one plot per study.
 panel_pdf(figure_dir, "5e_MDE_all_studies_level1", 5, 5)
 print(
     bkrg +
@@ -89,10 +87,9 @@ print(
 dev.off()
 
 # Cluster-level annotation rate per study. A cell counts as annotated when its
-# level-2 assignment is an actual cluster: the level2_final values that name a
-# lineage rather than a cluster ("CD4", "CD8", ...) are cells confidently placed
-# in a lineage but left unresolved at cluster level, and count as unannotated
-# alongside "not classified".
+# level2_final value names an actual cluster; the values that name a lineage
+# instead ("CD4", "CD8", ...) are cells resolved only to lineage, and count as
+# unannotated alongside "not classified".
 unannotated_level2 <- c("not classified", "CD4", "CD8", "Treg", "gdT",
                         "nonconv", "Tz", "CD8aa", "DN", "DP", "thymocyte")
 

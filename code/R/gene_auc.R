@@ -4,9 +4,9 @@
 # For one gene, its pseudobulk expression across groups is scaled to sum to 1
 # and the groups are ranked from highest to lowest. The cumulative curve of
 # that scaled expression rises steeply for a gene confined to one or two groups
-# and follows the diagonal for a gene expressed everywhere; the area under it
-# is therefore a specificity score. It is a ROC-like construction, hence the
-# name, but computed on ranked expression shares rather than on labels.
+# and follows the diagonal for a gene expressed everywhere, so the area under
+# it scores specificity. ROC-like in construction, hence the name, but computed
+# on ranked expression shares rather than on labels.
 
 suppressPackageStartupMessages({
     library(dplyr)
@@ -23,8 +23,8 @@ suppressPackageStartupMessages({
 #'   group, `data` layer holding log1p CP10K values.
 #' @param genes Genes to score; those absent from `pseudobulk` are dropped.
 #' @param expr_threshold Minimum log1p CP10K a gene must reach in at least one
-#'   group to be scored. Removes genes whose apparent specificity comes only
-#'   from being near-zero everywhere.
+#'   group to be scored. Drops genes that are near-zero everywhere, whose
+#'   scaled profile is dominated by noise.
 #' @return List with `auc` (one row per gene, descending score), `data_long`
 #'   (ranked cumulative curves), `mat` (raw expression) and `mat_norm`
 #'   (row-normalised expression).
@@ -34,8 +34,8 @@ gene_specificity_auc <- function(pseudobulk, genes, expr_threshold = 0.5) {
 
     mat <- pseudobulk[["RNA"]]$data[genes, , drop = FALSE]
 
-    # Scale each gene to sum to 1 across groups, so the score reflects how
-    # expression is distributed rather than how highly the gene is expressed.
+    # Scale each gene to sum to 1 across groups, so the score depends on how
+    # expression is distributed and not on the gene's absolute level.
     row_sums <- rowSums(mat)
     row_sums[row_sums == 0] <- NA
     mat_norm <- mat / row_sums
@@ -111,8 +111,8 @@ plot_gene_auc_curves <- function(res, n_top = 20, mypal = NULL) {
 
 #' Skyline bar plot of one gene across groups
 #'
-#' The bar-per-cluster view used throughout Figures 7-8 and reproduced by the
-#' public immgenT Skyline viewer.
+#' The bar-per-cluster view used throughout Figures 7-8, matching the public
+#' immgenT Skyline viewer.
 #'
 #' @param pseudobulk Seurat object of pseudobulk profiles.
 #' @param gene Gene to plot.
@@ -176,7 +176,7 @@ heatmap_annotation <- function(pseudobulk, cols, ann_cols, ann_palettes = NULL) 
 #' @param pseudobulk Seurat object of pseudobulk profiles.
 #' @param n_top Number of top-scoring genes to show.
 #' @param col_order Optional fixed column order; when supplied, columns are not
-#'   clustered.
+#'   hierarchically clustered.
 #' @param colours Heatmap colour ramp.
 #' @param ann_cols,ann_palettes Passed to `heatmap_annotation()`.
 #' @return A pheatmap object.

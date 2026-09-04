@@ -49,11 +49,9 @@ so <- so_orig[, so_orig@meta.data %>%
 # ============================================================
 # 6a: All-T MDE at baseline, per organ
 # ============================================================
-# Baseline only, so that what the panel shows is the resting composition of
-# each tissue rather than the composition of whichever challenge happened to be
-# applied there. The twelve organs and their order are fixed in
-# code/R/organ_mde.R; the five sparsely sampled sites are Extended Data
-# Figure 8.
+# Baseline (healthy) cells only. The twelve organs and their order are fixed in
+# code/R/organ_mde.R; the five sparsely sampled sites are drawn by
+# script/FigureS8.R.
 so_baseline <- baseline_cells(so_orig)
 
 for (organ in ORGANS_FIGURE6) {
@@ -65,11 +63,9 @@ rm(so_baseline)
 # ============================================================
 # 6b: Cluster proportions across organs at baseline
 # ============================================================
-# The proportion is within lineage, not within sample: it answers "of this
-# tissue's CD8 cells, what fraction are CD8.Q", which is comparable between
-# tissues that differ wildly in lineage composition. Restricted to samples
-# sorted on all T cells or all CD45+ cells, because a sample sorted on, say,
-# Tregs cannot report a lineage's internal composition.
+# The cached proportions are within lineage, not within sample. Restricted to
+# samples sorted on all T cells or all CD45+ cells: a sample sorted on one
+# lineage cannot report that lineage's internal composition.
 m3 <- readRDS(sprintf(
     "%s/annotation_level2_PropPerSamplePerLevel1_withMetadata.Rds", data_path
 ))
@@ -96,9 +92,8 @@ dev.off()
 # ============================================================
 # 6c: Cluster proportions across perturbations in the colon
 # ============================================================
-# "other" pools perturbations too sparsely sampled to interpret, and
-# SFB_pregnancy confounds two perturbations at once; both are excluded rather
-# than shown as a row that cannot be read.
+# "other" pools perturbations too sparsely sampled to report, and
+# SFB_pregnancy combines two perturbations; both are excluded.
 m_colon <- m3 %>%
     filter(organ_simplified == "colon LP",
            target_cells_simplified %in% c("CD45p", "allT"),

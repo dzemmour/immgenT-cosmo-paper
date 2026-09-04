@@ -1,14 +1,12 @@
 # Discovery score for query cells T-RBI leaves unclassified.
 #
-# The score answers whether unclassified query cells form a coherent population
-# of their own -- a candidate state missing from the reference -- or are
-# scattered among confidently annotated cells at cluster boundaries. It is
-# deliberately computed in the query dataset's own PCA space, independently of
-# the immgenT integration, so that it cannot inherit artefacts of the mapping it
-# is meant to audit.
+# The score separates unclassified query cells that group together from those
+# scattered among confidently annotated cells. It is computed in the query
+# dataset's own PCA space, independently of the immgenT integration, so that it
+# cannot inherit artefacts of the mapping it is meant to audit.
 #
-# These functions produced the cached score table read by script/Figure5.R and
-# script/FigureS6.R; they are retained here to document its provenance.
+# These functions produced the cached score table read by script/FigureS6.R;
+# they are retained here to document its provenance.
 
 suppressPackageStartupMessages({
     library(RANN)
@@ -19,7 +17,7 @@ suppressPackageStartupMessages({
 #'
 #' For each unclassified cell, compares its mean distance to the k nearest
 #' annotated ("reference") cells with its mean distance to the k nearest other
-#' unclassified ("query") cells. A ratio above 1 means the cell sits closer to
+#' unclassified ("query") cells. A ratio above 1 means the cell is closer to
 #' other unclassified cells than to annotated ones.
 #'
 #' @param old_mat Embedding of the annotated cells.
@@ -57,8 +55,8 @@ knn_novelty_scores <- function(old_mat, new_mat, k = 10) {
 #' Summarise a novelty score table
 #'
 #' @param scores_tbl Output of `knn_novelty_scores()`.
-#' @param ratio_threshold Ratio above which a cell is counted as a candidate
-#'   novel state. The paper uses a conservative 1.1.
+#' @param ratio_threshold Ratio above which a cell is counted. The paper uses
+#'   1.1.
 summarize_discovery <- function(scores_tbl, ratio_threshold = 2) {
     tibble::tibble(
         k = NA_integer_,

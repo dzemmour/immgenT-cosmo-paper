@@ -1,8 +1,8 @@
 # Baseline all-T MDE gallery, one plot per organ.
 #
 # Shared by Figure 6a and Extended Data Figure 8, which are the same plot drawn
-# for two disjoint sets of organs: Figure 6a covers the twelve well-sampled
-# sites and Extended Data Figure 8 the five sparsely sampled ones.
+# for two disjoint sets of organs: twelve well-sampled sites and five sparsely
+# sampled ones.
 
 suppressPackageStartupMessages({
     library(Seurat)
@@ -23,9 +23,7 @@ ORGANS_FIGURES8 <- c(
     "bone marrow"
 )
 
-# CNS is deliberately in neither list: at baseline it contributes too few cells
-# for a per-organ embedding to be read, and it appears in the paper only
-# through the composition dot plots and the alluvial plot.
+# CNS is in neither list: no panel of either figure shows it.
 
 #' Baseline cells, for the per-organ MDE gallery
 #'
@@ -43,9 +41,8 @@ baseline_cells <- function(so_orig) {
 
 #' Write one organ's baseline MDE panel
 #'
-#' Organs are capped at 10,000 cells so the visual density of a panel reflects
-#' composition rather than how deeply that tissue was sequenced. Callers should
-#' set a seed.
+#' Organs are capped at 10,000 cells, so a panel's visual density does not
+#' simply track sequencing depth. Callers should set a seed.
 #'
 #' @param so_baseline Output of `baseline_cells()`.
 #' @param organ One value of `organ_simplified0`.

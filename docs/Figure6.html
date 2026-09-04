@@ -516,13 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74cde38">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 74cde38
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74cde38"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +533,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74cde38.
+The results in this page were generated with repository version
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,6 +554,35 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   code/R/alluvial.R
+    Modified:   code/R/composition.R
+    Modified:   code/R/discovery.R
+    Modified:   code/R/gene_auc.R
+    Modified:   code/R/organ_mde.R
+    Modified:   code/R/separability.R
+    Modified:   code/R/setup.R
+    Modified:   code/R/trbi_plots.R
+    Modified:   script/Figure1.R
+    Modified:   script/Figure10.R
+    Modified:   script/Figure2.R
+    Modified:   script/Figure3.R
+    Modified:   script/Figure4.R
+    Modified:   script/Figure5.R
+    Modified:   script/Figure6.R
+    Modified:   script/Figure7.R
+    Modified:   script/Figure8.R
+    Modified:   script/FigureS1.R
+    Modified:   script/FigureS10.R
+    Modified:   script/FigureS11.R
+    Modified:   script/FigureS3.R
+    Modified:   script/FigureS4.R
+    Modified:   script/FigureS5.R
+    Modified:   script/FigureS6.R
+    Modified:   script/FigureS7.R
+    Modified:   script/FigureS8.R
+    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -597,10 +629,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/e90404e75e6c63a44814ba53a31891c96be6da96/docs/Figure6.html" target="_blank">e90404e</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Rebuild site after the rename
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-74cde38
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/74cde385c6394e75b3464828cc08d42d3fa764d1/analysis/Figure6.Rmd" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -617,7 +666,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-74cde38
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/74cde385c6394e75b3464828cc08d42d3fa764d1/docs/Figure6.html" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -634,7 +683,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-b7c77d7
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/b7c77d77bfa4d55f8e8879556afe64e303fcf3da/docs/Figure6.html" target="_blank">b7c77d7</a>
 </td>
 <td>
 David Zemmour
@@ -651,7 +700,7 @@ Add READMEs, provenance scripts, and prune unpublished panels
 Rmd
 </td>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/analysis/Figure6.Rmd" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -716,11 +765,9 @@ so &lt;- so_orig[, so_orig@meta.data %&gt;%
 <pre class="r"><code># ============================================================
 # 6a: All-T MDE at baseline, per organ
 # ============================================================
-# Baseline only, so that what the panel shows is the resting composition of
-# each tissue rather than the composition of whichever challenge happened to be
-# applied there. The twelve organs and their order are fixed in
-# code/R/organ_mde.R; the five sparsely sampled sites are Extended Data
-# Figure 8.
+# Baseline (healthy) cells only. The twelve organs and their order are fixed in
+# code/R/organ_mde.R; the five sparsely sampled sites are drawn by
+# script/FigureS8.R.
 so_baseline &lt;- baseline_cells(so_orig)
 
 for (organ in ORGANS_FIGURE6) {
@@ -753,7 +800,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_blood.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -791,7 +838,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_spleen.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -829,7 +876,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_LN.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -867,7 +914,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_colonLP.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -905,7 +952,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_colonepi.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -943,7 +990,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_smallintestineLP.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -981,7 +1028,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_smallintestineepi.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1019,7 +1066,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_lung.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1057,7 +1104,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_kidney.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1095,7 +1142,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_liver.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1133,7 +1180,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_skin.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1171,7 +1218,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6a_MDE_baseline_mammarygland.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1198,11 +1245,9 @@ sites are shown in <a href="FigureS8.html">Extended Data Figure
 <pre class="r"><code># ============================================================
 # 6b: Cluster proportions across organs at baseline
 # ============================================================
-# The proportion is within lineage, not within sample: it answers &quot;of this
-# tissue&#39;s CD8 cells, what fraction are CD8.Q&quot;, which is comparable between
-# tissues that differ wildly in lineage composition. Restricted to samples
-# sorted on all T cells or all CD45+ cells, because a sample sorted on, say,
-# Tregs cannot report a lineage&#39;s internal composition.
+# The cached proportions are within lineage, not within sample. Restricted to
+# samples sorted on all T cells or all CD45+ cells: a sample sorted on one
+# lineage cannot report that lineage&#39;s internal composition.
 m3 &lt;- readRDS(sprintf(
     &quot;%s/annotation_level2_PropPerSamplePerLevel1_withMetadata.Rds&quot;, data_path
 ))
@@ -1250,7 +1295,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6b_DotPlot_level2_by_organ_baseline.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1277,9 +1322,8 @@ comparable.</p>
 <pre class="r"><code># ============================================================
 # 6c: Cluster proportions across perturbations in the colon
 # ============================================================
-# &quot;other&quot; pools perturbations too sparsely sampled to interpret, and
-# SFB_pregnancy confounds two perturbations at once; both are excluded rather
-# than shown as a row that cannot be read.
+# &quot;other&quot; pools perturbations too sparsely sampled to report, and
+# SFB_pregnancy combines two perturbations; both are excluded.
 m_colon &lt;- m3 %&gt;%
     filter(organ_simplified == &quot;colon LP&quot;,
            target_cells_simplified %in% c(&quot;CD45p&quot;, &quot;allT&quot;),
@@ -1325,7 +1369,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6c_DotPlot_level2_by_condition_colon.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1389,7 +1433,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure6/6d_DotPlot_level2_by_condition_lung.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour

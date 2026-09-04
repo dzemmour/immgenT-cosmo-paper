@@ -78,8 +78,7 @@ ann_palettes <- list(
     annotation_level2_group = mypal_level2group
 )
 
-# Fill colour per cluster, taken from that cluster's lineage, so the bar plots
-# below read as lineage blocks.
+# Fill colour per cluster, taken from that cluster's lineage.
 lineage_of_cluster <- setNames(
     sub("\\..*", "", colnames(pseudobulk)),
     colnames(pseudobulk)
@@ -89,9 +88,7 @@ lineage_of_cluster <- setNames(
 # 7a: Effector gene expression heatmap
 # ============================================================
 # The full curated effector list, less the genes that never reach 0.5 log1p
-# CP10K in any cluster. Hierarchically clustered on both axes: the point of the
-# panel is that effector genes group into modules reused across lineages, which
-# a fixed cluster order would hide.
+# CP10K in any cluster, hierarchically clustered on both axes.
 #
 # Extended Data Figure 9a is the same plot over the 1,821-gene GO:0005615
 # (extracellular space) list, cut to its 100 most cluster-specific genes.
@@ -116,9 +113,7 @@ dev.off()
 # ============================================================
 # 7b-7d: Individual effector cytokines across clusters
 # ============================================================
-# Three cytokines whose textbook assignment is to a single T-helper subset.
-# Drawn across every cluster to show that each is instead produced by clusters
-# from several lineages.
+# Drawn with the same helper Figure 8 uses for its named transcription factors.
 cytokines <- c("7b" = "Il4", "7c" = "Il17a", "7d" = "Ifng")
 
 for (panel in names(cytokines)) {

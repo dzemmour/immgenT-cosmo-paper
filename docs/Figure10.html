@@ -516,13 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74cde38">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 74cde38
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74cde38"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +533,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74cde38.
+The results in this page were generated with repository version
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,6 +554,35 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   code/R/alluvial.R
+    Modified:   code/R/composition.R
+    Modified:   code/R/discovery.R
+    Modified:   code/R/gene_auc.R
+    Modified:   code/R/organ_mde.R
+    Modified:   code/R/separability.R
+    Modified:   code/R/setup.R
+    Modified:   code/R/trbi_plots.R
+    Modified:   script/Figure1.R
+    Modified:   script/Figure10.R
+    Modified:   script/Figure2.R
+    Modified:   script/Figure3.R
+    Modified:   script/Figure4.R
+    Modified:   script/Figure5.R
+    Modified:   script/Figure6.R
+    Modified:   script/Figure7.R
+    Modified:   script/Figure8.R
+    Modified:   script/FigureS1.R
+    Modified:   script/FigureS10.R
+    Modified:   script/FigureS11.R
+    Modified:   script/FigureS3.R
+    Modified:   script/FigureS4.R
+    Modified:   script/FigureS5.R
+    Modified:   script/FigureS6.R
+    Modified:   script/FigureS7.R
+    Modified:   script/FigureS8.R
+    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -597,10 +629,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/e90404e75e6c63a44814ba53a31891c96be6da96/docs/Figure10.html" target="_blank">e90404e</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Rebuild site after the rename
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-74cde38
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/74cde385c6394e75b3464828cc08d42d3fa764d1/analysis/Figure10.Rmd" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -617,7 +666,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-74cde38
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/74cde385c6394e75b3464828cc08d42d3fa764d1/docs/Figure10.html" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -634,7 +683,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-b7c77d7
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/b7c77d77bfa4d55f8e8879556afe64e303fcf3da/docs/Figure10.html" target="_blank">b7c77d7</a>
 </td>
 <td>
 David Zemmour
@@ -651,7 +700,7 @@ Add READMEs, provenance scripts, and prune unpublished panels
 Rmd
 </td>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/analysis/Figure10.Rmd" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -719,8 +768,7 @@ set.seed(1)
 # memory timepoints across tissues.
 TRM_EXPERIMENTS &lt;- c(&quot;IGT38&quot;, &quot;IGT40&quot;)
 
-# Protein positivity thresholds for the two tissue-residency markers, read off
-# the bimodal distributions in panel c.
+# Protein positivity thresholds, read off the bimodal distributions in panel c.
 CD103_GATE &lt;- 4.5
 CD69_GATE &lt;- 4
 # Panel b gates CD103 one step lower than panel c&#39;s dashed line, as the
@@ -739,9 +787,8 @@ cd8 &lt;- so_orig[, so_orig$annotation_level1 == &quot;CD8&quot;]</code></pre>
 <pre class="r"><code># ============================================================
 # 10a: Trm cells on the CD8-specific MDE
 # ============================================================
-# Bona fide memory cells, identified by antigen specificity and timepoint
-# rather than by marker expression, so that where they land is an independent
-# check on the reference rather than a restatement of the gate.
+# Cells selected by antigen specificity and timepoint, not by marker
+# expression: P14 (LCMV GP33-specific) CD8 cells from the gut, 30+ dpi.
 trm_cells &lt;- cd8@meta.data %&gt;%
     filter(Ag_spe == &quot;P14&quot;,
            IGT %in% TRM_EXPERIMENTS,
@@ -785,7 +832,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10a_CD8MDE_P14_Trm_gut.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -812,9 +859,7 @@ the reference. Cells are coloured by immgenT cluster.</p>
 <pre class="r"><code># ============================================================
 # 10b: CD103+CD69+ cells across the CD8 MDE
 # ============================================================
-# The complement of panel a: instead of asking where known memory cells land,
-# this asks where the canonical marker combination is found. It is not confined
-# to the region panel a picks out, which is the figure&#39;s point.
+# Every CITE-seq CD8 cell passing the CD103/CD69 gate, over the CD8 MDE.
 cd8_cite &lt;- cd8[, cd8$cite_seq == TRUE]
 cd8_cite &lt;- NormalizeData(cd8_cite, assay = &quot;ADT&quot;,
                           normalization.method = &quot;LogNormalize&quot;,
@@ -860,7 +905,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10b_CD8MDE_CD103pos_CD69pos.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -887,10 +932,8 @@ solid points.</p>
 <pre class="r"><code># ============================================================
 # 10c: CD69 vs CD103 by tissue, coloured by cluster
 # ============================================================
-# One panel per tissue rather than one pooled panel: the markers are variably
-# expressed between tissues, and pooling averages that variation away. Cells
-# are coloured by their immgenT cluster, so within a panel one can see that
-# CD8.Q cells sit on both sides of the gate.
+# One panel per tissue rather than one pooled panel, cells coloured by immgenT
+# cluster.
 cd8_cite_all &lt;- NormalizeData(cd8, assay = &quot;ADT&quot;,
                               normalization.method = &quot;LogNormalize&quot;,
                               verbose = FALSE)
@@ -958,7 +1001,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10c_CD103_CD69_small_intestine.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -996,7 +1039,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10c_CD103_CD69_prostate.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1034,7 +1077,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10c_CD103_CD69_salivary_gland.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1072,7 +1115,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10c_CD103_CD69_spleen.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -1099,11 +1142,9 @@ by immgenT cluster.</p>
 <pre class="r"><code># ============================================================
 # 10f: CD8.Q against organ and immune perturbation
 # ============================================================
-# Perturbations are downsampled to 1,000 cells each so that flow width
-# reflects how broadly a cluster is distributed rather than how many cells a
-# given experiment contributed. CD8.P and CD8.wM (the proliferating and
-# miniverse clusters) and SLO are excluded: they draw cells from every
-# condition and would obscure the rest.
+# Perturbations are downsampled to 1,000 cells each, so flow width does not
+# simply track how many cells an experiment contributed. CD8.P and CD8.wM (the
+# proliferating and miniverse clusters) and SLO are excluded.
 df0 &lt;- so_orig@meta.data %&gt;%
     filter(annotation_level1 == &quot;CD8&quot;,
            !(annotation_level2 %in% c(&quot;CD8.P&quot;, &quot;CD8.wM&quot;)),
@@ -1113,8 +1154,7 @@ df0 &lt;- so_orig@meta.data %&gt;%
     ungroup()
 
 # Each axis is ordered by hierarchical clustering of its own cross-tabulation,
-# so that similar clusters, tissues and conditions sit next to each other and
-# the ribbons cross as little as possible.
+# which keeps similar strata adjacent and minimises ribbon crossing.
 hclust_order &lt;- function(df, rows, cols) {
     mat &lt;- df %&gt;%
         count(.data[[rows]], .data[[cols]], name = &quot;count&quot;) %&gt;%
@@ -1183,7 +1223,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure10/10f_alluvial_CD8Q.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour

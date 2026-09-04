@@ -2,12 +2,11 @@
 # Figure 6).
 #
 # Every T-RBI panel is the same two-layer construction: the whole immgenT atlas
-# drawn in grey as a positional reference, with the mapped query cells drawn on
-# top. The atlas layer is built from the atlas MDE embedding and the query layer
-# from the anchored MDE coordinates T-RBI returns, so the two are on identical
-# axes by construction. Both layers use scattermore, which rasterises the point
-# cloud; at ~680,000 background points a vector layer produces PDFs too large
-# to open.
+# in grey, with the mapped query cells over it. The atlas layer comes from the
+# atlas MDE embedding and the query layer from the anchored MDE coordinates
+# T-RBI returns, so the two share axes by construction. Both use scattermore,
+# which rasterises the point cloud; at ~680,000 background points a vector
+# layer produces PDFs too large to open.
 
 suppressPackageStartupMessages({
     library(ggplot2)
@@ -42,9 +41,8 @@ trbi_foreground_df <- function(so_query, reduction = "mde_incremental_allT") {
     )
 }
 
-# The atlas MDE occupies roughly [-2.5, 2.5] on both axes. Fixing the limits
-# keeps every T-RBI panel on the same scale, so galleries can be compared
-# panel to panel and against the atlas figures.
+# The atlas MDE occupies roughly [-2.5, 2.5] on both axes. Fixed here so every
+# T-RBI panel is drawn on the same scale.
 TRBI_XLIM <- c(-2.5, 2.5)
 TRBI_YLIM <- c(-2.5, 2.5)
 

@@ -28,17 +28,16 @@ data_path <- "data"
 ColorRamp <- rev(colorRampPalette(brewer.pal(n = 7, name = "RdYlBu"))(100))
 
 # Cluster (level 2), lineage (level 1) and organ palettes. "not classified" is
-# added to the first two because T-RBI query cells that fail the confidence
-# threshold are plotted alongside annotated cells (Figure 5, Extended Data
-# Figure 6) and must be visually distinct from every real cluster.
+# added to the first two for the T-RBI panels (Figure 5, Extended Data
+# Figure 6), which plot unassigned query cells alongside annotated ones.
 mypal_level2 <- ZemmourLib::immgent_colors$level2
 mypal_level2["not classified"] <- "black"
 mypal_level1 <- ZemmourLib::immgent_colors$level1
 mypal_level1["not classified"] <- "black"
 mypal_organ <- ZemmourLib::immgent_colors$organ_simplified
 
-# Activation state annotation used on the effector and transcription factor
-# heatmaps.
+# annotation_level2_group, used as a heatmap annotation bar in Figures 7-8 and
+# Extended Data Figures 9-10.
 mypal_level2group <- c(
     "resting"       = "blue",
     "activated"     = "red",
@@ -61,10 +60,10 @@ load_igt_palette <- function(data_dir = data_path) {
 
 # Large categorical palette for variables with more levels than any curated
 # palette covers (experiment identifiers, external study names, per-experiment
-# transcriptomic clusters). Glasbey and Polychrome first because they are
-# designed to maximise perceptual distance, then the ColorBrewer qualitative
-# palettes concatenated. The fourth ColorBrewer colour is dropped because it is
-# a near-white that disappears against the panel background.
+# transcriptomic clusters). Glasbey and Polychrome first, as they maximise
+# perceptual distance, then the ColorBrewer qualitative palettes. The fourth
+# ColorBrewer colour is dropped: it is a near-white that disappears against the
+# panel background.
 qual_col_pals <- brewer.pal.info[brewer.pal.info$category == "qual", ]
 mypal1 <- unique(unlist(mapply(
     brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)
@@ -84,9 +83,8 @@ names(mypal) <- NULL
 #' normalised, and each script that plots protein expression normalises it
 #' locally.
 #'
-#' @param drop_thymus Exclude thymic cells. Every published panel except the
-#'   double-positive lineage MDE is restricted to non-thymic cells, because
-#'   thymocyte states are the subject of a companion manuscript.
+#' @param drop_thymus Exclude thymic cells, as every panel that uses this
+#'   loader does.
 #' @param citeseq_only Restrict to cells with CITE-seq data, required for any
 #'   panel showing surface protein.
 #' @return A Seurat object.

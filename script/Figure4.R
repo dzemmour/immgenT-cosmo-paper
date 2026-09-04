@@ -57,8 +57,7 @@ source("code/R/composition.R")
 figure_dir <- "Figure 4"
 set.seed(1)
 
-# The two samples contrasted in panels d-j: the same tissue and cell type, with
-# and without an immune challenge.
+# The two samples shown in panels d-j.
 SAMPLE_LCMV  <- "I40H8_smallintestineLP_LCMVarm_D60_allT_P14_SMARTA_mouse0142"
 SAMPLE_NAIVE <- "I21H9_smallintestineLP_allT_mouse0036"
 
@@ -75,9 +74,8 @@ mypal_igt <- load_igt_palette()
 # 4a: Saturation of cluster discovery across experiments
 # ============================================================
 # A cluster counts as discovered at the experiment where its running cell total
-# first exceeds 50. The threshold matters: without it, one cell assigned to a
-# cluster in the first experiment would count as having discovered it, and the
-# curve would saturate immediately and mean nothing.
+# first exceeds 50. Without a threshold a single cell assigned in the first
+# experiment would count as a discovery and the curve would saturate at once.
 df_counts <- so@meta.data %>%
     as.data.frame() %>%
     count(IGT, annotation_level2, name = "n_cells") %>%
@@ -107,8 +105,7 @@ igt_steps$IGT <- factor(igt_steps$IGT, levels = igt_steps$IGT)
 p_4a <- ggplot(igt_steps, aes(x = IGT, y = cum_clusters, group = 1)) +
     geom_line() +
     geom_point(size = 1.5) +
-    # The 107 line is the final cluster count, so the gap between curve and
-    # line is what remained undiscovered at each point.
+    # 107 is the final cluster count.
     geom_hline(yintercept = 107, colour = "brown", linetype = "dashed",
                linewidth = 0.5) +
     labs(x = "IGT", y = "Cumulative # clusters (> 50 cells)") +
@@ -192,10 +189,8 @@ dev.off()
 # ============================================================
 # 4d: One sample's cluster proportions against all samples
 # ============================================================
-# The boxplots are the distribution across every sample in the atlas; the
-# coloured points are this one sample. Reading a single sample's composition
-# against that background is what makes an enrichment interpretable -- here,
-# that nearly all of its CD8 cells fall in CD8.Q.
+# Boxplots are the distribution across every sample in the atlas; the coloured
+# points are this one sample.
 mdata <- load_sample_composition(data_path)
 df_long <- sample_composition_long(mdata, levels(so_orig$annotation_level2))
 
@@ -225,9 +220,9 @@ dev.off()
 # ============================================================
 # 4e/4h: Sample CD8 cells on the CD8-specific MDE
 # ============================================================
-# All immgenT CD8 cells form a raster background (a pre-rendered image rather
-# than ~200,000 plotted points, which keeps the PDF openable), and the sample's
-# own CD8 cells are drawn over it as labelled points.
+# All immgenT CD8 cells form the background, as a pre-rendered raster rather
+# than ~200,000 plotted points, which keeps the PDF openable. The sample's own
+# CD8 cells are drawn over it as labelled points.
 bg_cd8 <- AddEmbeddingRasterBackground(
     lineage = "CD8", interpolate = FALSE, color = "black", alpha = 0.5
 )
@@ -268,11 +263,8 @@ dev.off()
 # ============================================================
 # 4f/4i: Experiment-specific UMAP with CD8.Q highlighted
 # ============================================================
-# Each sample is re-embedded on its own, exactly as it would be analysed
-# without the atlas, and the cells the atlas assigns to CD8.Q are then marked.
-# In the infected sample they form their own cluster; in the naive sample they
-# are too few to separate. That contrast is the panel's argument for why a
-# fixed reference adds information a per-experiment analysis cannot.
+# Each sample is re-embedded on its own, as it would be analysed without the
+# atlas, and the cells the atlas assigns to CD8.Q are then marked.
 sample_umap_panel <- function(igt_file, sample_code) {
     igt <- readRDS(sprintf("%s/%s", data_path, igt_file))
 
@@ -312,9 +304,7 @@ dev.off()
 # ============================================================
 # 4g/4j: CD8.Q cells in CD103 vs ITGB7 protein space
 # ============================================================
-# The two tissue-residency integrins, on the whole experiment's cells with the
-# sample's CD8.Q cells picked out: the reference assignment made from the
-# transcriptome predicts a protein phenotype it was not given.
+# The whole experiment's cells, with the sample's CD8.Q cells picked out.
 protein_panel <- function(igt_id, sample_code) {
     igt <- so_orig[, so_orig$IGT == igt_id]
     igt <- NormalizeData(igt, assay = "ADT",

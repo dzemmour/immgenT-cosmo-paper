@@ -8,9 +8,7 @@ suppressPackageStartupMessages({
 #' Alluvial plot of cluster -> organ -> perturbation with one cluster picked out
 #'
 #' Every flow is drawn, but only those belonging to the highlighted cluster are
-#' coloured and fully opaque; the rest are grey and translucent. This makes the
-#' point that a single transcriptional state draws cells from many tissues and
-#' immune challenges, which a fully coloured alluvial plot obscures.
+#' coloured and fully opaque; the rest are grey and translucent.
 #'
 #' @param df3_plot Data frame with `count`, `annotation_level2`,
 #'   `organ_simplified`, `condition_detailed_simplified`, plus the `fill_key`

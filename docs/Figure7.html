@@ -516,13 +516,15 @@ project makes it easier to run your code on other machines.</p>
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrong74cde38">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea">
 <span class="glyphicon glyphicon-ok text-success"
-aria-hidden="true"></span> <strong>Repository version:</strong> 74cde38
+aria-hidden="true"></span> <strong>Repository version:</strong>
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>
 </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrong74cde38"
+<div
+id="strongRepositoryversionstrongahrefhttpsgithubcomdzemmourimmgenTcosmopapertreee90404e75e6c63a44814ba53a31891c96be6da96targetblanke90404ea"
 class="panel-collapse collapse">
 <div class="panel-body">
 <p>
@@ -531,7 +533,8 @@ and connecting the code version to the results is critical for
 reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version 74cde38.
+The results in this page were generated with repository version
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/tree/e90404e75e6c63a44814ba53a31891c96be6da96" target="_blank">e90404e</a>.
 See the <em>Past versions</em> tab to see a history of the changes made
 to the R Markdown and HTML files.
 </p>
@@ -551,6 +554,35 @@ Ignored files:
     Ignored:    code/.DS_Store
     Ignored:    data/
     Ignored:    internal/
+
+Unstaged changes:
+    Modified:   code/R/alluvial.R
+    Modified:   code/R/composition.R
+    Modified:   code/R/discovery.R
+    Modified:   code/R/gene_auc.R
+    Modified:   code/R/organ_mde.R
+    Modified:   code/R/separability.R
+    Modified:   code/R/setup.R
+    Modified:   code/R/trbi_plots.R
+    Modified:   script/Figure1.R
+    Modified:   script/Figure10.R
+    Modified:   script/Figure2.R
+    Modified:   script/Figure3.R
+    Modified:   script/Figure4.R
+    Modified:   script/Figure5.R
+    Modified:   script/Figure6.R
+    Modified:   script/Figure7.R
+    Modified:   script/Figure8.R
+    Modified:   script/FigureS1.R
+    Modified:   script/FigureS10.R
+    Modified:   script/FigureS11.R
+    Modified:   script/FigureS3.R
+    Modified:   script/FigureS4.R
+    Modified:   script/FigureS5.R
+    Modified:   script/FigureS6.R
+    Modified:   script/FigureS7.R
+    Modified:   script/FigureS8.R
+    Modified:   script/FigureS9.R
 
 </code></pre>
 <p>
@@ -597,10 +629,27 @@ Message
 <tbody>
 <tr>
 <td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/e90404e75e6c63a44814ba53a31891c96be6da96/docs/Figure7.html" target="_blank">e90404e</a>
+</td>
+<td>
+David Zemmour
+</td>
+<td>
+2026-09-03
+</td>
+<td>
+Rebuild site after the rename
+</td>
+</tr>
+<tr>
+<td>
 Rmd
 </td>
 <td>
-74cde38
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/74cde385c6394e75b3464828cc08d42d3fa764d1/analysis/Figure7.Rmd" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -617,7 +666,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-74cde38
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/74cde385c6394e75b3464828cc08d42d3fa764d1/docs/Figure7.html" target="_blank">74cde38</a>
 </td>
 <td>
 David Zemmour
@@ -634,7 +683,7 @@ Name the repository immgenT-cosmo-paper and add an MIT licence
 html
 </td>
 <td>
-b7c77d7
+<a href="https://rawcdn.githack.com/dzemmour/immgenT-cosmo-paper/b7c77d77bfa4d55f8e8879556afe64e303fcf3da/docs/Figure7.html" target="_blank">b7c77d7</a>
 </td>
 <td>
 David Zemmour
@@ -651,7 +700,7 @@ Add READMEs, provenance scripts, and prune unpublished panels
 Rmd
 </td>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/analysis/Figure7.Rmd" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -741,8 +790,7 @@ ann_palettes &lt;- list(
     annotation_level2_group = mypal_level2group
 )
 
-# Fill colour per cluster, taken from that cluster&#39;s lineage, so the bar plots
-# below read as lineage blocks.
+# Fill colour per cluster, taken from that cluster&#39;s lineage.
 lineage_of_cluster &lt;- setNames(
     sub(&quot;\\..*&quot;, &quot;&quot;, colnames(pseudobulk)),
     colnames(pseudobulk)
@@ -754,9 +802,7 @@ lineage_of_cluster &lt;- setNames(
 # 7a: Effector gene expression heatmap
 # ============================================================
 # The full curated effector list, less the genes that never reach 0.5 log1p
-# CP10K in any cluster. Hierarchically clustered on both axes: the point of the
-# panel is that effector genes group into modules reused across lineages, which
-# a fixed cluster order would hide.
+# CP10K in any cluster, hierarchically clustered on both axes.
 #
 # Extended Data Figure 9a is the same plot over the 1,821-gene GO:0005615
 # (extracellular space) list, cut to its 100 most cluster-specific genes.
@@ -802,7 +848,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure7/7a_heatmap_effector_genes.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -830,9 +876,7 @@ lineages rather than partitioning by lineage.</p>
 <pre class="r"><code># ============================================================
 # 7b-7d: Individual effector cytokines across clusters
 # ============================================================
-# Three cytokines whose textbook assignment is to a single T-helper subset.
-# Drawn across every cluster to show that each is instead produced by clusters
-# from several lineages.
+# Drawn with the same helper Figure 8 uses for its named transcription factors.
 cytokines &lt;- c(&quot;7b&quot; = &quot;Il4&quot;, &quot;7c&quot; = &quot;Il17a&quot;, &quot;7d&quot; = &quot;Ifng&quot;)
 
 for (panel in names(cytokines)) {
@@ -872,7 +916,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure7/7b_barplot_Il4.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -910,7 +954,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure7/7c_barplot_Il17a.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour
@@ -948,7 +992,7 @@ Date
 <tbody>
 <tr>
 <td>
-5224d19
+<a href="https://github.com/dzemmour/immgenT-cosmo-paper/blob/5224d19b725381c4ebf994e4eb1285a92c03d103/docs/assets/Figure7/7d_barplot_Ifng.png" target="_blank">5224d19</a>
 </td>
 <td>
 David Zemmour

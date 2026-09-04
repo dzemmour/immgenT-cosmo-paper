@@ -47,9 +47,7 @@ mypal_igt <- load_igt_palette()
 # S4a: Experiment composition of each cluster
 # ============================================================
 # Bars sum to 1 within a cluster, after each experiment's contribution has
-# first been normalised by its own size (see CompositionOfEachCluster). A
-# cluster made of one colour would be experiment-specific and therefore
-# suspect; the panel's claim is that none is.
+# first been normalised by its own size (see CompositionOfEachCluster).
 comp_df <- CompositionOfEachCluster(so@meta.data,
                                     cluster_col = "annotation_level2",
                                     sample_col = "IGT")
@@ -80,10 +78,8 @@ dev.off()
 # ============================================================
 # S4b: Cluster proportions across the spleen standard samples
 # ============================================================
-# The technical replicate: the same standardised spleen preparation, run in
-# many experiments. Because the input material is nominally identical, the
-# spread of each cluster's proportion is a direct read-out of measurement
-# reproducibility rather than of biology.
+# Restricted to the standardised spleen preparation, which was run in many
+# experiments.
 mdata <- load_sample_composition(data_path)
 
 # Two spleen samples that belong to the standard series but were not flagged as
@@ -100,8 +96,8 @@ df_long <- sample_composition_long(
     levels(so_orig$annotation_level2),
     keep_ncells = TRUE
 ) %>%
-    # Clusters represented by fewer than 10 cells in a sample give a proportion
-    # too noisy to compare across replicates.
+    # A proportion from fewer than 10 cells is too noisy to compare across
+    # samples.
     filter(ncells > 10)
 
 df_long$IGT <- so_orig$IGT[match(df_long$IGTHT, so_orig$IGTHT)]
@@ -133,9 +129,8 @@ dev.off()
 # S4d: Cluster separability in protein space
 # ============================================================
 # The counterpart of Figure 4c, computed on principal components of the
-# CITE-seq protein matrix instead of the transcriptome. Clusters were defined
-# on RNA, so a positive score here means the RNA-defined partition is also
-# visible in an independent measurement modality.
+# CITE-seq protein matrix instead of the transcriptome. See
+# code/pipeline/01_cluster_metrics.R for how the cached scores were produced.
 sep_list <- readRDS(sprintf("%s/ClusterSeparation_ADT_IGT.Rds", data_path))
 sep <- Reduce(rbind, sep_list)
 

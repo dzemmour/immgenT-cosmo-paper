@@ -34,8 +34,7 @@ source("code/R/setup.R")
 
 figure_dir <- "Extended Data Figure 11"
 
-# The polarised CD4 "tip" clusters, so named because each sits at the end of a
-# projection from the main CD4 body in the lineage embedding.
+# The polarised CD4 "tip" clusters, named in the figure legend.
 TH_TIPS <- list(
     Th1  = c("CD4.R", "CD4.S"),
     Th2  = c("CD4.T", "CD4.U"),
@@ -47,10 +46,9 @@ TH_MARKERS <- c("Cxcr3", "Il12rb2", "Ccr4", "Il4ra", "Ccr6", "Il23r")
 # ============================================================
 # S11c: Core Treg signature across the atlas
 # ============================================================
-# An eleven-gene signature scored on every T cell, not only on Tregs: the point
-# is that a signature derived from one state is not confined to it. Capped at
-# the 5th and 90th percentiles for the same reason as the Extended Data
-# Figure 5 panels.
+# The cached score, over every T cell rather than only Tregs. Capped at the 5th
+# and 90th percentiles for the same reason as the Extended Data Figure 5
+# panels.
 so <- load_immgent()
 
 treg_core <- read.table(sprintf("%s/treg_core_score.txt", data_path),
@@ -74,8 +72,8 @@ invisible(gc())
 # S11a: Th tip clusters on the CD4 MDE
 # ============================================================
 # Loaded from the complete object because panel b needs transcripts the
-# gene-subsetted object does not carry; panel a is drawn from the same object
-# so both panels sit on identical axes.
+# gene-subsetted object does not carry; panel a uses the same object so both
+# sit on identical axes.
 so_full <- readRDS(sprintf("%s/immgenT_seurat_ADT_complete.Rds", data_path))
 cd4 <- so_full[, so_full@meta.data %>%
                    filter(annotation_level1 == "CD4",
@@ -106,13 +104,11 @@ dev.off()
 # S11b: Th-defining receptor transcripts on the CD4 MDE
 # ============================================================
 # The complete object stores counts only, so it is normalised here. Normalising
-# after subsetting to CD4 is deliberate: the scale factor is the per-cell total
-# over all genes, which is unaffected by which cells are retained.
+# after subsetting to CD4 is safe: the scale factor is the per-cell total over
+# all genes, which does not depend on which cells are retained.
 #
-# The panel's claim is negative -- none of these receptors is confined to the
-# tip cluster it is conventionally used to define, Il23r in the Th17 tip
-# excepted -- so expression is capped at the 95th percentile rather than
-# rescaled per gene, which would manufacture apparent specificity.
+# Capped at the 95th percentile rather than rescaled per gene, so the colour
+# scale is comparable across the six panels.
 cd4 <- NormalizeData(cd4, assay = "RNA",
                      normalization.method = "LogNormalize", verbose = FALSE)
 
