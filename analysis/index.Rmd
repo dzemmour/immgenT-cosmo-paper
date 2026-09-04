@@ -6,7 +6,7 @@ output: workflowr::wflow_html
 
 This site documents the analysis behind
 [*immgenT: A Comprehensive Reference of Convergent T-cell States in the Mouse*](https://www.biorxiv.org/content/10.64898/2026.01.30.702892v3):
-an atlas of over 700,000 mouse T cells from more than 700 samples across 80 experiments,
+an atlas of over 800,000 mouse T cells from more than 750 samples across 80 experiments,
 profiled by single-cell RNA-seq, 128-plex CITE-seq and paired αβ TCR
 sequencing, and organised into eight lineages and 107 reproducible clusters.
 
@@ -47,11 +47,8 @@ not a plot, and is distributed with the paper as Extended Data.
 + [Extended Data Figure 10: Transcription factor expression in immgenT clusters](FigureS10.html)
 + [Extended Data Figure 11: Markers and gene signatures across immgenT states](FigureS11.html)
 
-**Extended Data Figure 2** (CITE-seq quality control) its per-antibody classifications are published as Extended Data
+**Extended Data Figure 2** (CITE-seq quality control): its per-antibody classifications are published as Extended Data
 Table 4.
-
-Panels drawn outside R — the schematics in Figure 1a, Figure 1c and Figure 9a —
-have no code and are not shown.
 
 ## Reproducing these figures
 
